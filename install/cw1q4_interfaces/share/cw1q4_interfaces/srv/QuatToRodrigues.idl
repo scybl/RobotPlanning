@@ -1,0 +1,25 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from cw1q4_interfaces/srv/QuatToRodrigues.srv
+// generated code does not contain a copyright notice
+
+#include "geometry_msgs/msg/Quaternion.idl"
+#include "std_msgs/msg/Float64.idl"
+
+module cw1q4_interfaces {
+  module srv {
+    @verbatim (language="comment", text=
+      " Request: A quaternion to be converted.")
+    struct QuatToRodrigues_Request {
+      geometry_msgs::msg::Quaternion q;
+    };
+    @verbatim (language="comment", text=
+      " Response: The resulting Rodrigues representation.")
+    struct QuatToRodrigues_Response {
+      std_msgs::msg::Float64 x;
+
+      std_msgs::msg::Float64 y;
+
+      std_msgs::msg::Float64 z;
+    };
+  };
+};

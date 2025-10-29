@@ -1,0 +1,25 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from cw1q4_interfaces/srv/QuatToEuler.srv
+// generated code does not contain a copyright notice
+
+#include "geometry_msgs/msg/Quaternion.idl"
+#include "std_msgs/msg/Float64.idl"
+
+module cw1q4_interfaces {
+  module srv {
+    @verbatim (language="comment", text=
+      " Request: A quaternion to be converted.")
+    struct QuatToEuler_Request {
+      geometry_msgs::msg::Quaternion q;
+    };
+    @verbatim (language="comment", text=
+      " Response: The resulting Z-Y-X Euler angles.")
+    struct QuatToEuler_Response {
+      std_msgs::msg::Float64 z;
+
+      std_msgs::msg::Float64 y;
+
+      std_msgs::msg::Float64 x;
+    };
+  };
+};

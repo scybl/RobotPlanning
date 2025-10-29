@@ -6,7 +6,7 @@ import numpy as np
 from std_msgs.msg import Float64
 
 # ###################### STUDENT CODE START (IMPORT SERVICE) ######################
-
+from cw1q4_interfaces.srv import QuatToEuler, QuatToRodrigues
 # ####################### STUDENT CODE END (IMPORT SERVICE) #######################
 
 class QuatToEulerService(Node):
@@ -20,10 +20,29 @@ class QuatToEulerService(Node):
         response.z, response.y, response.x = Float64(), Float64(), Float64()
 
         # ###################### STUDENT CODE START (QUATERNION TO EULER) ######################
+        # TASK:B
         # TODO: Implement the conversion from quaternion to Z-Y-X Euler angles (in RADIANS).
         # Store the results in response.z.data, response.y.data, and response.x.data
         # Z-angle (yaw)
+        q = np.array([q_w, q_x, q_y, q_z], dtype=float)
+        n = np.linalg.norm(q)
+        if n > 0.0:
+            q /= n
+        w, x, y, z = q  # 注意顺序：w, x, y, z
 
+        # Z-Y-X (yaw-pitch-roll)
+        # roll (x)
+        roll = np.arctan2(2.0 * (w * x + y * z), 1.0 - 2.0 * (x * x + y * y))
+        # pitch (y) —— 需对输入做 clamp，避免数值误差越界
+        s = 2.0 * (w * y - z * x)
+        s = np.clip(s, -1.0, 1.0)
+        pitch = np.arcsin(s)
+        # yaw (z)
+        yaw = np.arctan2(2.0 * (w * z + x * y), 1.0 - 2.0 * (y * y + z * z))
+
+        response.z.data = float(yaw)
+        response.y.data = float(pitch)
+        response.x.data = float(roll)
         # ####################### STUDENT CODE END (QUATERNION TO EULER) #######################
 
         self.get_logger().info(f'Calculated Euler Angles: [z={response.z.data}, y={response.y.data}, x={response.x.data}]')
@@ -41,7 +60,28 @@ class QuatToRodriguesService(Node):
 
         # ###################### STUDENT CODE START (QUATERNION TO RODRIGUES) ##################
         # TODO: Implement the conversion from quaternion to Rodrigues representation.
+        q = np.array([q_w, q_x, q_y, q_z], dtype=float)
+        n = np.linalg.norm(q)
+        if n > 0.0:
+            q /= n
+        w, x, y, z = q
+        v = np.array([x, y, z], dtype=float)
+        v_norm = np.linalg.norm(v)
+        eps = 1e-12
 
+        if v_norm < eps:
+            # 角度近 0，Rodrigues 向量近似为零向量
+            r_vec = np.array([0.0, 0.0, 0.0], dtype=float)
+        else:
+            # 通过角-轴更稳健地计算：p = axis * tan(theta/2)
+            theta = 2.0 * np.arctan2(v_norm, max(w, 0.0) if abs(w) < eps else w)
+            axis = v / v_norm
+            t = np.tan(theta / 2.0)
+            r_vec = axis * t
+
+        response.x.data = float(r_vec[0])
+        response.y.data = float(r_vec[1])
+        response.z.data = float(r_vec[2])
         # ####################### STUDENT CODE END (QUATERNION TO RODRIGUES) ###################
 
         self.get_logger().info(f'Calculated Rodrigues Vector: [x={response.x.data}, y={response.y.data}, z={response.z.data}]')

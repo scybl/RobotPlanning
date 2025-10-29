@@ -1,0 +1,42 @@
+running egg_info
+creating ../build/cw1q9/cw1q9.egg-info
+writing ../build/cw1q9/cw1q9.egg-info/PKG-INFO
+writing dependency_links to ../build/cw1q9/cw1q9.egg-info/dependency_links.txt
+writing entry points to ../build/cw1q9/cw1q9.egg-info/entry_points.txt
+writing requirements to ../build/cw1q9/cw1q9.egg-info/requires.txt
+writing top-level names to ../build/cw1q9/cw1q9.egg-info/top_level.txt
+writing manifest file '../build/cw1q9/cw1q9.egg-info/SOURCES.txt'
+reading manifest file '../build/cw1q9/cw1q9.egg-info/SOURCES.txt'
+writing manifest file '../build/cw1q9/cw1q9.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/bizare/Desktop/MPHY0054_lab/cw1/build/cw1q9/build
+creating /home/bizare/Desktop/MPHY0054_lab/cw1/build/cw1q9/build/lib
+creating /home/bizare/Desktop/MPHY0054_lab/cw1/build/cw1q9/build/lib/cw1q9
+copying cw1q9/__init__.py -> /home/bizare/Desktop/MPHY0054_lab/cw1/build/cw1q9/build/lib/cw1q9
+copying cw1q9/youbotKineBase.py -> /home/bizare/Desktop/MPHY0054_lab/cw1/build/cw1q9/build/lib/cw1q9
+copying cw1q9/youbotKineStudent.py -> /home/bizare/Desktop/MPHY0054_lab/cw1/build/cw1q9/build/lib/cw1q9
+copying cw1q9/youbotKineKDL.py -> /home/bizare/Desktop/MPHY0054_lab/cw1/build/cw1q9/build/lib/cw1q9
+running install
+running install_lib
+creating /home/bizare/Desktop/MPHY0054_lab/cw1/install/cw1q9/lib/python3.8/site-packages/cw1q9
+copying /home/bizare/Desktop/MPHY0054_lab/cw1/build/cw1q9/build/lib/cw1q9/__init__.py -> /home/bizare/Desktop/MPHY0054_lab/cw1/install/cw1q9/lib/python3.8/site-packages/cw1q9
+copying /home/bizare/Desktop/MPHY0054_lab/cw1/build/cw1q9/build/lib/cw1q9/youbotKineBase.py -> /home/bizare/Desktop/MPHY0054_lab/cw1/install/cw1q9/lib/python3.8/site-packages/cw1q9
+copying /home/bizare/Desktop/MPHY0054_lab/cw1/build/cw1q9/build/lib/cw1q9/youbotKineStudent.py -> /home/bizare/Desktop/MPHY0054_lab/cw1/install/cw1q9/lib/python3.8/site-packages/cw1q9
+copying /home/bizare/Desktop/MPHY0054_lab/cw1/build/cw1q9/build/lib/cw1q9/youbotKineKDL.py -> /home/bizare/Desktop/MPHY0054_lab/cw1/install/cw1q9/lib/python3.8/site-packages/cw1q9
+byte-compiling /home/bizare/Desktop/MPHY0054_lab/cw1/install/cw1q9/lib/python3.8/site-packages/cw1q9/__init__.py to __init__.cpython-38.pyc
+byte-compiling /home/bizare/Desktop/MPHY0054_lab/cw1/install/cw1q9/lib/python3.8/site-packages/cw1q9/youbotKineBase.py to youbotKineBase.cpython-38.pyc
+byte-compiling /home/bizare/Desktop/MPHY0054_lab/cw1/install/cw1q9/lib/python3.8/site-packages/cw1q9/youbotKineStudent.py to youbotKineStudent.cpython-38.pyc
+byte-compiling /home/bizare/Desktop/MPHY0054_lab/cw1/install/cw1q9/lib/python3.8/site-packages/cw1q9/youbotKineKDL.py to youbotKineKDL.cpython-38.pyc
+running install_data
+creating /home/bizare/Desktop/MPHY0054_lab/cw1/install/cw1q9/share/ament_index
+creating /home/bizare/Desktop/MPHY0054_lab/cw1/install/cw1q9/share/ament_index/resource_index
+creating /home/bizare/Desktop/MPHY0054_lab/cw1/install/cw1q9/share/ament_index/resource_index/packages
+copying resource/cw1q9 -> /home/bizare/Desktop/MPHY0054_lab/cw1/install/cw1q9/share/ament_index/resource_index/packages
+copying package.xml -> /home/bizare/Desktop/MPHY0054_lab/cw1/install/cw1q9/share/cw1q9
+creating /home/bizare/Desktop/MPHY0054_lab/cw1/install/cw1q9/share/cw1q9/launch
+running install_egg_info
+Copying ../build/cw1q9/cw1q9.egg-info to /home/bizare/Desktop/MPHY0054_lab/cw1/install/cw1q9/lib/python3.8/site-packages/cw1q9-0.0.0-py3.8.egg-info
+running install_scripts
+Installing youbot_student_node script to /home/bizare/Desktop/MPHY0054_lab/cw1/install/cw1q9/lib/cw1q9
+writing list of installed files to '/home/bizare/Desktop/MPHY0054_lab/cw1/build/cw1q9/install.log'

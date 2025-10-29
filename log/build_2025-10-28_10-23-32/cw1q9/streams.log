@@ -1,0 +1,44 @@
+[1.335s] Invoking command in '/home/bizare/Desktop/MPHY0054_lab/cw1/cw1q9': PYTHONPATH=/home/bizare/Desktop/MPHY0054_lab/cw1/build/cw1q9/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bizare/Desktop/MPHY0054_lab/cw1/install/cw1q9/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/cw1q9 build --build-base /home/bizare/Desktop/MPHY0054_lab/cw1/build/cw1q9/build install --record /home/bizare/Desktop/MPHY0054_lab/cw1/build/cw1q9/install.log --install-scripts $base/lib/cw1q9 --single-version-externally-managed install_data
+[1.557s] running egg_info
+[1.557s] creating ../build/cw1q9/cw1q9.egg-info
+[1.557s] writing ../build/cw1q9/cw1q9.egg-info/PKG-INFO
+[1.558s] writing dependency_links to ../build/cw1q9/cw1q9.egg-info/dependency_links.txt
+[1.558s] writing entry points to ../build/cw1q9/cw1q9.egg-info/entry_points.txt
+[1.558s] writing requirements to ../build/cw1q9/cw1q9.egg-info/requires.txt
+[1.558s] writing top-level names to ../build/cw1q9/cw1q9.egg-info/top_level.txt
+[1.560s] writing manifest file '../build/cw1q9/cw1q9.egg-info/SOURCES.txt'
+[1.600s] reading manifest file '../build/cw1q9/cw1q9.egg-info/SOURCES.txt'
+[1.605s] writing manifest file '../build/cw1q9/cw1q9.egg-info/SOURCES.txt'
+[1.605s] running build
+[1.605s] running build_py
+[1.605s] creating /home/bizare/Desktop/MPHY0054_lab/cw1/build/cw1q9/build
+[1.605s] creating /home/bizare/Desktop/MPHY0054_lab/cw1/build/cw1q9/build/lib
+[1.605s] creating /home/bizare/Desktop/MPHY0054_lab/cw1/build/cw1q9/build/lib/cw1q9
+[1.605s] copying cw1q9/__init__.py -> /home/bizare/Desktop/MPHY0054_lab/cw1/build/cw1q9/build/lib/cw1q9
+[1.605s] copying cw1q9/youbotKineBase.py -> /home/bizare/Desktop/MPHY0054_lab/cw1/build/cw1q9/build/lib/cw1q9
+[1.605s] copying cw1q9/youbotKineStudent.py -> /home/bizare/Desktop/MPHY0054_lab/cw1/build/cw1q9/build/lib/cw1q9
+[1.605s] copying cw1q9/youbotKineKDL.py -> /home/bizare/Desktop/MPHY0054_lab/cw1/build/cw1q9/build/lib/cw1q9
+[1.605s] running install
+[1.611s] running install_lib
+[1.611s] creating /home/bizare/Desktop/MPHY0054_lab/cw1/install/cw1q9/lib/python3.8/site-packages/cw1q9
+[1.611s] copying /home/bizare/Desktop/MPHY0054_lab/cw1/build/cw1q9/build/lib/cw1q9/__init__.py -> /home/bizare/Desktop/MPHY0054_lab/cw1/install/cw1q9/lib/python3.8/site-packages/cw1q9
+[1.612s] copying /home/bizare/Desktop/MPHY0054_lab/cw1/build/cw1q9/build/lib/cw1q9/youbotKineBase.py -> /home/bizare/Desktop/MPHY0054_lab/cw1/install/cw1q9/lib/python3.8/site-packages/cw1q9
+[1.612s] copying /home/bizare/Desktop/MPHY0054_lab/cw1/build/cw1q9/build/lib/cw1q9/youbotKineStudent.py -> /home/bizare/Desktop/MPHY0054_lab/cw1/install/cw1q9/lib/python3.8/site-packages/cw1q9
+[1.612s] copying /home/bizare/Desktop/MPHY0054_lab/cw1/build/cw1q9/build/lib/cw1q9/youbotKineKDL.py -> /home/bizare/Desktop/MPHY0054_lab/cw1/install/cw1q9/lib/python3.8/site-packages/cw1q9
+[1.612s] byte-compiling /home/bizare/Desktop/MPHY0054_lab/cw1/install/cw1q9/lib/python3.8/site-packages/cw1q9/__init__.py to __init__.cpython-38.pyc
+[1.612s] byte-compiling /home/bizare/Desktop/MPHY0054_lab/cw1/install/cw1q9/lib/python3.8/site-packages/cw1q9/youbotKineBase.py to youbotKineBase.cpython-38.pyc
+[1.612s] byte-compiling /home/bizare/Desktop/MPHY0054_lab/cw1/install/cw1q9/lib/python3.8/site-packages/cw1q9/youbotKineStudent.py to youbotKineStudent.cpython-38.pyc
+[1.612s] byte-compiling /home/bizare/Desktop/MPHY0054_lab/cw1/install/cw1q9/lib/python3.8/site-packages/cw1q9/youbotKineKDL.py to youbotKineKDL.cpython-38.pyc
+[1.612s] running install_data
+[1.612s] creating /home/bizare/Desktop/MPHY0054_lab/cw1/install/cw1q9/share/ament_index
+[1.612s] creating /home/bizare/Desktop/MPHY0054_lab/cw1/install/cw1q9/share/ament_index/resource_index
+[1.612s] creating /home/bizare/Desktop/MPHY0054_lab/cw1/install/cw1q9/share/ament_index/resource_index/packages
+[1.612s] copying resource/cw1q9 -> /home/bizare/Desktop/MPHY0054_lab/cw1/install/cw1q9/share/ament_index/resource_index/packages
+[1.613s] copying package.xml -> /home/bizare/Desktop/MPHY0054_lab/cw1/install/cw1q9/share/cw1q9
+[1.613s] creating /home/bizare/Desktop/MPHY0054_lab/cw1/install/cw1q9/share/cw1q9/launch
+[1.613s] running install_egg_info
+[1.613s] Copying ../build/cw1q9/cw1q9.egg-info to /home/bizare/Desktop/MPHY0054_lab/cw1/install/cw1q9/lib/python3.8/site-packages/cw1q9-0.0.0-py3.8.egg-info
+[1.618s] running install_scripts
+[1.638s] Installing youbot_student_node script to /home/bizare/Desktop/MPHY0054_lab/cw1/install/cw1q9/lib/cw1q9
+[1.638s] writing list of installed files to '/home/bizare/Desktop/MPHY0054_lab/cw1/build/cw1q9/install.log'
+[1.670s] Invoked command in '/home/bizare/Desktop/MPHY0054_lab/cw1/cw1q9' returned '0': PYTHONPATH=/home/bizare/Desktop/MPHY0054_lab/cw1/build/cw1q9/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bizare/Desktop/MPHY0054_lab/cw1/install/cw1q9/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/cw1q9 build --build-base /home/bizare/Desktop/MPHY0054_lab/cw1/build/cw1q9/build install --record /home/bizare/Desktop/MPHY0054_lab/cw1/build/cw1q9/install.log --install-scripts $base/lib/cw1q9 --single-version-externally-managed install_data
