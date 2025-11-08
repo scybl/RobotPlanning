@@ -421,6 +421,25 @@ Complete the code according to the problem description.
 ## a
 ![q5a](pic/q5_a.png)
 
+DH Coordinate Frame Setup：
+
+1. The base frame 0 is placed on the robot’s base, with the $z_0$-axis pointing vertically upward along the rotation axis of the first joint (A1).
+2. For each joint $i$, define the $z_i$-axis along the joint’s axis of rotation.
+3. The $x_i$-axis is defined as the common normal direction—that is, the shortest line connecting $z_i$ and $z_{i+1}$, pointing from $z_i$ toward $z_{i+1}$.
+4. The $y_i$-axis is determined by the right-hand rule, ensuring that ($x_i$, $y_i$, $z_i$) form a right-handed coordinate system.
+5. In each coordinate frame, record the link length ($a_i$), link twist ($α_i$), link offset ($d_i$), and joint angle ($\theta_i$) between adjacent joints to obtain the complete DH parameter table.
+
+![pic1_and](pic/pic1_ans.png) 
+
+### Table 1. Standard Denavit–Hartenberg Parameters for the KUKA youBot Arm
+
+| Joint (i) | θᵢ *(Joint Angle)* | dᵢ *(mm)* | aᵢ *(mm)* | αᵢ *(rad)* 
+|:---------:|:------------------:|:---------:|:---------:|:------------:
+| 1         | $\theta_1$         | 0         | 75        | $+\pi/2$ 
+| 2         | $\theta_2$         | 0         | 155       | 0 
+| 3         | $\theta_3$         | 0         | 135       | $-\pi$ 
+| 4         | $\theta_4$         | 0         | 113       | $+\pi/2$ 
+| 5         | $\theta_5$         | MF        | 58        | 0 
 ## b
 ![q5b](pic/q5_b.png)
 ## c
