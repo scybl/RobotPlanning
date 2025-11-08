@@ -1,42 +1,43 @@
 # Q1
-## a: 证明旋转矩阵中的每一个元素小于等于1
+## a: Prove that every element of the rotation matrix is less than or equal to 1
 ![q1a](pic/q1_a.png)
 
-旋转矩阵 $ \R\in\mathrm{SO}(3) $ 满足
+Let $ \R\in\mathrm{SO}(3) $ be a rotation matrix. Then
 $$
 R^\top R = I.
 $$
+which implies that the columns (and, equivalently, the rows) of $R$ are orthonormal.
 
-这意味着任意一列（或一行）都是**单位向量**，且列与列（行与行）**两两正交**。
+Write the $j$-th column of $R$ as $\mathbf{c}_j = (r_{1j}, r_{2j}, r_{3j})^\top$. From $R^\top R = I$ it follows that
 
-记$\mathbf{R}$的第 $j$ 列为 $\mathbf{c}_j =(r_{1j},r_{2j},r_{3j})^\top$。由 $R^\top R=I$ 可知
 $$
 \mathbf{c}_j^\top\mathbf{c}_j= \sum_{i=1}^3 r_{ij}^2 = 1.
 $$
 
-因为三个非负数的平方和为 1，则每个平方不超过 1，从而每个元素的绝对值不超过 1：
+so each column is a unit vector in $R^3$.
+
+Since the sum of the three nonnegative numbers $r_{1j}^2, r_{2j}^2, r_{3j}^2$ equals $1$, each of them satisfies $r_{ij}^2 \le 1$. Hence, for all $i,j \in \{1,2,3\}$,
 $$
-||r_{ij}|| \le 1 \quad (\forall\,i,\forall j, 0 \le i,j \le 3).
+|r_{ij}| \le 1.
 $$
+Therefore, every entry of a $3\times 3$ rotation matrix has absolute value at most $1$.
 
 
-## b: 证明 $R_{\mathbf{u},\theta}=R_{-\mathbf{u},-\theta}$
+## b: Prove $R_{\mathbf{u},\theta}=R_{-\mathbf{u},-\theta}$
 ![b](pic/q1_b.png)
 
-基于罗德里格斯公式，可得旋转矩阵为
+By Rodrigues’ rotation formula, the rotation matrix is
 $$
 R(\mathbf{u},\theta) \;=\; I + \sin\theta\, [\mathbf{u}]_\times + (1-\cos\theta)\,[\mathbf{u}]_\times^2,
 $$
-其中，$\mathbf{u}$ 为单位向量与 $\theta$为旋转角度，$[\mathbf{u}]_\times$ 为 $\mathbf{u}$ 的反对称矩阵。
+where $\mathbf{u}$ is a unit axis, $\theta$ is the rotation angle, and $[\mathbf{u}]_\times$ denotes the skew-symmetric matrix associated with $\mathbf{u}$.
 
-
-**Step 2（代入 $-\mathbf{u},-\theta$ 的恒等变换）**  
-
-由反对称矩阵性质与三角函数可知
+Then, from the properties of skew-symmetric matrices and trigonometric functions,
 $$
 [-\mathbf{u}]_\times = -[\mathbf{u}]_\times,\quad [-\mathbf{u}]_\times^2 = [\mathbf{u}]_\times^2,\\ \sin(-\theta)=-\sin\theta,\quad \cos(-\theta)=\cos\theta,
 $$
-代入$R(\mathbf{u},\theta)$可得
+Substituting into $R(\mathbf{u},\theta)$ yields
+
 $$
 \begin{aligned}
 R(-\mathbf{u},-\theta)
@@ -46,49 +47,54 @@ R(-\mathbf{u},-\theta)
 &= R(\mathbf{u},\theta).
 \end{aligned}
 $$
-得到 $R_{\mathbf{u},\theta}=R_{-\mathbf{u},-\theta}$（$\mathbf{u}$ 为单位轴）。
 
-## c: 两坐标系 $(a,b)$ 下，矩阵 ${}^a\!R_b$ 的每一行代表什么？
+Therefore, $R_{\mathbf{u},\theta}=R_{-\mathbf{u},-\theta}$ for any unit axis $\mathbf{u}$.
+
+## c: In coordinate frames $(a,b)$, what does each row of the matrix $^{a}\!R_b$ represent?
+
 ![q3](pic/q1_c.png)
 
-${}^a\!R_b$ 用于将 $b$ 系中的坐标向量换算到 $a$ 系，故存在：
+The rotation matrix $^{a}\!R_b$ converts the coordinate representation of the same geometric vector between frames:
+
 $$
 \mathbf{v}_a = {}^{a}\!R_b\, \mathbf{v}_b .
 $$
-其中, $v$为空间里同一几何向量, 使得相同向量在不同坐标系a,b下表达一致。而${}^a\!R_b$ 的三列分别表示 $b$ 系三个单位轴 $(\hat{\mathbf{x}}_b,\hat{\mathbf{y}}_b,\hat{\mathbf{z}}_b)$ 在 $a$ 系中的坐标。第 $j$ 列即 $\hat{\mathbf{e}}_{b,j}$ 在 $a$ 系下的分量。
 
-由于
+Here $\mathbf{v}$ denotes a single geometric vector in space, while $\mathbf{v}_a$ and $\mathbf{v}_b$ are its coordinate column vectors in frames $a$ and $b$, respectively. The three columns of $^{a}\!R_b$ are exactly the coordinates, expressed in frame $a$, of the unit basis axes of frame $b$, namely $(\hat{\mathbf{x}}_b,\hat{\mathbf{y}}_b,\hat{\mathbf{z}}_b)$; the $j$-th column gives the components of $\hat{\mathbf{e}}_{b,j}$ in frame $a$.
+
+Since
 $$
 ({}^{a}\!R_b)^\top = {}^{b}\!R_a,
 $$
-且后者的列是 $a$ 轴在 $b$ 中的坐标，可知 ${}^a\!R_b$ 的第 i 行就是 $a$ 系第 $i$ 个单位轴在 $b$ 系下的坐标。
+and the columns of $^{b}\!R_a$ are the axes of frame $a$ expressed in frame $b$, it follows that the $i$-th **row** of $^{a}\!R_b$ is the coordinate row vector of the $i$-th unit axis of frame $a$ expressed in frame $b$.
 
-所以存在$({}^{a}\!R_b)_{ij} = \hat{e}_{a,i} \cdot \hat{e}_{b,j}$
+Equivalently,
 
-所以${}^{a}\!R_b$表示：$b$ 的轴在 $a$ 中的坐标，而${}^{a}\!R_b$每一行表示：$a$ 的轴在 $b$ 中的坐标。
+$$({}^{a}\!R_b)_{ij} = \hat{e}_{a,i} \cdot \hat{e}_{b,j},$$
 
-## d 旋转矩阵关系推导
+Thus, $^{a}\!R_b$ collects the axes of frame $b$ in the coordinates of frame $a$ (by columns), while each row of $^{a}\!R_b$ lists the coordinates of the axes of frame $a$ in frame $b$.
+
+## d: Derivations of relationships for rotation matrices
 ![q4](pic/q1_d.png)
 
+Let $\mathbf{R}\in \mathrm{SO}(3)$ denote a rotation in three dimensions. Write the rotation angle as $\theta$ and the rotation axis as $\mathbf{u}\in\mathbb{R}^3$ with $\|\mathbf{u}\|=1$, and let $[\mathbf{u}]_\times$ be the skew-symmetric matrix associated with $\mathbf{u}$.
 
-令$\mathbf{R} \in \mathbf{SO(3)}$,表示三维空间中的一次纯旋转，同时记旋转角为$\mathbf{\theta}$，旋转轴为$\mathbf{u} \in \mathbb{R}^3, ||u||=1$,并对旋转轴$\mathbf{u}$，存在反对称矩阵$\mathbf{[u]}_\times$
-
-由 Rodrigues 公式可知
+By Rodrigues’ formula,
 $$
 R(\mathbf{u},\theta) \;=\; I + \sin\theta\, [\mathbf{u}]_\times + (1-\cos\theta)\,[\mathbf{u}]_\times^2,
 $$
 
-由于对矩阵方程，任意向量x存在
+For any vector $\mathbf{x}$, using the vector triple-product identity and $\|\mathbf{u}\|=1$,
 $$
-|u|=1, \mathbf{[u]_\times^2x=u\times(u\times x)}=\mathbf{u(u^\top x)-x(u^\top u)}
+\mathbf{[u]_\times^2x=u\times(u\times x)}=\mathbf{u(u^\top x)-x(u^\top u)}
 $$
-同时对于反对称矩阵$[\mathbf{u}]_\times$，存在以下性质
-
+and, in particular, the skew-symmetric matrix satisfies
 $$
 [\mathbf{u}]_\times \mathbf{u} = \mathbf{u}\times \mathbf{u} = 0, [\mathbf{u}]_\times^2 = \mathbf{u}\mathbf{u}^\top-\mathbf{I}
 $$
 
-将上述公式代入Rodrigues中,两边同时乘以旋转轴$\mathbf{u}$可得
+Substituting these into Rodrigues’ formula and multiplying both sides by $\mathbf{u}$ gives
+
 $$
 \begin{aligned}
 R(\mathbf{u},\theta)\mathbf{u}&= \mathbf{u} + \sin\theta\,(\mathbf{[u]_\times}\mathbf{u}) + (1-\cos\theta)\,\mathbf{u}(\mathbf{u}^\top\mathbf{u}) \\
@@ -97,16 +103,18 @@ R(\mathbf{u},\theta)\mathbf{u}&= \mathbf{u} + \sin\theta\,(\mathbf{[u]_\times}\m
 \end{aligned}
 $$
 
-证明旋转轴方向在旋转后不变
+Hence, the rotation axis $\mathbf{u}$ is an eigenvector of $R(\mathbf{u},\theta)$ with eigenvalue $1$; i.e., the axis direction is invariant under the rotation.
 
-对实正交矩阵 $\mathrm{SO}(3)$，谱为 $\{1,e^{i\theta},e^{-i\theta}\}$，模长为1。因此存在
+For any real orthogonal matrix in $\mathrm{SO}(3)$, the spectrum is $\{1,e^{i\theta},e^{-i\theta}\}$, so all eigenvalues have unit modulus. Consequently,
+
 $$
 \operatorname{tr}(R)=\lambda_1+\lambda_2+\lambda_3=1+2\cos\theta
 \quad\Rightarrow\quad
 \boxed{\;\theta=\arccos\!\Big(\frac{\operatorname{tr}(R)-1}{2}\Big).}
 $$
 
-当 $\sin\theta\neq 0$（即 $\theta\notin\{0,\pi\}$）时，旋转轴可由 $R$ 的反对称部分求得：
+When $\sin\theta\neq 0$ (equivalently, $\theta\notin\{0,\pi\}$), the rotation axis can be recovered from the skew-symmetric part of $R$:
+
 $$
 \boxed{
 \mathbf{u} = \frac{1}{2\sin\theta}
@@ -118,21 +126,22 @@ R_{21} - R_{12}
 }
 $$
 
-而当$\theta\in\{0,\pi\}$
+In the remaining cases $\theta\in\{0,\pi\}$:
 
-- $\theta=0$：$R=I$，旋转轴任意（未定义）。
-- $\theta=\pi$：由 $R = -I + 2\,\mathbf{u}\mathbf{u}^\top$ 可知
+- $\theta=0$: $R=I$, and the axis is arbitrary (undefined).
+- $\theta=\pi$: using $R = -I + 2\,\mathbf{u}\mathbf{u}^\top$ we have
 
 $$
 R+I = 2\,\mathbf{u}\mathbf{u}^\top \ (\mathrm{rank}=1),
 $$
-因此可取 $\mathbf{u}\propto$ 任意非零列（或行）向量 $(R+I)_{:j}$ 并单位化，即得旋转轴（符号仅确定到 $\pm\mathbf{u}$）。
+
+so one may take $\mathbf{u}\propto$ any nonzero column (or row) of $(R+I)_{:j}$ and then normalize; the axis is determined only up to sign $\pm\mathbf{u}$.
 
 # Q2
 
-## a证明
+## a: provide a example
 ![q2a](pic/q2_a.png)
-已知三维旋转矩阵为：
+The basic 3D rotation matrices are:
 $$
 \begin{gathered}
 R_x(\alpha)=\begin{bmatrix}1&0&0\\[2pt]0&\cos\alpha&-\sin\alpha\\[2pt]0&\sin\alpha&\cos\alpha\end{bmatrix},
@@ -142,34 +151,39 @@ R_y(\beta)=\begin{bmatrix}\cos\beta&0&\sin\beta\\[2pt]0&1&0\\[2pt]-\sin\beta&0&\
 R_z(\gamma)=\begin{bmatrix}\cos\gamma&-\sin\gamma&0\\[2pt]\sin\gamma&\cos\gamma&0\\[2pt]0&0&1\end{bmatrix}.
 \end{gathered}
 $$
-故存在：
-### Y–Z–Y（Proper Euler，外在）
+Hence we have:
+### Y–Z–Y (Proper Euler，extrinsic)
 
-外在三连乘按左乘堆叠：
+For extrinsic composition, the three successive rotations are stacked by left-multiplication:
 $$
 R_{\text{YZY}}^{\text{(extrinsic)}}(\alpha,\beta,\gamma)=R_Y(\gamma)\,R_Z(\beta)\,R_Y(\alpha).
 $$
-example: 当中间角 $\beta=0$ or $\pi$ 时：
+
+As an example, when the middle angle satisfies $\beta = 0$ or $\pi$, we obtain
+
 $$
 R=R_Y(\gamma)\,I\,R_Y(\alpha)=R_Y(\alpha+\gamma)\quad(\beta=0),
 $$
-或 
+or
 $$
 R=R_Y(\gamma)\,R_Z(\pi)\,R_Y(\alpha)=R_Y(\gamma-\alpha)\,R_Z(\pi)
 $$
-本质上亦丢一自由度）。
-于是 $(\alpha,\gamma)$ 的无穷多组赋值产生同一个总旋转（只与 $\alpha+\gamma$ 的和有关），自由度减少。
+which in essence also results in a loss of one degree of freedom.
+
+In other words, infinitely many pairs $(\alpha,\gamma)$ produce the same overall rotation (it depends only on the sum $\alpha+\gamma$), so the effective number of independent parameters is reduced.
 
 
-### X–Y–Z（Tait–Bryan，内在）
+### X–Y–Z (Tait–Bryan, intrinsic)
 
-同理，以 z–y–x 为例并写出一般形式：
+Analogously, for intrinsic rotations we consider, for instance, the z–y–x sequence, and write the general form as:
+
 $$
 R_{\text{xyz}}^{\text{(intrinsic)}}(\alpha,\beta,\gamma)
 =R_z(\alpha)\,R_y(\beta)\,R_x(\gamma).
 $$
 
-example:取俯仰 $\beta=\frac{\pi}{2}$，得到：
+As an example, take the pitch angle $\beta = \dfrac{\pi}{2}$. Then
+
 $$
 R=R_z(\alpha)R_y\!\bigl(\tfrac{\pi}{2}\bigr)R_x(\gamma)
 =\begin{bmatrix}
@@ -178,76 +192,96 @@ R=R_z(\alpha)R_y\!\bigl(\tfrac{\pi}{2}\bigr)R_x(\gamma)
 -1&0&0
 \end{bmatrix}.
 $$
-可见结果只依赖差角 $\alpha-\gamma，\alpha$ 与 $\gamma$ 被“锁”在一起 —— 这就是 x–y–z（内在）在 $\beta=\pm\frac{\pi}{2}$ 的 gimbal lock。
 
-**为什么在机器人手臂控制中要避免 gimbal lock**
-- 自由度丢失 / 参数奇异：在锁死处，欧拉角映射对姿态的参数化非一一，姿态微调变成不可能或不稳定。
-- 雅可比奇异 / 无穷关节速度：姿态误差要求的末端角速度投到关节空间时，因雅可比失去秩而需要无限大的关节速度（数值爆炸）。
-- 控制不稳定 / 抖振：小姿态变化可能导致参数跳变（角度突然换支），引起控制器震荡、路径不可行。
-- 规划失败：逆解多解/不可解、优化问题病态，导致跟踪精度差或无法收敛。
-
-**工程上如何规避？**
-- 不用欧拉角做内部状态（或仅作展示）：
-使用单位四元数、轴角（指数映射）或直接用正交矩阵表示并在控制中闭环，避免参数化奇异。
-- 奇异性鲁棒逆解：
-逆运动学用阻尼最小二乘（DLS / Levenberg–Marquardt），或基于奇异值阈值的伪逆，避免在雅可比近奇异时爆炸。
-- 冗余与零空间规避：
-冗余机械臂在零空间加入代价函数，使关节姿态主动远离奇异面（如让 wrist pitch 远离 ±90°）。
-- 路径/任务层约束：
-规划时显式加入奇异规避项与关节限位、关节速度/加速度限幅；必要时切换参数 chart（多张坐标图覆盖）。
-- 四元数插值：
-轨迹生成用 SLERP 或双四元数插值，保证姿态过渡平滑、无跳变。
+We see that the result depends only on the difference $\alpha-\gamma$; the yaw $\alpha$ and roll $\gamma$ are “locked” together. This is precisely the gimbal lock phenomenon for the intrinsic x–y–z parameterization at $\beta = \pm \dfrac{\pi}{2}$.
 
 
-## b 从四元数到旋转矩阵（要给出步骤，不只公式）
+**Why gimbal lock should be avoided in robotic manipulator control**
+- **Loss of degrees of freedom / parametric singularity**:  
+  At a gimbal-lock configuration, the Euler-angle mapping is no longer a one-to-one parametrization of orientation; fine adjustments of the attitude become impossible or numerically unstable.
+
+- **Jacobian singularity / unbounded joint velocities**:  
+  When the angular velocity required by the orientation error is mapped into joint space, rank deficiency of the Jacobian at the singularity implies formally infinite joint velocities (numerical blow-up).
+
+- **Control instability / chattering**:  
+  Small changes in orientation may induce discontinuous jumps in the Euler-angle parameters (branch switching), leading to controller oscillations and infeasible or erratic motion paths.
+
+- **Planning failures**:  
+  Inverse kinematics may have multiple solutions or no solution at all near singularities, and the associated optimization problems become ill-conditioned, resulting in poor tracking accuracy or even non-convergence.
+
+**How is it handled in practice (engineering remedies)?**
+- **Avoid using Euler angles as internal state (use only for visualization)**:  
+  Represent orientation with unit quaternions, axis–angle (exponential coordinates), or rotation matrices directly in the feedback loop, thereby avoiding parametrization singularities.
+
+- **Singularity-robust inverse kinematics**:  
+  Use damped least squares (DLS / Levenberg–Marquardt) or pseudo-inverses with singular-value thresholds to prevent the solution from blowing up when the Jacobian is near singular.
+
+- **Redundancy and null-space avoidance strategies**:  
+  For redundant manipulators, introduce cost functions in the Jacobian null space so that the joint configuration is actively driven away from singular manifolds (for example, keeping the wrist pitch away from $\pm 90^\circ$).
+
+- **Path-/task-level constraints**:  
+  During motion planning, explicitly incorporate singularity-avoidance terms together with joint limits and bounds on joint velocities/accelerations; when necessary, switch between multiple orientation charts (coordinate patches) to cover the configuration space.
+
+- **Quaternion-based interpolation**:  
+  Use SLERP or dual-quaternion interpolation for trajectory generation so that attitude transitions remain smooth and free of discontinuities.
+
+## b: From a unit quaternion to its rotation matrix
 ![q2_b](pic/q2_b.png)
-设四元数 
+Let
 $$
 q=(w,\mathbf{v}), \mathbf{v=(x,y,z)^\top, ||q||=1\Rightarrow \mathbb{w}^2+||v||^2 = 1},
 $$
-将三维向量$\mathbf{p} \in \mathbb{R}^3$计作四元数$p_1 = (0, \mathbf{p})$。使用四元数的共轭表示旋转可得
-$$
-p_2 = q\,p_1\,q^{-1},q^{-1} = \bar q = (w,-v)
-$$
-用四元数将$q,p_1,\bar q$展开为向量式，满足
-$$
-(a,\mathbf{u})(b,\mathbf{v})=(ab-\mathbf{uv},a\mathbf{v}+b\mathbf{u}+\mathbf{u\times v})
-$$
-可得 
+We represent a 3D vector $\mathbf{p} \in \mathbb{R}^3$ as a pure quaternion $p_1 = (0, \mathbf{p})$. The rotation of $\mathbf{p}$ by the unit quaternion $\mathbf{q}$ is given by quaternion conjugation:
 
 $$
-qp_1 = (w,\mathbf{v})(0,\mathbf{p}_1)=(-\mathbf{v}\cdot \mathbf{p_1},w\mathbf{p_1}+\mathbf{v}\times \mathbf{p_1})
+p_2 = q\,p_1\,q^{-1},q^{-1} = \bar q = (w,-v),
 $$
-设$s=-\mathbf{v}\cdot\mathbf{p}, \mathbf u=w\mathbf p+\mathbf v\times\mathbf p.$ 再乘$\bar q = (w,-\mathbf{v})$可得
+transfer quaternion multiplication to vector form
+$$
+(a,\mathbf{u})(b,\mathbf{v})=(ab-\mathbf{uv},a\mathbf{v}+b\mathbf{u}+\mathbf{u\times v}),
+$$
+get
+$$
+qp_1 = (w,\mathbf{v})(0,\mathbf{p}_1)=(-\mathbf{v}\cdot \mathbf{p_1},w\mathbf{p_1}+\mathbf{v}\times \mathbf{p_1}),
+$$
+set $s=-\mathbf{v}\cdot\mathbf{p}, \mathbf u=w\mathbf p+\mathbf v\times\mathbf p$. Now multiply by $\bar q = (w,-\mathbf{v})$, then
 $$
 p_2 = qp_1q^{-1} = (s,\mathbf{u})(w,-\mathbf{v}) = (sw+\mathbf{u\cdot v},-s\mathbf{v}+w\mathbf{u}-\mathbf{u\times v})
 $$
-由于$p_2$的标量部分，由于叉乘向量与参与叉乘的两个向量都正交，可得:
+We expect $p_2$ to be a pure quaternion (scalar part 0), because it represents a 3D vector after rotation. Check the scalar part:
 $$
 sw+\mathbf u\!\cdot\!\mathbf v
 =(-\mathbf v\!\cdot\!\mathbf p)w+\big(w\mathbf p+\mathbf v\times\mathbf p\big)\!\cdot\!\mathbf v
 =-w\,\mathbf v\!\cdot\!\mathbf p+w\,\mathbf p\!\cdot\!\mathbf v+0=0.
 $$
-对$p_2$向量部分,可得
-$$
--s\,\mathbf v+w\mathbf u-\mathbf u\times\mathbf v \\
-=(\mathbf v\!\cdot\!\mathbf p)\mathbf v+w^2\mathbf p+2w(\mathbf v\times\mathbf p)-\big(\|\mathbf v\|^2\mathbf p-(\mathbf v\!\cdot\!\mathbf p)\mathbf v\big)\\
-=(w^2-\|\mathbf v\|^2)\mathbf p+2(\mathbf v\!\cdot\!\mathbf p)\mathbf v+2w(\mathbf v\times\mathbf p)
+For the $p_2$ vector part :
 $$
 
-令 $\mathbf v=(q_x,q_y,q_z),\ w=q_w，$, 则记叉乘矩阵为
+\begin{aligned}
+-s\,\mathbf v + w\mathbf u - \mathbf u\times\mathbf v
+&= (\mathbf v\!\cdot\!\mathbf p)\mathbf v + w^2\mathbf p
+   + 2w(\mathbf v\times\mathbf p)
+   - \bigl(\|\mathbf v\|^2\mathbf p - (\mathbf v\!\cdot\!\mathbf p)\mathbf v\bigr)\\
+&= (w^2 - \|\mathbf v\|^2)\mathbf p
+   + 2(\mathbf v\!\cdot\!\mathbf p)\mathbf v
+   + 2w(\mathbf v\times\mathbf p)
+\end{aligned}
+$$
+
+set $\mathbf v=(q_x,q_y,q_z),\ w=q_w ,$ then
 $$
 [\mathbf v]_\times=\begin{bmatrix}
 0&-q_z&q_y\\ q_z&0&-q_x\\ -q_y&q_x&0
 \end{bmatrix}, [\mathbf v]_\times\mathbf p=\mathbf v\times\mathbf p,
 $$
-代入$[\mathbf v]_\times^2=\mathbf v\mathbf v^\top-(\mathbf v^\top\mathbf v)I$求的旋转矩阵$R$为
+Also note the identity $[\mathbf v]_\times^2=\mathbf v\mathbf v^\top-(\mathbf v^\top\mathbf v)I$ get rotation matrix $R$,
 $$
 R=(w^2-\mathbf v^\top\mathbf v)\,I+2\,\mathbf v\mathbf v^\top+2w[\mathbf v]_\times,\\
-\boxed{R=I+2w[\mathbf v]\times+2[\mathbf v]_\times^2},xw
+\boxed{R=I+2w[\mathbf v]\times+2[\mathbf v]_\times^2},
 $$
 
-把上式逐项展开，得到显式矩阵：
+Expanding the expression entrywise, we obtain the standard explicit matrix form:
+
 $$
 \boxed{
 R(q)=
@@ -258,100 +292,121 @@ R(q)=
 \end{bmatrix}}
 $$
 
-小结：先用 $p_2=q\,p_1\,q^{-1}$ 展开式 → 用向量恒等式整理成线性算子 → 展开成条目式矩阵。
 
-## c 四种应用场景下建议的旋转表示（按课件对比表给出理由）
+## c: different rotation representations in four application scenarios
 ![q2_c](pic/q2_c.png)
 
 
-### 情况1:超小存储的纳米机器人
-→ 轴—角（Axis–angle）：只要 3 个参数，无 gimbal lock；代价是有 $0/2\pi$ 不连续（可通过小角度增量与归一化缓解）。 ￼
-### 情况2:极其受限的计算能力
-→ 旋转矩阵：对向量做旋转是线性运算（矩阵–向量乘），避免三角函数；内存虽 9 参数，但 CPU 代价最低、实现最直接。 ￼
-### 情况3:iPhone 导航系统
-→ 四元数（内部状态）+ Euler（仅用于 UI 显示）：四元数无奇异/无不连续、数值稳定、易做滤波和插值；显示给用户时再转成偏航/俯仰/横滚角。 ￼
-### 情况4:6-自由度机械臂
-→ 链式位姿用旋转矩阵（或齐次变换）表示，控制/估计中的姿态误差常用四元数或 $R_d^\top R$ 的李代数误差；避免 Euler 以规避 gimbal lock。 
+### Case 1: Nano-robots with very limited memory storage
+- Choice: Axis–angle representation
+
+  Reasoning:
+Axis–angle needs only 3 independent parameters for a 3D rotation and does not suffer from gimbal lock. The trade-off is a discontinuity at 0/2\pi in the angle, but in practice this can be mitigated by using small incremental rotations and regular re-normalization.
+
+### Case 2: Nano-robot with very limited computational power
+- Choice: Rotation matrix
+
+  Reasoning:
+Applying a rotation to a vector is then just a linear operation (matrix–vector multiplication), with no need for evaluating trigonometric functions. Although a rotation matrix stores 9 parameters, it has the lowest CPU cost and the most straightforward implementation for repeatedly rotating vectors under severe compute constraints.
+### Case 3: IPhone navigation system
+- Choice: Quaternions for the internal state + Euler angles for UI display
+
+  Reasoning:
+Quaternions have no singularities or discontinuities, are numerically stable, and are convenient for filtering and interpolation in the internal estimation pipeline. For user-facing outputs, the orientation can be converted to yaw/pitch/roll (Euler angles), which are more intuitive to display to the user.
+
+### Case 4:Robotic arm with 6 DOF
+- Choice: Use rotation matrices (or full homogeneous transforms) to represent chained poses along the kinematic chain, and use quaternions or a Lie-algebra–based error such as R_d^\top R for attitude error in control/estimation,
+
+  Reasoning:
+  For a 6-DOF robotic arm, rotation matrices (or homogeneous transforms) are convenient for chaining poses along the kinematic chain by simple matrix multiplications. For control and estimation, quaternions or errors like R_d^\top R are preferred because they avoid Euler-angle singularities such as gimbal lock. 
+
 
 # Q3
-## a: 证明 $q$ 与 $-q$ 等价
+## a: Prove that $q$ and $-q$ are equivalent
 ![q3a](pic/q3_a.png)
 
-轴角 $(\mathbf u,\theta)$ 到四元数的式子：
+The mapping from an axis–angle representation $(\mathbf{u},\theta)$ to a unit quaternion is
 $$
 q \;=\; e^{\frac{\theta}{2}(u_x\mathbf i+u_y\mathbf j+u_z\mathbf k)}
 = \cos(\frac{\theta}{2})\;+\;(u_x\mathbf i+u_y\mathbf j+u_z\mathbf k)\,\sin(\frac{\theta}{2}),
 $$
-且为单位四元数。 
+where $\mathbf{u} = (u_x,u_y,u_z)$ is a unit rotation axis, and $q$ is a unit quaternion.
 
-当 $\theta = \theta+2\pi$代入得到：
+when $\theta = \theta+2\pi$, obtain:
 $$
 q’ = \cos\!\Big(\frac{\theta}{2}+\pi\Big)+\mathbf u\,\sin\!\Big(\frac{\theta}{2}+\pi\Big)
 = -\cos\!\frac{\theta}{2}-\mathbf u\sin\!\frac{\theta}{2}=-q.
 $$
-而 $(\mathbf u,\theta)$ 与 $(\mathbf u,\theta+2\pi)$ 表示同一几何旋转，所以 $q$ 与 $-q$ 表示同一旋转。
+Since the axis–angle pairs $(\mathbf{u},\theta)$ and $(\mathbf{u},\theta+2\pi)$ represent the same geometric rotation, the quaternions $q$ and $-q$ encode the same rotation.
 
-也可用“四元数共轭旋转向量”的公式：
+Alternatively, we can use the quaternion rotation formula for a pure vector quaternion $\mathbf{p}$:
+
 $$
 \mathbf p’ \;=\; q\,\mathbf p\,q^{-1}.
 $$
-若把 $q$ 换成 $-q$：
+Then replace $q$ by $-q$：
 $$
 (-q)\,\mathbf p\,(-q)^{-1}=(-1)\,q\,\mathbf p\,(-1)\,q^{-1}=q\,\mathbf p\,q^{-1},
 $$
-因为 $(-q)^{-1}=-\,q^{-1}$，标量 -1 与一切四元数可交换。故两者产生完全相同的旋转。 ￼
+because $(-q)^{-1} = -\,q^{-1}$ and the scalar $-1$ commutes with every quaternion. Hence $q$ and $-q$ induce exactly the same rotation.
 
-## b:何时两个三维旋转矩阵可交换？
+## b: When do two 3D rotation matrices commute?
 ![q3b](pic/q3_b.png)
 
-设$\mathbf{R_a,R_b} \in \mathbf{SO(3)}$为任意两旋转矩阵，$\mathbf{R_aR_b}=\mathbf{R_bR_a}$
+Let $\mathbf{R_a,R_b} \in \mathbf{SO(3)}$ be two arbitrary rotation matrices, and suppose
+$$\mathbf{R_aR_b}=\mathbf{R_bR_a}$$
 
 
-把两个旋转分别写成单位四元数 $q_a=(w_a,\mathbf v_a), q_b=(w_b,\mathbf v_b)$，其中
+Represent the two rotations by unit quaternions $q_a=(w_a,\mathbf v_a), q_b=(w_b,\mathbf v_b)$，其中
 $$
 w=\cos\!\frac{\theta}{2},\quad \mathbf v=\mathbf u\,\sin\!\frac{\theta}{2}.
 $$
-将轴角转换为四元数,连续施加两次旋转对应“四元数相乘”：
+where $\mathbf{u}$ is the unit rotation axis and $\theta$ is the rotation angle.
+
+The quaternion product corresponding to two successive rotations is
 $$
 q_1q_2=\Big(w_1w_2-\mathbf v_1\!\cdot\!\mathbf v_2,\;\; w_1\mathbf v_2+w_2\mathbf v_1+\mathbf v_1\times\mathbf v_2\Big).
 $$
-并且“四元数乘法对应依次旋转”。由于Question3-a已证明$R(q)=R(-q)$代入得到：
+
+and “quaternion multiplication corresponds to applying the rotations in sequence.”From Question 3(a) we know that $$R(q) = R(-q)$$. Therefore,
+
 $$
 R_aR_b=R_bR_a \;\Longleftrightarrow\; R(q_aq_b)=R(q_bq_a)
 \;\Longleftrightarrow\; q_aq_b=\pm\,q_bq_a,
 $$
-分两种情形求解：
+We now analyze these two cases.
 
 - $q_aq_b=q_bq_a$ 
 
-  比较向量部可得 $\mathbf v_a\times\mathbf v_b=0$。于是 $\mathbf v_a$ 与 $\mathbf v_b$ 共线，也就是两轴平行/反平行（同一几何轴），或其中一个 $\sin(\theta/2)=0$（恒等旋转）。可得到：同轴的任意两旋转（含恒等）都可交换。 ￼
+  Comparing the vector parts of the two products gives $\mathbf{v}_a \times \mathbf{v}_b = \mathbf{0}.$ Hence $\mathbf{v}_a$ and $\mathbf{v}_b$ are collinear, which means that the associated rotation axes are parallel or antiparallel (i.e., lie on the same geometric line), or that one of the vectors vanishes, i.e. $\sin(\theta/2)=0$, corresponding to the identity rotation.
+
+  Thus **any two rotations about the same axis (including the identity) commute.**
+
 
 - $q_aq_b=-\,q_bq_a$
 
-  把上式的标量部与向量部分别相等，并化简得到
+    Equating scalar and vector parts yields
   $$
   \begin{cases}
   w_aw_b=\mathbf v_a\!\cdot\!\mathbf v_b,\\[4pt]
   w_a\mathbf v_b+w_b\mathbf v_a=\mathbf 0.
   \end{cases}
   $$
-  代入 $w=\cos\frac{\theta}{2},\ \mathbf v=\mathbf u\sin\frac{\theta}{2}，$
-  对第二式分别与 $\mathbf u_a,\mathbf u_b $点乘，可推出要么有恒等旋转，要么
-  $\cos\frac{\theta_a}{2}=\cos\frac{\theta_b}{2}=0\Rightarrow \theta_a=\theta_b=\pi$。
-  再由第一式得到 $\mathbf u_a\!\cdot\!\mathbf u_b=0$。因此出现的非常情形为：两者都是 $180^\circ$ 旋转，且两轴互相正交。 ￼
+  Substituting $w=\cos\frac{\theta}{2},\ \mathbf v=\mathbf u\sin\frac{\theta}{2}，$ and taking the dot product of the second equation with $\mathbf u_a,\mathbf u_b $, respectively, we can deduce that either there is an identity rotation, or $\cos\frac{\theta_a}{2}=\cos\frac{\theta_b}{2}=0\Rightarrow \theta_a=\theta_b=\pi$. From the first equation we then obtain $\mathbf{u}_a!\cdot!\mathbf{u}_b=0$.
+Therefore, the exceptional case is: both rotations are by $180^\circ$ and their axes are mutually orthogonal.
 
-总 结
-三维旋转矩阵 $R_a,R_b$ 可交换，当且仅当满足以下之一：
+### Summary
 
-1. 绕同一条轴的任意角度（包括恒等）；
-2. 二者皆为 $180^\circ$ 且两轴正交。
+Two 3D rotation matrices $R_a,R_b \in \mathrm{SO}(3)$ commute **if and only if** one of the following holds:
 
-补充：一般情况下旋转不交换（教材也专门给了反例说明“次序会改变结果”）。 ￼
+1. They are rotations about the same axis (any angles, including the identity rotation);  
+2. Both are $180^\circ$ rotations, and their rotation axes are orthogonal.
+
 
 # Q4
-## a:把四元数转成 Z-Y-X（Tait-Bryan）欧拉角
+## a: Convert the quaternion to Z–Y–X (Tait–Bryan) Euler angles.
 ![q4a](pic/q4_a.png)
-根据题意完成代码即可
+Complete the code according to the problem description.
 
 ## b:
 ![q4b](pic/q4_b.png)
@@ -360,6 +415,15 @@ $$
 
 ## c:
 ![q4c](pic/q4_c.png)
+任务c中需要通过完成function: `QuatToRodriguesService`，通过`/quat_to_rodrigues`接收输入的四元数，输出对应的`Rodrigues`向量
 
 # Q5
 ## a
+![q5a](pic/q5_a.png)
+
+## b
+![q5b](pic/q5_b.png)
+## c
+![q5c](pic/q5_c.png)
+## d
+![q5d](pic/q5_d.png)
