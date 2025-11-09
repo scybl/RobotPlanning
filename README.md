@@ -14,3 +14,8 @@ This stack contains the code template for achieving the first coursework. Studen
 3. The joint positions in the hardware interface and the ones that result from forward kinematics are usually similar and most of the time you are not required to account for offsets. However, this is not the case with the youbot manipulator. Please take a look at the "origin, rpy" and "limit" in the xacro file noted in question 5c and work out how to change the joint inputs accordingly. Without any modification, your robot arm may end up moving in the opposite direction or have an offset in the joint position you have not accounted for.
 
 `cw1q9` contain the code templates for question question 9.
+
+```
+dwad
+```
+

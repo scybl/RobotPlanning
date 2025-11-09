@@ -152,7 +152,7 @@ R_z(\gamma)=\begin{bmatrix}\cos\gamma&-\sin\gamma&0\\[2pt]\sin\gamma&\cos\gamma&
 \end{gathered}
 $$
 Hence we have:
-### Y–Z–Y (Proper Euler，extrinsic)
+### Y–Z–Y (Proper Euler, extrinsic)
 
 For extrinsic composition, the three successive rotations are stacked by left-multiplication:
 $$
@@ -344,7 +344,7 @@ Alternatively, we can use the quaternion rotation formula for a pure vector quat
 $$
 \mathbf p’ \;=\; q\,\mathbf p\,q^{-1}.
 $$
-Then replace $q$ by $-q$：
+Then replace $q$ by $-q$:
 $$
 (-q)\,\mathbf p\,(-q)^{-1}=(-1)\,q\,\mathbf p\,(-1)\,q^{-1}=q\,\mathbf p\,q^{-1},
 $$
@@ -354,10 +354,10 @@ because $(-q)^{-1} = -\,q^{-1}$ and the scalar $-1$ commutes with every quaterni
 ![q3b](pic/q3_b.png)
 
 Let $\mathbf{R_a,R_b} \in \mathbf{SO(3)}$ be two arbitrary rotation matrices, and suppose
-$$\mathbf{R_aR_b}=\mathbf{R_bR_a}$$
+$$\mathbf{R_a R_b}=\mathbf{R_b R_a}$$
 
 
-Represent the two rotations by unit quaternions $q_a=(w_a,\mathbf v_a), q_b=(w_b,\mathbf v_b)$，其中
+Represent the two rotations by unit quaternions $q_a=(w_a,\mathbf v_a), q_b=(w_b,\mathbf v_b)$, then
 $$
 w=\cos\!\frac{\theta}{2},\quad \mathbf v=\mathbf u\,\sin\!\frac{\theta}{2}.
 $$
@@ -392,7 +392,7 @@ We now analyze these two cases.
   w_a\mathbf v_b+w_b\mathbf v_a=\mathbf 0.
   \end{cases}
   $$
-  Substituting $w=\cos\frac{\theta}{2},\ \mathbf v=\mathbf u\sin\frac{\theta}{2}，$ and taking the dot product of the second equation with $\mathbf u_a,\mathbf u_b $, respectively, we can deduce that either there is an identity rotation, or $\cos\frac{\theta_a}{2}=\cos\frac{\theta_b}{2}=0\Rightarrow \theta_a=\theta_b=\pi$. From the first equation we then obtain $\mathbf{u}_a!\cdot!\mathbf{u}_b=0$.
+  Substituting $w=\cos\frac{\theta}{2},\ \mathbf v=\mathbf u\sin\frac{\theta}{2}, $ and taking the dot product of the second equation with $\mathbf u_a,\mathbf u_b $, respectively, we can deduce that either there is an identity rotation, or $\cos\frac{\theta_a}{2}=\cos\frac{\theta_b}{2}=0\Rightarrow \theta_a=\theta_b=\pi$. From the first equation we then obtain $\mathbf{u}_a!\cdot!\mathbf{u}_b=0$.
 Therefore, the exceptional case is: both rotations are by $180^\circ$ and their axes are mutually orthogonal.
 
 ### Summary
@@ -410,18 +410,70 @@ Complete the code according to the problem description.
 
 ## b:
 ![q4b](pic/q4_b.png)
-在任务a中，已经完成了有关cw1q4_interface中关于.srv文件的定义。任务b要求通过ROS2实现一个服务器节点，用于将输入的四元数转换为Z-Y-X（Tait-Bryan）的欧拉较表示。应通过服务传入一个四元数，响应返回三个欧拉角值，单位为弧度。
+This task implements a ROS2 service that converts a quaternion into Euler angles in Z–Y–X (Tait–Bryan) order.
+In the service callback, the input quaternion is first normalized. Then the Euler angles are computed using standard conversion formulas:
 
+```python
+# Z-Y-X (yaw-pitch-roll)
+# roll (x)
+roll = np.arctan2(2.0 * (w * x + y * z), 1.0 - 2.0 * (x * x + y * y))
+# pitch (y)
+s = np.clip(2.0 * (w * y - z * x), -1.0, 1.0)
+pitch = np.arcsin(s)
+# yaw (z)
+yaw = np.arctan2(2.0 * (w * z + x * y), 1.0 - 2.0 * (y * y + z * z))
+```
+The results (in radians) are stored in the response fields:
+```
+response.z.data = float(yaw)
+response.y.data = float(pitch)
+response.x.data = float(roll)
+```
+The following is a test of the method: 
+![q4b2](pic/q4b2.png)
+![q4b1](pic/q4b1.png)
+*Figure 1&2: The service node is launched and tested using the input quaternion (x=0, y=0, z=0.7071, w=0.7071).
+The response correctly returns the Euler angles (z=1.5707, y=0, x=0), which corresponds to a 90° rotation around the Z-axis.*
+
+The test results confirm that the service works correctly and the implementation is valid.
 
 ## c:
 ![q4c](pic/q4_c.png)
-任务c中需要通过完成function: `QuatToRodriguesService`，通过`/quat_to_rodrigues`接收输入的四元数，输出对应的`Rodrigues`向量
+In this task, the function `QuatToRodriguesService` is implemented to create a ROS2 service `node/quat_to_rodrigues`,
+which receives an input quaternion and outputs the corresponding Rodrigues vector representation.
 
+The service request contains a quaternion (x, y, z, w), and the service response returns the calculated Rodrigues parameters (x, y, z).
+
+In the implementation, the input quaternion is first normalized to avoid numerical errors.
+Then the rotation angle θ and rotation axis r are computed using the following equations:
+
+$$
+\theta = 2 \arccos(w), \quad
+r = \frac{[x, y, z]}{\sin(\theta/2)},
+$$
+The Rodrigues vector is then obtained as:
+$$
+\mathbf{Rodrigues} = \theta \, r =
+\frac{2[x, y, z]}{\sin(\theta/2)} \arccos(w)
+$$
+The computed components are stored in
+```
+response.x.data = float(r_vec[0])
+response.y.data = float(r_vec[1])
+response.z.data = float(r_vec[2])
+```
+The following is a test of the method: 
+![q4c1](pic/q4c1.png)
+![q4c2](pic/q4c2.png)
+Figure 3 & 4: The service node `/quat_to_rodrigues` is launched and tested using the input quaternion (x=0, y=0, z=0.7071, w=0.7071). The response correctly returns the Rodrigues vector (z=1.0, y=0, x=0), which represents a $90°$ rotation around the Z-axis.
+
+Overall, the QuatToRodriguesService successfully implements the quaternion-to-Rodrigues conversion.
+The /quat_to_rodrigues service functions properly and returns accurate results consistent with the mathematical model.
 # Q5
 ## a
 ![q5a](pic/q5_a.png)
 
-DH Coordinate Frame Setup：
+DH Coordinate Frame Setup:
 
 1. The base frame 0 is placed on the robot’s base, with the $z_0$-axis pointing vertically upward along the rotation axis of the first joint (A1).
 2. For each joint $i$, define the $z_i$-axis along the joint’s axis of rotation.

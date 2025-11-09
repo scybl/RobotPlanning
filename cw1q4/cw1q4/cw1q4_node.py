@@ -28,12 +28,12 @@ class QuatToEulerService(Node):
         n = np.linalg.norm(q)
         if n > 0.0:
             q /= n
-        w, x, y, z = q  # 注意顺序：w, x, y, z
+        w, x, y, z = q
 
         # Z-Y-X (yaw-pitch-roll)
         # roll (x)
         roll = np.arctan2(2.0 * (w * x + y * z), 1.0 - 2.0 * (x * x + y * y))
-        # pitch (y) —— 需对输入做 clamp，避免数值误差越界
+        # pitch (y)
         s = 2.0 * (w * y - z * x)
         s = np.clip(s, -1.0, 1.0)
         pitch = np.arcsin(s)
@@ -70,10 +70,8 @@ class QuatToRodriguesService(Node):
         eps = 1e-12
 
         if v_norm < eps:
-            # 角度近 0，Rodrigues 向量近似为零向量
             r_vec = np.array([0.0, 0.0, 0.0], dtype=float)
         else:
-            # 通过角-轴更稳健地计算：p = axis * tan(theta/2)
             theta = 2.0 * np.arctan2(v_norm, max(w, 0.0) if abs(w) < eps else w)
             axis = v / v_norm
             t = np.tan(theta / 2.0)
