@@ -141,13 +141,10 @@ class ForwardKinematicsNode(Node):
         # ╔════════════════════════════════════════════════════════════════════════╗
         # ║                  PART 4: COMPLETE THE ROS 2 WRAPPER                  ║
         # ╚════════════════════════════════════════════════════════════════════════╝
-        # 获取关节角数据
         joints = list(joint_msg.position)
 
-        # 计算末端变换矩阵
         T = forward_kinematics(youbot_dh_parameters, joints)
 
-        # 提取平移与旋转部分
         R = T[:3, :3]
         q = rotmat2q(R)
 

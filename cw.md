@@ -477,7 +477,8 @@ DH Coordinate Frame Setup:
 
 1. The base frame 0 is placed on the robot’s base, with the $z_0$-axis pointing vertically upward along the rotation axis of the first joint (A1).
 2. For each joint $i$, define the $z_i$-axis along the joint’s axis of rotation.
-3. The $x_i$-axis is defined as the common normal direction—that is, the shortest line connecting $z_i$ and $z_{i+1}$, pointing from $z_i$ toward $z_{i+1}$.
+3. The $x_i$-axis is defined as the common normal direction—that is, the shortest line connecting $z_{i-1}$ and $z_i$, pointing from $z_{i-1}$ toward $z_i$. *Note:* For this youBot arm picture, frames 3 and 4 **share the same origin** since their joint axes intersect at one point.
+
 4. The $y_i$-axis is determined by the right-hand rule, ensuring that ($x_i$, $y_i$, $z_i$) form a right-handed coordinate system.
 5. In each coordinate frame, record the link length ($a_i$), link twist ($α_i$), link offset ($d_i$), and joint angle ($\theta_i$) between adjacent joints to obtain the complete DH parameter table.
 
@@ -487,13 +488,129 @@ DH Coordinate Frame Setup:
 
 | Joint (i) | θᵢ *(Joint Angle)* | dᵢ *(mm)* | aᵢ *(mm)* | αᵢ *(rad)* 
 |:---------:|:------------------:|:---------:|:---------:|:------------:
-| 1         | $\theta_1$         | 0         | 75        | $+\pi/2$ 
-| 2         | $\theta_2$         | 0         | 155       | 0 
-| 3         | $\theta_3$         | 0         | 135       | $-\pi$ 
-| 4         | $\theta_4$         | 0         | 113       | $+\pi/2$ 
-| 5         | $\theta_5$         | MF        | 58        | 0 
+| 1         | $\theta_1$         | 147       | 0         | $+\pi/2$ 
+| 2         | $\theta_2 + \pi/2$ | 0         | 155       | 0 
+| 3         | $\theta_3$         | 0         | 135       | 0 
+| 4         | $\theta_4-\pi/2$   | 0         | 0         | $-\pi/2$ 
+| 5         | $\theta_5$         | 218       | 0         | 0 
+
 ## b
 ![q5b](pic/q5_b.png)
+### Task 1: Define the DH Table Based on Question 5a
+```python
+youbot_dh_parameters = {
+  'a':[0, 0.155, 0.135, 0, 0],
+  'alpha':[np.pi/2, 0, 0, -np.pi/2, 0],
+  'd' : [0.147, 0, 0, 0, 0.218],
+  'theta':[0, np.pi/2, 0, -np.pi/2, 0]
+  }
+``` 
+The DH parameters obtained in Question 5a were filled into the dictionary above, representing the link lengths, twists, offsets, and joint angles of the YouBot manipulator.
+### Task 2: Implementing the Standard DH Transformation
+According to the standard DH formulation,
+$$
+{}^{i-1}T_i =
+\begin{bmatrix}
+\cos\theta_i & -\sin\theta_i\cos\alpha_i & \sin\theta_i\sin\alpha_i & a_i\cos\theta_i &\\
+ \sin\theta_i & \cos\theta_i\cos\alpha_i & -\cos\theta_i\sin\alpha_i & a_i\sin\theta_i \\
+0 & \sin\alpha_i & \cos\alpha_i & d_i \\
+0 & 0 & 0 & 1
+\end{bmatrix}
+$$
+where:
+- $a_i$: link length
+- $\alpha_i$: link twist
+- $d_i$: link offset 
+- $\theta_i$: joint angle
+
+Therefore, the equation is
+```python
+    A = np.array([
+      [np.cos(theta), -np.sin(theta)*np.cos(alpha), np.sin(theta)*np.sin(alpha), a*np.cos(theta)],
+      [np.sin(theta), np.cos(theta)*np.cos(alpha), -np.cos(theta)*np.sin(alpha), a*np.sin(theta)],
+      [0.0, np.sin(alpha), np.cos(alpha),d],
+      [0.0, 0.0, 0.0, 1.0 ]
+      ])
+```
+### Task 3: Implementing the Forward Kinematics Calculation
+Based on the forward kinematics principle, the overall transformation from the base frame to the end-effector frame is obtained by multiplying the individual joint transformation matrices:
+$$
+{}^0T_n = {}^0T_1 \cdot {}^1T_2 \cdot {}^2T_3 \cdot \ldots \cdot {}^{n-1}T_n
+$$
+or equivalently,
+$$
+T = \prod_{i=1}^{n} {}^{i-1}T_i
+$$
+The implementation in code is:
+```python
+for i in range(up_to_joint):
+  a = dh_dict['a'][i]
+  alpha = dh_dict['alpha'][i]
+  d = dh_dict['d'][i]
+  theta = dh_dict['theta'][i] + joints_readings[i]
+
+  T_i = standard_dh(a, alpha, d, theta)
+  T = np.dot(T, T_i)
+```
+### Task 4: Implementing the fkine_wrapper() Function
+This function serves as the ROS 2 subscriber callback, connecting the mathematical forward-kinematics computation with the ROS communication system.
+It listens to the topic `/joint_states`, extracts the joint angle values, computes the end-effector pose using the previously defined `forward_kinematics()` function, converts the rotation matrix to a quaternion, and publishes the result as a TF transform.
+
+The callback performs the following steps:
+```
+  joints = list(joint_msg.position)
+
+  T = forward_kinematics(youbot_dh_parameters, joints)
+
+  R = T[:3, :3]
+  q = rotmat2q(R)
+
+  t = TransformStamped()
+  t.header.stamp = self.get_clock().now().to_msg()
+  t.header.frame_id = 'base_link'
+  t.child_frame_id = 'end_effector'
+
+  t.transform.translation.x = float(T[0, 3])
+  t.transform.translation.y = float(T[1, 3])
+  t.transform.translation.z = float(T[2, 3])
+  t.transform.rotation = q
+
+  self.br.sendTransform(t)
+  self.get_logger().info(f"End-effector pose: x={T[0,3]:.3f}, y={T[1,3]:.3f}, z={T[2,3]:.3f}")
+```
+### Task 5: Node Initialization and ROS 2 Integration
+
+The purpose of this task is to integrate the forward kinematics algorithm within the ROS 2 framework, allowing the node to receive live joint states and compute the corresponding end-effector pose in real time.
+Since the `ForwardKinematicsNode` class was already defined in the source code, it can be executed directly using the following commands:
+
+```bash
+colcon build
+source install/setup.bash
+ros2 run cw1q5 cw1q5b_node
+```
+To test the node, publish a sample joint state message:
+```bash
+source install/setup.bash
+rostopic pub /joint_states sensor_msgs/msg/JointState "{name: ['joint1','joint2','joint3','joint4','joint5'], position: [0.0, 0.0, 0.0, 0.0, 0.0]}"
+```
+Then launch RViz for visualization:
+```
+source install/setup.bash
+rviz2
+```
+In RViz, set the Fixed Frame to base_link and enable TF display.
+When all joint angles are zero, all coordinate frames appear stacked along the z-axis, confirming the correctness of the forward kinematics computation.
+
+![q5b](pic/q5b.jpg)
+
+### Summary
+
+This task successfully integrates the forward kinematics computation with the ROS 2 environment.
+The node subscribes to /joint_states, computes transformations, and publishes them as TF frames.
+RViz visualization confirms that the implementation is correct and functions as expected.
+
+
+
 ## c
 ![q5c](pic/q5_c.png)
 ## d
