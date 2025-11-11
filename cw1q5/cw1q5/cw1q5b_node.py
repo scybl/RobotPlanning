@@ -108,8 +108,7 @@ def forward_kinematics(dh_dict, joints_readings, up_to_joint=5):
 
             T_i = standard_dh(a, alpha, d, theta)
             T = np.dot(T, T_i)
-            pos = T[0:3, 3]
-            print(f"Frame {i+1} position (relative to base): x={pos[0]:.3f}, y={pos[1]:.3f}, z={pos[2]:.3f}")
+            
     # ╔════════════════════════════════════════════════════════════════════════╗
     # ╚════════════════════════════════════════════════════════════════════════╝
     
@@ -141,13 +140,10 @@ class ForwardKinematicsNode(Node):
         # ╔════════════════════════════════════════════════════════════════════════╗
         # ║                  PART 4: COMPLETE THE ROS 2 WRAPPER                  ║
         # ╚════════════════════════════════════════════════════════════════════════╝
-        # 获取关节角数据
         joints = list(joint_msg.position)
 
-        # 计算末端变换矩阵
         T = forward_kinematics(youbot_dh_parameters, joints)
 
-        # 提取平移与旋转部分
         R = T[:3, :3]
         q = rotmat2q(R)
 
