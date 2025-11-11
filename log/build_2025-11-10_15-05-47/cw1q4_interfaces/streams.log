@@ -1,0 +1,249 @@
+[0.219s] Invoking command in '/home/bizare/Desktop/Robotics_System/build/cw1q4_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/bizare/Desktop/Robotics_System/install/cw1q9:/home/bizare/Desktop/Robotics_System/install/cw1q5:/home/bizare/Desktop/Robotics_System/install/cw1q4:/opt/ros/foxy /usr/bin/cmake /home/bizare/Desktop/Robotics_System/cw1q4_interfaces -DCMAKE_INSTALL_PREFIX=/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces
+[0.656s] -- The C compiler identification is GNU 9.4.0
+[0.656s] -- The CXX compiler identification is GNU 9.4.0
+[0.656s] -- Check for working C compiler: /usr/bin/cc
+[0.656s] -- Check for working C compiler: /usr/bin/cc -- works
+[0.657s] -- Detecting C compiler ABI info
+[0.713s] -- Detecting C compiler ABI info - done
+[0.741s] -- Detecting C compile features
+[0.741s] -- Detecting C compile features - done
+[0.743s] -- Check for working CXX compiler: /usr/bin/c++
+[0.823s] -- Check for working CXX compiler: /usr/bin/c++ -- works
+[0.826s] -- Detecting CXX compiler ABI info
+[0.927s] -- Detecting CXX compiler ABI info - done
+[0.942s] -- Detecting CXX compile features
+[0.944s] -- Detecting CXX compile features - done
+[0.949s] -- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.986s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") 
+[0.986s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[1.233s] -- Found rosidl_default_generators: 1.0.1 (/opt/ros/foxy/share/rosidl_default_generators/cmake)
+[1.238s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.248s] -- Found rosidl_adapter: 1.3.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[1.373s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "1.1.1f")  
+[1.400s] -- Found FastRTPS: /opt/ros/foxy/include  
+[1.496s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.533s] -- Found geometry_msgs: 2.0.5 (/opt/ros/foxy/share/geometry_msgs/cmake)
+[1.639s] -- Found PythonInterp: /usr/bin/python3 (found version "3.8.10") 
+[1.827s] -- Found ament_cmake_ros: 0.9.2 (/opt/ros/foxy/share/ament_cmake_ros/cmake)
+[2.055s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[2.159s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[2.182s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3.5") 
+[2.185s] -- Found python_cmake_module: 0.8.1 (/opt/ros/foxy/share/python_cmake_module/cmake)
+[2.210s] -- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.8.so (found suitable version "3.8.10", minimum required is "3.5") 
+[2.210s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[2.211s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.8
+[2.211s] -- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.8.so
+[2.231s] -- Found PythonExtra: .so  
+[2.320s] -- Configuring done
+[2.375s] -- Generating done
+[2.392s] -- Build files have been written to: /home/bizare/Desktop/Robotics_System/build/cw1q4_interfaces
+[2.398s] Invoked command in '/home/bizare/Desktop/Robotics_System/build/cw1q4_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/bizare/Desktop/Robotics_System/install/cw1q9:/home/bizare/Desktop/Robotics_System/install/cw1q5:/home/bizare/Desktop/Robotics_System/install/cw1q4:/opt/ros/foxy /usr/bin/cmake /home/bizare/Desktop/Robotics_System/cw1q4_interfaces -DCMAKE_INSTALL_PREFIX=/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces
+[2.402s] Invoking command in '/home/bizare/Desktop/Robotics_System/build/cw1q4_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/bizare/Desktop/Robotics_System/install/cw1q9:/home/bizare/Desktop/Robotics_System/install/cw1q5:/home/bizare/Desktop/Robotics_System/install/cw1q4:/opt/ros/foxy /usr/bin/cmake --build /home/bizare/Desktop/Robotics_System/build/cw1q4_interfaces -- -j8 -l8
+[2.441s] [35m[1mScanning dependencies of target cw1q4_interfaces__cpp[0m
+[2.441s] [  2%] [34m[1mGenerating C code for ROS interfaces[0m
+[2.452s] [  5%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[2.774s] [  5%] Built target cw1q4_interfaces__cpp
+[2.783s] [35m[1mScanning dependencies of target cw1q4_interfaces__rosidl_generator_c[0m
+[2.787s] [ 10%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[2.787s] [ 10%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[2.787s] [ 12%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[2.813s] [ 17%] [32mBuilding C object CMakeFiles/cw1q4_interfaces__rosidl_generator_c.dir/rosidl_generator_c/cw1q4_interfaces/srv/detail/quat_to_rodrigues__functions.c.o[0m
+[2.813s] [ 17%] [32mBuilding C object CMakeFiles/cw1q4_interfaces__rosidl_generator_c.dir/rosidl_generator_c/cw1q4_interfaces/srv/detail/quat_to_euler__functions.c.o[0m
+[2.899s] [ 20%] [32m[1mLinking C shared library libcw1q4_interfaces__rosidl_generator_c.so[0m
+[2.959s] [ 20%] Built target cw1q4_interfaces__rosidl_generator_c
+[2.972s] [ 23%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[2.973s] [ 25%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[3.066s] [35m[1mScanning dependencies of target cw1q4_interfaces__rosidl_typesupport_cpp[0m
+[3.086s] [ 28%] [32mBuilding CXX object CMakeFiles/cw1q4_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/cw1q4_interfaces/srv/quat_to_euler__type_support.cpp.o[0m
+[3.087s] [ 30%] [32mBuilding CXX object CMakeFiles/cw1q4_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/cw1q4_interfaces/srv/quat_to_rodrigues__type_support.cpp.o[0m
+[3.114s] [35m[1mScanning dependencies of target cw1q4_interfaces__rosidl_typesupport_introspection_cpp[0m
+[3.142s] [35m[1mScanning dependencies of target cw1q4_interfaces__rosidl_typesupport_fastrtps_cpp[0m
+[3.145s] [ 33%] [32mBuilding CXX object CMakeFiles/cw1q4_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/cw1q4_interfaces/srv/detail/quat_to_euler__type_support.cpp.o[0m
+[3.152s] [ 35%] [32mBuilding CXX object CMakeFiles/cw1q4_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/cw1q4_interfaces/srv/detail/quat_to_rodrigues__type_support.cpp.o[0m
+[3.192s] [ 38%] [32mBuilding CXX object CMakeFiles/cw1q4_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/cw1q4_interfaces/srv/detail/dds_fastrtps/quat_to_euler__type_support.cpp.o[0m
+[3.199s] [ 41%] [32mBuilding CXX object CMakeFiles/cw1q4_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/cw1q4_interfaces/srv/detail/dds_fastrtps/quat_to_rodrigues__type_support.cpp.o[0m
+[3.259s] [35m[1mScanning dependencies of target cw1q4_interfaces__rosidl_typesupport_c[0m
+[3.325s] [ 43%] [32mBuilding CXX object CMakeFiles/cw1q4_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/cw1q4_interfaces/srv/quat_to_euler__type_support.cpp.o[0m
+[3.446s] [35m[1mScanning dependencies of target cw1q4_interfaces__rosidl_typesupport_introspection_c[0m
+[3.549s] [ 46%] [32mBuilding C object CMakeFiles/cw1q4_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/cw1q4_interfaces/srv/detail/quat_to_euler__type_support.c.o[0m
+[3.559s] [ 48%] [32mBuilding CXX object CMakeFiles/cw1q4_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/cw1q4_interfaces/srv/quat_to_rodrigues__type_support.cpp.o[0m
+[4.024s] [ 51%] [32mBuilding C object CMakeFiles/cw1q4_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/cw1q4_interfaces/srv/detail/quat_to_rodrigues__type_support.c.o[0m
+[4.108s] [ 53%] [32m[1mLinking CXX shared library libcw1q4_interfaces__rosidl_typesupport_c.so[0m
+[4.252s] [ 56%] [32m[1mLinking C shared library libcw1q4_interfaces__rosidl_typesupport_introspection_c.so[0m
+[4.269s] [ 56%] Built target cw1q4_interfaces__rosidl_typesupport_c
+[4.287s] [ 58%] [32m[1mLinking CXX shared library libcw1q4_interfaces__rosidl_typesupport_cpp.so[0m
+[4.302s] [ 58%] Built target cw1q4_interfaces__rosidl_typesupport_introspection_c
+[4.311s] [ 61%] [32m[1mLinking CXX shared library libcw1q4_interfaces__rosidl_typesupport_introspection_cpp.so[0m
+[4.346s] [ 61%] Built target cw1q4_interfaces__rosidl_typesupport_cpp
+[4.380s] [ 61%] Built target cw1q4_interfaces__rosidl_typesupport_introspection_cpp
+[4.500s] [ 64%] [32m[1mLinking CXX shared library libcw1q4_interfaces__rosidl_typesupport_fastrtps_cpp.so[0m
+[4.591s] [ 64%] Built target cw1q4_interfaces__rosidl_typesupport_fastrtps_cpp
+[4.601s] [ 66%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[4.908s] [35m[1mScanning dependencies of target cw1q4_interfaces__rosidl_typesupport_fastrtps_c[0m
+[4.929s] [ 71%] [32mBuilding CXX object CMakeFiles/cw1q4_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/cw1q4_interfaces/srv/detail/quat_to_rodrigues__type_support_c.cpp.o[0m
+[4.929s] [ 71%] [32mBuilding CXX object CMakeFiles/cw1q4_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/cw1q4_interfaces/srv/detail/quat_to_euler__type_support_c.cpp.o[0m
+[5.262s] [ 74%] [32m[1mLinking CXX shared library libcw1q4_interfaces__rosidl_typesupport_fastrtps_c.so[0m
+[5.338s] [ 74%] Built target cw1q4_interfaces__rosidl_typesupport_fastrtps_c
+[5.350s] [35m[1mScanning dependencies of target cw1q4_interfaces[0m
+[5.362s] [ 74%] Built target cw1q4_interfaces
+[5.372s] [35m[1mScanning dependencies of target cw1q4_interfaces__py[0m
+[5.383s] [ 76%] [34m[1mGenerating Python code for ROS interfaces[0m
+[5.938s] [ 76%] Built target cw1q4_interfaces__py
+[5.949s] [35m[1mScanning dependencies of target cw1q4_interfaces__python[0m
+[5.995s] [ 82%] [32mBuilding C object CMakeFiles/cw1q4_interfaces__python.dir/rosidl_generator_py/cw1q4_interfaces/srv/_quat_to_euler_s.c.o[0m
+[5.995s] [ 82%] [32mBuilding C object CMakeFiles/cw1q4_interfaces__python.dir/rosidl_generator_py/cw1q4_interfaces/srv/_quat_to_rodrigues_s.c.o[0m
+[6.096s] [ 84%] [32m[1mLinking C shared library rosidl_generator_py/cw1q4_interfaces/libcw1q4_interfaces__python.so[0m
+[6.138s] [ 84%] Built target cw1q4_interfaces__python
+[6.149s] [35m[1mScanning dependencies of target cw1q4_interfaces__rosidl_typesupport_c__pyext[0m
+[6.150s] [35m[1mScanning dependencies of target cw1q4_interfaces__rosidl_typesupport_fastrtps_c__pyext[0m
+[6.150s] [35m[1mScanning dependencies of target cw1q4_interfaces__rosidl_typesupport_introspection_c__pyext[0m
+[6.168s] [ 87%] [32mBuilding C object CMakeFiles/cw1q4_interfaces__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/cw1q4_interfaces/_cw1q4_interfaces_s.ep.rosidl_typesupport_c.c.o[0m
+[6.169s] [ 89%] [32mBuilding C object CMakeFiles/cw1q4_interfaces__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/cw1q4_interfaces/_cw1q4_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[6.171s] [ 92%] [32mBuilding C object CMakeFiles/cw1q4_interfaces__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/cw1q4_interfaces/_cw1q4_interfaces_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[6.252s] [ 94%] [32m[1mLinking C shared library rosidl_generator_py/cw1q4_interfaces/cw1q4_interfaces_s__rosidl_typesupport_c.cpython-38-x86_64-linux-gnu.so[0m
+[6.263s] [ 97%] [32m[1mLinking CXX shared library rosidl_generator_py/cw1q4_interfaces/cw1q4_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-38-x86_64-linux-gnu.so[0m
+[6.263s] [100%] [32m[1mLinking C shared library rosidl_generator_py/cw1q4_interfaces/cw1q4_interfaces_s__rosidl_typesupport_introspection_c.cpython-38-x86_64-linux-gnu.so[0m
+[6.293s] [100%] Built target cw1q4_interfaces__rosidl_typesupport_c__pyext
+[6.302s] [100%] Built target cw1q4_interfaces__rosidl_typesupport_introspection_c__pyext
+[6.328s] [100%] Built target cw1q4_interfaces__rosidl_typesupport_fastrtps_c__pyext
+[6.342s] Invoked command in '/home/bizare/Desktop/Robotics_System/build/cw1q4_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/bizare/Desktop/Robotics_System/install/cw1q9:/home/bizare/Desktop/Robotics_System/install/cw1q5:/home/bizare/Desktop/Robotics_System/install/cw1q4:/opt/ros/foxy /usr/bin/cmake --build /home/bizare/Desktop/Robotics_System/build/cw1q4_interfaces -- -j8 -l8
+[6.355s] Invoking command in '/home/bizare/Desktop/Robotics_System/build/cw1q4_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/bizare/Desktop/Robotics_System/install/cw1q9:/home/bizare/Desktop/Robotics_System/install/cw1q5:/home/bizare/Desktop/Robotics_System/install/cw1q4:/opt/ros/foxy /usr/bin/cmake --install /home/bizare/Desktop/Robotics_System/build/cw1q4_interfaces
+[6.363s] -- Install configuration: ""
+[6.363s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/ament_index/resource_index/rosidl_interfaces/cw1q4_interfaces
+[6.363s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces
+[6.364s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces/msg
+[6.364s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces/msg/rosidl_generator_c__visibility_control.h
+[6.364s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces/srv
+[6.364s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces/srv/detail
+[6.364s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces/srv/detail/quat_to_euler__functions.c
+[6.364s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces/srv/detail/quat_to_euler__type_support.h
+[6.364s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces/srv/detail/quat_to_euler__functions.h
+[6.365s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces/srv/detail/quat_to_rodrigues__struct.h
+[6.365s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces/srv/detail/quat_to_euler__struct.h
+[6.365s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces/srv/detail/quat_to_rodrigues__functions.c
+[6.365s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces/srv/detail/quat_to_rodrigues__functions.h
+[6.365s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces/srv/detail/quat_to_rodrigues__type_support.h
+[6.365s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces/srv/quat_to_rodrigues.h
+[6.366s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces/srv/quat_to_euler.h
+[6.366s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/environment/library_path.sh
+[6.366s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/environment/library_path.dsv
+[6.366s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/lib/libcw1q4_interfaces__rosidl_generator_c.so
+[6.367s] -- Set runtime path of "/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/lib/libcw1q4_interfaces__rosidl_generator_c.so" to ""
+[6.367s] -- Up-to-date: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces
+[6.367s] -- Up-to-date: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces/msg
+[6.367s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[6.367s] -- Up-to-date: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces/srv
+[6.368s] -- Up-to-date: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces/srv/detail
+[6.368s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces/srv/detail/quat_to_euler__rosidl_typesupport_fastrtps_c.h
+[6.368s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces/srv/detail/quat_to_rodrigues__rosidl_typesupport_fastrtps_c.h
+[6.368s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/lib/libcw1q4_interfaces__rosidl_typesupport_fastrtps_c.so
+[6.368s] -- Set runtime path of "/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/lib/libcw1q4_interfaces__rosidl_typesupport_fastrtps_c.so" to ""
+[6.368s] -- Up-to-date: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces
+[6.368s] -- Up-to-date: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces/msg
+[6.369s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[6.369s] -- Up-to-date: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces/srv
+[6.369s] -- Up-to-date: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces/srv/detail
+[6.369s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces/srv/detail/quat_to_euler__rosidl_typesupport_fastrtps_cpp.hpp
+[6.369s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces/srv/detail/quat_to_rodrigues__rosidl_typesupport_fastrtps_cpp.hpp
+[6.369s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces/srv/detail/dds_fastrtps
+[6.369s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/lib/libcw1q4_interfaces__rosidl_typesupport_fastrtps_cpp.so
+[6.369s] -- Set runtime path of "/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/lib/libcw1q4_interfaces__rosidl_typesupport_fastrtps_cpp.so" to ""
+[6.370s] -- Up-to-date: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces
+[6.370s] -- Up-to-date: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces/msg
+[6.370s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[6.370s] -- Up-to-date: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces/srv
+[6.370s] -- Up-to-date: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces/srv/detail
+[6.371s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces/srv/detail/quat_to_euler__rosidl_typesupport_introspection_c.h
+[6.371s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces/srv/detail/quat_to_rodrigues__rosidl_typesupport_introspection_c.h
+[6.371s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces/srv/detail/quat_to_euler__type_support.c
+[6.371s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces/srv/detail/quat_to_rodrigues__type_support.c
+[6.371s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/lib/libcw1q4_interfaces__rosidl_typesupport_introspection_c.so
+[6.371s] -- Set runtime path of "/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/lib/libcw1q4_interfaces__rosidl_typesupport_introspection_c.so" to ""
+[6.371s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/lib/libcw1q4_interfaces__rosidl_typesupport_c.so
+[6.372s] -- Set runtime path of "/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/lib/libcw1q4_interfaces__rosidl_typesupport_c.so" to ""
+[6.372s] -- Up-to-date: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces
+[6.372s] -- Up-to-date: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces/msg
+[6.372s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces/msg/rosidl_generator_cpp__visibility_control.hpp
+[6.372s] -- Up-to-date: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces/srv
+[6.372s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces/srv/quat_to_euler.hpp
+[6.372s] -- Up-to-date: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces/srv/detail
+[6.373s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces/srv/detail/quat_to_euler__struct.hpp
+[6.373s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces/srv/detail/quat_to_euler__builder.hpp
+[6.373s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces/srv/detail/quat_to_rodrigues__type_support.hpp
+[6.373s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces/srv/detail/quat_to_euler__type_support.hpp
+[6.373s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces/srv/detail/quat_to_euler__traits.hpp
+[6.373s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces/srv/detail/quat_to_rodrigues__struct.hpp
+[6.373s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces/srv/detail/quat_to_rodrigues__traits.hpp
+[6.373s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces/srv/detail/quat_to_rodrigues__builder.hpp
+[6.373s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces/srv/quat_to_rodrigues.hpp
+[6.373s] -- Up-to-date: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces
+[6.374s] -- Up-to-date: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces/srv
+[6.374s] -- Up-to-date: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces/srv/detail
+[6.374s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces/srv/detail/quat_to_rodrigues__rosidl_typesupport_introspection_cpp.hpp
+[6.374s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces/srv/detail/quat_to_euler__rosidl_typesupport_introspection_cpp.hpp
+[6.374s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces/srv/detail/quat_to_euler__type_support.cpp
+[6.374s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/include/cw1q4_interfaces/srv/detail/quat_to_rodrigues__type_support.cpp
+[6.374s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/lib/libcw1q4_interfaces__rosidl_typesupport_introspection_cpp.so
+[6.374s] -- Set runtime path of "/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/lib/libcw1q4_interfaces__rosidl_typesupport_introspection_cpp.so" to ""
+[6.374s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/lib/libcw1q4_interfaces__rosidl_typesupport_cpp.so
+[6.374s] -- Set runtime path of "/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/lib/libcw1q4_interfaces__rosidl_typesupport_cpp.so" to ""
+[6.374s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/environment/pythonpath.sh
+[6.374s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/environment/pythonpath.dsv
+[6.375s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/lib/python3.8/site-packages/cw1q4_interfaces/__init__.py
+[6.402s] Compiling '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/lib/python3.8/site-packages/cw1q4_interfaces/__init__.py'...
+[6.406s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/lib/python3.8/site-packages/cw1q4_interfaces/srv
+[6.406s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/lib/python3.8/site-packages/cw1q4_interfaces/srv/_quat_to_euler_s.c
+[6.406s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/lib/python3.8/site-packages/cw1q4_interfaces/srv/__init__.py
+[6.406s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/lib/python3.8/site-packages/cw1q4_interfaces/srv/_quat_to_euler.py
+[6.406s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/lib/python3.8/site-packages/cw1q4_interfaces/srv/_quat_to_rodrigues_s.c
+[6.406s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/lib/python3.8/site-packages/cw1q4_interfaces/srv/_quat_to_rodrigues.py
+[6.406s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/lib/python3.8/site-packages/cw1q4_interfaces/cw1q4_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-38-x86_64-linux-gnu.so
+[6.407s] -- Set runtime path of "/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/lib/python3.8/site-packages/cw1q4_interfaces/cw1q4_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-38-x86_64-linux-gnu.so" to ""
+[6.407s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/lib/python3.8/site-packages/cw1q4_interfaces/cw1q4_interfaces_s__rosidl_typesupport_introspection_c.cpython-38-x86_64-linux-gnu.so
+[6.407s] -- Set runtime path of "/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/lib/python3.8/site-packages/cw1q4_interfaces/cw1q4_interfaces_s__rosidl_typesupport_introspection_c.cpython-38-x86_64-linux-gnu.so" to ""
+[6.407s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/lib/python3.8/site-packages/cw1q4_interfaces/cw1q4_interfaces_s__rosidl_typesupport_c.cpython-38-x86_64-linux-gnu.so
+[6.408s] -- Set runtime path of "/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/lib/python3.8/site-packages/cw1q4_interfaces/cw1q4_interfaces_s__rosidl_typesupport_c.cpython-38-x86_64-linux-gnu.so" to ""
+[6.408s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/lib/libcw1q4_interfaces__python.so
+[6.408s] -- Set runtime path of "/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/lib/libcw1q4_interfaces__python.so" to ""
+[6.408s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/srv/QuatToEuler.idl
+[6.409s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/srv/QuatToRodrigues.idl
+[6.409s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/srv/QuatToEuler.srv
+[6.409s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/srv/QuatToEuler_Request.msg
+[6.409s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/srv/QuatToEuler_Response.msg
+[6.409s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/srv/QuatToRodrigues.srv
+[6.409s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/srv/QuatToRodrigues_Request.msg
+[6.409s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/srv/QuatToRodrigues_Response.msg
+[6.410s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/ament_index/resource_index/package_run_dependencies/cw1q4_interfaces
+[6.410s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/ament_index/resource_index/parent_prefix_path/cw1q4_interfaces
+[6.410s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/environment/ament_prefix_path.sh
+[6.410s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/environment/ament_prefix_path.dsv
+[6.410s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/environment/path.sh
+[6.410s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/environment/path.dsv
+[6.410s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/local_setup.bash
+[6.411s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/local_setup.sh
+[6.411s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/local_setup.zsh
+[6.411s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/local_setup.dsv
+[6.411s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/package.dsv
+[6.411s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/ament_index/resource_index/packages/cw1q4_interfaces
+[6.411s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/cmake/cw1q4_interfaces__rosidl_generator_cExport.cmake
+[6.412s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/cmake/cw1q4_interfaces__rosidl_generator_cExport-noconfig.cmake
+[6.412s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/cmake/cw1q4_interfaces__rosidl_typesupport_introspection_cExport.cmake
+[6.412s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/cmake/cw1q4_interfaces__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[6.412s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/cmake/cw1q4_interfaces__rosidl_typesupport_cExport.cmake
+[6.412s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/cmake/cw1q4_interfaces__rosidl_typesupport_cExport-noconfig.cmake
+[6.412s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/cmake/cw1q4_interfaces__rosidl_generator_cppExport.cmake
+[6.413s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/cmake/cw1q4_interfaces__rosidl_typesupport_introspection_cppExport.cmake
+[6.413s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/cmake/cw1q4_interfaces__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[6.413s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/cmake/cw1q4_interfaces__rosidl_typesupport_cppExport.cmake
+[6.413s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/cmake/cw1q4_interfaces__rosidl_typesupport_cppExport-noconfig.cmake
+[6.413s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/cmake/rosidl_cmake-extras.cmake
+[6.413s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake
+[6.414s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/cmake/ament_cmake_export_libraries-extras.cmake
+[6.414s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/cmake/ament_cmake_export_targets-extras.cmake
+[6.414s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/cmake/ament_cmake_export_include_directories-extras.cmake
+[6.414s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[6.414s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[6.414s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/cmake/cw1q4_interfacesConfig.cmake
+[6.414s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/cmake/cw1q4_interfacesConfig-version.cmake
+[6.415s] -- Installing: /home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/package.xml
+[6.417s] Invoked command in '/home/bizare/Desktop/Robotics_System/build/cw1q4_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/bizare/Desktop/Robotics_System/install/cw1q9:/home/bizare/Desktop/Robotics_System/install/cw1q5:/home/bizare/Desktop/Robotics_System/install/cw1q4:/opt/ros/foxy /usr/bin/cmake --install /home/bizare/Desktop/Robotics_System/build/cw1q4_interfaces

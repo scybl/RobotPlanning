@@ -1,0 +1,307 @@
+[0.160s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[0.160s] DEBUG:colcon:Parsed command line arguments: Namespace(allow_overriding=[], ament_cmake_args=None, base_paths=['.'], build_base='build', catkin_cmake_args=None, catkin_skip_building_tests=False, cmake_args=None, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, cmake_target=None, cmake_target_skip_unavailable=False, continue_on_error=False, event_handlers=None, executor='parallel', ignore_user_meta=False, install_base='install', log_base=None, log_level=None, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7fdc1bde9580>>, merge_install=False, metas=['./colcon.meta'], packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_end=None, packages_ignore=None, packages_ignore_regex=None, packages_select=None, packages_select_build_failed=False, packages_select_by_dep=None, packages_select_regex=None, packages_select_test_failures=False, packages_skip=None, packages_skip_build_finished=False, packages_skip_by_dep=None, packages_skip_regex=None, packages_skip_test_passed=False, packages_skip_up_to=None, packages_start=None, packages_up_to=None, packages_up_to_regex=None, parallel_workers=8, paths=None, symlink_install=False, test_result_base=None, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7fdc1bde9580>, verb_name='build', verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x7fdc1bcb1730>)
+[0.283s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.283s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.283s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.283s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.283s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.283s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.283s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/bizare/Desktop/Robotics_System'
+[0.283s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.283s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.283s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.283s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.283s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.283s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.283s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.283s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.283s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.293s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.293s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.293s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.293s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.293s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.293s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.293s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.293s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.293s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q4) by extensions ['ignore', 'ignore_ament_install']
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q4) by extension 'ignore'
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q4) by extension 'ignore_ament_install'
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q4) by extensions ['colcon_pkg']
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q4) by extension 'colcon_pkg'
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q4) by extensions ['colcon_meta']
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q4) by extension 'colcon_meta'
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q4) by extensions ['ros']
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q4) by extension 'ros'
+[0.296s] DEBUG:colcon.colcon_core.package_identification:Package 'cw1q4' with type 'ros.ament_python' and name 'cw1q4'
+[0.296s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q4_interfaces) by extensions ['ignore', 'ignore_ament_install']
+[0.296s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q4_interfaces) by extension 'ignore'
+[0.296s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q4_interfaces) by extension 'ignore_ament_install'
+[0.296s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q4_interfaces) by extensions ['colcon_pkg']
+[0.296s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q4_interfaces) by extension 'colcon_pkg'
+[0.296s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q4_interfaces) by extensions ['colcon_meta']
+[0.296s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q4_interfaces) by extension 'colcon_meta'
+[0.296s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q4_interfaces) by extensions ['ros']
+[0.296s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q4_interfaces) by extension 'ros'
+[0.297s] DEBUG:colcon.colcon_core.package_identification:Package 'cw1q4_interfaces' with type 'ros.ament_cmake' and name 'cw1q4_interfaces'
+[0.297s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q5) by extensions ['ignore', 'ignore_ament_install']
+[0.297s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q5) by extension 'ignore'
+[0.297s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q5) by extension 'ignore_ament_install'
+[0.297s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q5) by extensions ['colcon_pkg']
+[0.297s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q5) by extension 'colcon_pkg'
+[0.297s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q5) by extensions ['colcon_meta']
+[0.297s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q5) by extension 'colcon_meta'
+[0.297s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q5) by extensions ['ros']
+[0.297s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q5) by extension 'ros'
+[0.298s] DEBUG:colcon.colcon_core.package_identification:Package 'cw1q5' with type 'ros.ament_python' and name 'cw1q5'
+[0.298s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q9) by extensions ['ignore', 'ignore_ament_install']
+[0.298s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q9) by extension 'ignore'
+[0.298s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q9) by extension 'ignore_ament_install'
+[0.298s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q9) by extensions ['colcon_pkg']
+[0.298s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q9) by extension 'colcon_pkg'
+[0.298s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q9) by extensions ['colcon_meta']
+[0.298s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q9) by extension 'colcon_meta'
+[0.298s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q9) by extensions ['ros']
+[0.298s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q9) by extension 'ros'
+[0.299s] DEBUG:colcon.colcon_core.package_identification:Package 'cw1q9' with type 'ros.ament_python' and name 'cw1q9'
+[0.299s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.299s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.299s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.300s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.300s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.300s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.300s] Level 1:colcon.colcon_core.package_identification:_identify(pic) by extensions ['ignore', 'ignore_ament_install']
+[0.300s] Level 1:colcon.colcon_core.package_identification:_identify(pic) by extension 'ignore'
+[0.300s] Level 1:colcon.colcon_core.package_identification:_identify(pic) by extension 'ignore_ament_install'
+[0.300s] Level 1:colcon.colcon_core.package_identification:_identify(pic) by extensions ['colcon_pkg']
+[0.300s] Level 1:colcon.colcon_core.package_identification:_identify(pic) by extension 'colcon_pkg'
+[0.300s] Level 1:colcon.colcon_core.package_identification:_identify(pic) by extensions ['colcon_meta']
+[0.300s] Level 1:colcon.colcon_core.package_identification:_identify(pic) by extension 'colcon_meta'
+[0.300s] Level 1:colcon.colcon_core.package_identification:_identify(pic) by extensions ['ros']
+[0.300s] Level 1:colcon.colcon_core.package_identification:_identify(pic) by extension 'ros'
+[0.300s] Level 1:colcon.colcon_core.package_identification:_identify(pic) by extensions ['cmake', 'python']
+[0.300s] Level 1:colcon.colcon_core.package_identification:_identify(pic) by extension 'cmake'
+[0.300s] Level 1:colcon.colcon_core.package_identification:_identify(pic) by extension 'python'
+[0.300s] Level 1:colcon.colcon_core.package_identification:_identify(pic) by extensions ['python_setup_py']
+[0.300s] Level 1:colcon.colcon_core.package_identification:_identify(pic) by extension 'python_setup_py'
+[0.300s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.300s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.300s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.300s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.300s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.313s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.314s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.315s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 4 installed packages in /home/bizare/Desktop/Robotics_System/install
+[0.316s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 266 installed packages in /opt/ros/foxy
+[0.317s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.375s] Level 5:colcon.colcon_core.verb:set package 'cw1q4' build argument 'cmake_args' from command line to 'None'
+[0.375s] Level 5:colcon.colcon_core.verb:set package 'cw1q4' build argument 'cmake_target' from command line to 'None'
+[0.375s] Level 5:colcon.colcon_core.verb:set package 'cw1q4' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.375s] Level 5:colcon.colcon_core.verb:set package 'cw1q4' build argument 'cmake_clean_cache' from command line to 'False'
+[0.375s] Level 5:colcon.colcon_core.verb:set package 'cw1q4' build argument 'cmake_clean_first' from command line to 'False'
+[0.376s] Level 5:colcon.colcon_core.verb:set package 'cw1q4' build argument 'cmake_force_configure' from command line to 'False'
+[0.376s] Level 5:colcon.colcon_core.verb:set package 'cw1q4' build argument 'ament_cmake_args' from command line to 'None'
+[0.376s] Level 5:colcon.colcon_core.verb:set package 'cw1q4' build argument 'catkin_cmake_args' from command line to 'None'
+[0.376s] Level 5:colcon.colcon_core.verb:set package 'cw1q4' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.376s] DEBUG:colcon.colcon_core.verb:Building package 'cw1q4' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/bizare/Desktop/Robotics_System/build/cw1q4', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/bizare/Desktop/Robotics_System/install/cw1q4', 'merge_install': False, 'path': '/home/bizare/Desktop/Robotics_System/cw1q4', 'symlink_install': False, 'test_result_base': None}
+[0.376s] Level 5:colcon.colcon_core.verb:set package 'cw1q4_interfaces' build argument 'cmake_args' from command line to 'None'
+[0.376s] Level 5:colcon.colcon_core.verb:set package 'cw1q4_interfaces' build argument 'cmake_target' from command line to 'None'
+[0.376s] Level 5:colcon.colcon_core.verb:set package 'cw1q4_interfaces' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.376s] Level 5:colcon.colcon_core.verb:set package 'cw1q4_interfaces' build argument 'cmake_clean_cache' from command line to 'False'
+[0.376s] Level 5:colcon.colcon_core.verb:set package 'cw1q4_interfaces' build argument 'cmake_clean_first' from command line to 'False'
+[0.376s] Level 5:colcon.colcon_core.verb:set package 'cw1q4_interfaces' build argument 'cmake_force_configure' from command line to 'False'
+[0.376s] Level 5:colcon.colcon_core.verb:set package 'cw1q4_interfaces' build argument 'ament_cmake_args' from command line to 'None'
+[0.376s] Level 5:colcon.colcon_core.verb:set package 'cw1q4_interfaces' build argument 'catkin_cmake_args' from command line to 'None'
+[0.376s] Level 5:colcon.colcon_core.verb:set package 'cw1q4_interfaces' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.376s] DEBUG:colcon.colcon_core.verb:Building package 'cw1q4_interfaces' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/bizare/Desktop/Robotics_System/build/cw1q4_interfaces', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces', 'merge_install': False, 'path': '/home/bizare/Desktop/Robotics_System/cw1q4_interfaces', 'symlink_install': False, 'test_result_base': None}
+[0.376s] Level 5:colcon.colcon_core.verb:set package 'cw1q5' build argument 'cmake_args' from command line to 'None'
+[0.376s] Level 5:colcon.colcon_core.verb:set package 'cw1q5' build argument 'cmake_target' from command line to 'None'
+[0.377s] Level 5:colcon.colcon_core.verb:set package 'cw1q5' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.377s] Level 5:colcon.colcon_core.verb:set package 'cw1q5' build argument 'cmake_clean_cache' from command line to 'False'
+[0.377s] Level 5:colcon.colcon_core.verb:set package 'cw1q5' build argument 'cmake_clean_first' from command line to 'False'
+[0.377s] Level 5:colcon.colcon_core.verb:set package 'cw1q5' build argument 'cmake_force_configure' from command line to 'False'
+[0.377s] Level 5:colcon.colcon_core.verb:set package 'cw1q5' build argument 'ament_cmake_args' from command line to 'None'
+[0.377s] Level 5:colcon.colcon_core.verb:set package 'cw1q5' build argument 'catkin_cmake_args' from command line to 'None'
+[0.377s] Level 5:colcon.colcon_core.verb:set package 'cw1q5' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.377s] DEBUG:colcon.colcon_core.verb:Building package 'cw1q5' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/bizare/Desktop/Robotics_System/build/cw1q5', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/bizare/Desktop/Robotics_System/install/cw1q5', 'merge_install': False, 'path': '/home/bizare/Desktop/Robotics_System/cw1q5', 'symlink_install': False, 'test_result_base': None}
+[0.377s] Level 5:colcon.colcon_core.verb:set package 'cw1q9' build argument 'cmake_args' from command line to 'None'
+[0.377s] Level 5:colcon.colcon_core.verb:set package 'cw1q9' build argument 'cmake_target' from command line to 'None'
+[0.377s] Level 5:colcon.colcon_core.verb:set package 'cw1q9' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.377s] Level 5:colcon.colcon_core.verb:set package 'cw1q9' build argument 'cmake_clean_cache' from command line to 'False'
+[0.377s] Level 5:colcon.colcon_core.verb:set package 'cw1q9' build argument 'cmake_clean_first' from command line to 'False'
+[0.377s] Level 5:colcon.colcon_core.verb:set package 'cw1q9' build argument 'cmake_force_configure' from command line to 'False'
+[0.377s] Level 5:colcon.colcon_core.verb:set package 'cw1q9' build argument 'ament_cmake_args' from command line to 'None'
+[0.377s] Level 5:colcon.colcon_core.verb:set package 'cw1q9' build argument 'catkin_cmake_args' from command line to 'None'
+[0.377s] Level 5:colcon.colcon_core.verb:set package 'cw1q9' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.377s] DEBUG:colcon.colcon_core.verb:Building package 'cw1q9' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/bizare/Desktop/Robotics_System/build/cw1q9', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/bizare/Desktop/Robotics_System/install/cw1q9', 'merge_install': False, 'path': '/home/bizare/Desktop/Robotics_System/cw1q9', 'symlink_install': False, 'test_result_base': None}
+[0.377s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.379s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.379s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/bizare/Desktop/Robotics_System/cw1q4' with build type 'ament_python'
+[0.379s] Level 1:colcon.colcon_core.shell:create_environment_hook('cw1q4', 'ament_prefix_path')
+[0.381s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.381s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bizare/Desktop/Robotics_System/install/cw1q4/share/cw1q4/hook/ament_prefix_path.ps1'
+[0.382s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/bizare/Desktop/Robotics_System/install/cw1q4/share/cw1q4/hook/ament_prefix_path.dsv'
+[0.382s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bizare/Desktop/Robotics_System/install/cw1q4/share/cw1q4/hook/ament_prefix_path.sh'
+[0.383s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.383s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.388s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/bizare/Desktop/Robotics_System/cw1q4_interfaces' with build type 'ament_cmake'
+[0.388s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/bizare/Desktop/Robotics_System/cw1q4_interfaces'
+[0.389s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.389s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.394s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/bizare/Desktop/Robotics_System/cw1q5' with build type 'ament_python'
+[0.395s] Level 1:colcon.colcon_core.shell:create_environment_hook('cw1q5', 'ament_prefix_path')
+[0.395s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bizare/Desktop/Robotics_System/install/cw1q5/share/cw1q5/hook/ament_prefix_path.ps1'
+[0.396s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/bizare/Desktop/Robotics_System/install/cw1q5/share/cw1q5/hook/ament_prefix_path.dsv'
+[0.396s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bizare/Desktop/Robotics_System/install/cw1q5/share/cw1q5/hook/ament_prefix_path.sh'
+[0.397s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.397s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.403s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/bizare/Desktop/Robotics_System/cw1q9' with build type 'ament_python'
+[0.403s] Level 1:colcon.colcon_core.shell:create_environment_hook('cw1q9', 'ament_prefix_path')
+[0.404s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bizare/Desktop/Robotics_System/install/cw1q9/share/cw1q9/hook/ament_prefix_path.ps1'
+[0.406s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/bizare/Desktop/Robotics_System/install/cw1q9/share/cw1q9/hook/ament_prefix_path.dsv'
+[0.406s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bizare/Desktop/Robotics_System/install/cw1q9/share/cw1q9/hook/ament_prefix_path.sh'
+[0.407s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.407s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.613s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/bizare/Desktop/Robotics_System/cw1q4'
+[0.614s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.614s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.625s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/bizare/Desktop/Robotics_System/build/cw1q4_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/bizare/Desktop/Robotics_System/install/cw1q9:/home/bizare/Desktop/Robotics_System/install/cw1q5:/home/bizare/Desktop/Robotics_System/install/cw1q4:/opt/ros/foxy /usr/bin/cmake --build /home/bizare/Desktop/Robotics_System/build/cw1q4_interfaces -- -j8 -l8
+[0.822s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/bizare/Desktop/Robotics_System/cw1q5'
+[0.823s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.823s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.015s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/bizare/Desktop/Robotics_System/cw1q9'
+[1.016s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.016s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.037s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/bizare/Desktop/Robotics_System/build/cw1q4_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/bizare/Desktop/Robotics_System/install/cw1q9:/home/bizare/Desktop/Robotics_System/install/cw1q5:/home/bizare/Desktop/Robotics_System/install/cw1q4:/opt/ros/foxy /usr/bin/cmake --build /home/bizare/Desktop/Robotics_System/build/cw1q4_interfaces -- -j8 -l8
+[1.048s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/bizare/Desktop/Robotics_System/build/cw1q4_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/bizare/Desktop/Robotics_System/install/cw1q9:/home/bizare/Desktop/Robotics_System/install/cw1q5:/home/bizare/Desktop/Robotics_System/install/cw1q4:/opt/ros/foxy /usr/bin/cmake --install /home/bizare/Desktop/Robotics_System/build/cw1q4_interfaces
+[1.104s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(cw1q4_interfaces)
+[1.105s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/bizare/Desktop/Robotics_System/build/cw1q4_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/bizare/Desktop/Robotics_System/install/cw1q9:/home/bizare/Desktop/Robotics_System/install/cw1q5:/home/bizare/Desktop/Robotics_System/install/cw1q4:/opt/ros/foxy /usr/bin/cmake --install /home/bizare/Desktop/Robotics_System/build/cw1q4_interfaces
+[1.107s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces' for CMake module files
+[1.107s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces' for CMake config files
+[1.108s] Level 1:colcon.colcon_core.shell:create_environment_hook('cw1q4_interfaces', 'cmake_prefix_path')
+[1.108s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/hook/cmake_prefix_path.ps1'
+[1.109s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/hook/cmake_prefix_path.dsv'
+[1.109s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/hook/cmake_prefix_path.sh'
+[1.110s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/lib'
+[1.110s] Level 1:colcon.colcon_core.shell:create_environment_hook('cw1q4_interfaces', 'ld_library_path_lib')
+[1.110s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/hook/ld_library_path_lib.ps1'
+[1.111s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/hook/ld_library_path_lib.dsv'
+[1.111s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/hook/ld_library_path_lib.sh'
+[1.112s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/bin'
+[1.112s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/lib/pkgconfig/cw1q4_interfaces.pc'
+[1.112s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/lib/python3.8/site-packages'
+[1.112s] Level 1:colcon.colcon_core.shell:create_environment_hook('cw1q4_interfaces', 'pythonpath')
+[1.112s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/hook/pythonpath.ps1'
+[1.113s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/hook/pythonpath.dsv'
+[1.113s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/hook/pythonpath.sh'
+[1.114s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/bin'
+[1.114s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/package.ps1'
+[1.115s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/package.dsv'
+[1.115s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/package.sh'
+[1.116s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/package.bash'
+[1.117s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/package.zsh'
+[1.118s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/colcon-core/packages/cw1q4_interfaces)
+[1.119s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(cw1q4_interfaces)
+[1.122s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces' for CMake module files
+[1.122s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces' for CMake config files
+[1.123s] Level 1:colcon.colcon_core.shell:create_environment_hook('cw1q4_interfaces', 'cmake_prefix_path')
+[1.123s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/hook/cmake_prefix_path.ps1'
+[1.123s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/hook/cmake_prefix_path.dsv'
+[1.124s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/hook/cmake_prefix_path.sh'
+[1.124s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/lib'
+[1.125s] Level 1:colcon.colcon_core.shell:create_environment_hook('cw1q4_interfaces', 'ld_library_path_lib')
+[1.125s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/hook/ld_library_path_lib.ps1'
+[1.125s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/hook/ld_library_path_lib.dsv'
+[1.126s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/hook/ld_library_path_lib.sh'
+[1.126s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/bin'
+[1.126s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/lib/pkgconfig/cw1q4_interfaces.pc'
+[1.127s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/lib/python3.8/site-packages'
+[1.127s] Level 1:colcon.colcon_core.shell:create_environment_hook('cw1q4_interfaces', 'pythonpath')
+[1.127s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/hook/pythonpath.ps1'
+[1.127s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/hook/pythonpath.dsv'
+[1.128s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/hook/pythonpath.sh'
+[1.128s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/bin'
+[1.129s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/package.ps1'
+[1.129s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/package.dsv'
+[1.130s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/package.sh'
+[1.130s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/package.bash'
+[1.131s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/package.zsh'
+[1.131s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/colcon-core/packages/cw1q4_interfaces)
+[1.395s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/bizare/Desktop/Robotics_System/cw1q5': PYTHONPATH=/home/bizare/Desktop/Robotics_System/build/cw1q5/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bizare/Desktop/Robotics_System/install/cw1q5/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/cw1q5 build --build-base /home/bizare/Desktop/Robotics_System/build/cw1q5/build install --record /home/bizare/Desktop/Robotics_System/build/cw1q5/install.log --install-scripts $base/lib/cw1q5 --single-version-externally-managed install_data
+[1.399s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/bizare/Desktop/Robotics_System/cw1q4': PYTHONPATH=/home/bizare/Desktop/Robotics_System/build/cw1q4/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bizare/Desktop/Robotics_System/install/cw1q4/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/cw1q4 build --build-base /home/bizare/Desktop/Robotics_System/build/cw1q4/build install --record /home/bizare/Desktop/Robotics_System/build/cw1q4/install.log --install-scripts $base/lib/cw1q4 --single-version-externally-managed install_data
+[1.406s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/bizare/Desktop/Robotics_System/cw1q9': PYTHONPATH=/home/bizare/Desktop/Robotics_System/build/cw1q9/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bizare/Desktop/Robotics_System/install/cw1q9/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/cw1q9 build --build-base /home/bizare/Desktop/Robotics_System/build/cw1q9/build install --record /home/bizare/Desktop/Robotics_System/build/cw1q9/install.log --install-scripts $base/lib/cw1q9 --single-version-externally-managed install_data
+[1.662s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q5' for CMake module files
+[1.663s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/bizare/Desktop/Robotics_System/cw1q5' returned '0': PYTHONPATH=/home/bizare/Desktop/Robotics_System/build/cw1q5/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bizare/Desktop/Robotics_System/install/cw1q5/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/cw1q5 build --build-base /home/bizare/Desktop/Robotics_System/build/cw1q5/build install --record /home/bizare/Desktop/Robotics_System/build/cw1q5/install.log --install-scripts $base/lib/cw1q5 --single-version-externally-managed install_data
+[1.663s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q5' for CMake config files
+[1.664s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q5/lib'
+[1.664s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q5/bin'
+[1.664s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q5/lib/pkgconfig/cw1q5.pc'
+[1.664s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q5/lib/python3.8/site-packages'
+[1.664s] Level 1:colcon.colcon_core.shell:create_environment_hook('cw1q5', 'pythonpath')
+[1.664s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bizare/Desktop/Robotics_System/install/cw1q5/share/cw1q5/hook/pythonpath.ps1'
+[1.665s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/bizare/Desktop/Robotics_System/install/cw1q5/share/cw1q5/hook/pythonpath.dsv'
+[1.665s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bizare/Desktop/Robotics_System/install/cw1q5/share/cw1q5/hook/pythonpath.sh'
+[1.666s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q5/bin'
+[1.666s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(cw1q5)
+[1.666s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/cw1q5/share/cw1q5/package.ps1'
+[1.667s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/bizare/Desktop/Robotics_System/install/cw1q5/share/cw1q5/package.dsv'
+[1.667s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/cw1q5/share/cw1q5/package.sh'
+[1.668s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/cw1q5/share/cw1q5/package.bash'
+[1.669s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/cw1q5/share/cw1q5/package.zsh'
+[1.669s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/bizare/Desktop/Robotics_System/install/cw1q5/share/colcon-core/packages/cw1q5)
+[1.672s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q9' for CMake module files
+[1.673s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/bizare/Desktop/Robotics_System/cw1q9' returned '0': PYTHONPATH=/home/bizare/Desktop/Robotics_System/build/cw1q9/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bizare/Desktop/Robotics_System/install/cw1q9/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/cw1q9 build --build-base /home/bizare/Desktop/Robotics_System/build/cw1q9/build install --record /home/bizare/Desktop/Robotics_System/build/cw1q9/install.log --install-scripts $base/lib/cw1q9 --single-version-externally-managed install_data
+[1.673s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q9' for CMake config files
+[1.674s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q9/lib'
+[1.674s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q9/bin'
+[1.674s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q9/lib/pkgconfig/cw1q9.pc'
+[1.674s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q9/lib/python3.8/site-packages'
+[1.674s] Level 1:colcon.colcon_core.shell:create_environment_hook('cw1q9', 'pythonpath')
+[1.674s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bizare/Desktop/Robotics_System/install/cw1q9/share/cw1q9/hook/pythonpath.ps1'
+[1.675s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/bizare/Desktop/Robotics_System/install/cw1q9/share/cw1q9/hook/pythonpath.dsv'
+[1.675s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bizare/Desktop/Robotics_System/install/cw1q9/share/cw1q9/hook/pythonpath.sh'
+[1.676s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q9/bin'
+[1.676s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(cw1q9)
+[1.676s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/cw1q9/share/cw1q9/package.ps1'
+[1.677s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/bizare/Desktop/Robotics_System/install/cw1q9/share/cw1q9/package.dsv'
+[1.677s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/cw1q9/share/cw1q9/package.sh'
+[1.678s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/cw1q9/share/cw1q9/package.bash'
+[1.678s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/cw1q9/share/cw1q9/package.zsh'
+[1.678s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/bizare/Desktop/Robotics_System/install/cw1q9/share/colcon-core/packages/cw1q9)
+[1.681s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q4' for CMake module files
+[1.681s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/bizare/Desktop/Robotics_System/cw1q4' returned '0': PYTHONPATH=/home/bizare/Desktop/Robotics_System/build/cw1q4/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bizare/Desktop/Robotics_System/install/cw1q4/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/cw1q4 build --build-base /home/bizare/Desktop/Robotics_System/build/cw1q4/build install --record /home/bizare/Desktop/Robotics_System/build/cw1q4/install.log --install-scripts $base/lib/cw1q4 --single-version-externally-managed install_data
+[1.682s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q4' for CMake config files
+[1.682s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q4/lib'
+[1.682s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q4/bin'
+[1.682s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q4/lib/pkgconfig/cw1q4.pc'
+[1.683s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q4/lib/python3.8/site-packages'
+[1.683s] Level 1:colcon.colcon_core.shell:create_environment_hook('cw1q4', 'pythonpath')
+[1.683s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bizare/Desktop/Robotics_System/install/cw1q4/share/cw1q4/hook/pythonpath.ps1'
+[1.683s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/bizare/Desktop/Robotics_System/install/cw1q4/share/cw1q4/hook/pythonpath.dsv'
+[1.684s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bizare/Desktop/Robotics_System/install/cw1q4/share/cw1q4/hook/pythonpath.sh'
+[1.684s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q4/bin'
+[1.684s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(cw1q4)
+[1.685s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/cw1q4/share/cw1q4/package.ps1'
+[1.685s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/bizare/Desktop/Robotics_System/install/cw1q4/share/cw1q4/package.dsv'
+[1.686s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/cw1q4/share/cw1q4/package.sh'
+[1.686s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/cw1q4/share/cw1q4/package.bash'
+[1.686s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/cw1q4/share/cw1q4/package.zsh'
+[1.687s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/bizare/Desktop/Robotics_System/install/cw1q4/share/colcon-core/packages/cw1q4)
+[1.687s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[1.688s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[1.689s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[1.689s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[1.695s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[1.695s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[1.695s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[1.706s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[1.706s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/bizare/Desktop/Robotics_System/install/local_setup.ps1'
+[1.707s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/bizare/Desktop/Robotics_System/install/_local_setup_util_ps1.py'
+[1.708s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/bizare/Desktop/Robotics_System/install/setup.ps1'
+[1.709s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/bizare/Desktop/Robotics_System/install/local_setup.sh'
+[1.710s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/bizare/Desktop/Robotics_System/install/_local_setup_util_sh.py'
+[1.711s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/bizare/Desktop/Robotics_System/install/setup.sh'
+[1.712s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/bizare/Desktop/Robotics_System/install/local_setup.bash'
+[1.712s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/bizare/Desktop/Robotics_System/install/setup.bash'
+[1.713s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/bizare/Desktop/Robotics_System/install/local_setup.zsh'
+[1.714s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/bizare/Desktop/Robotics_System/install/setup.zsh'

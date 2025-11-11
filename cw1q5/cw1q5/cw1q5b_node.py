@@ -30,11 +30,10 @@ stacked on the z-axis.
 # ╚════════════════════════════════════════════════════════════════════════╝
 # Populate the values inside the youbot_dh_parameters dictionary with the ones you found in question 5a.
 
-youbot_dh_parameters = {'a':[0, 0, 0, 0, 0],
-                        'alpha': [0, 0, 0, 0, 0],
-                        'd' : [0, 0, 0, 0, 0],
-                        'theta' : [0, 0, 0, 0, 0]}
-
+youbot_dh_parameters = {'a':    [0,         0.155,      0.135,  0,          0],
+                        'alpha':[np.pi/2,   0,          0,      -np.pi/2,   0],
+                        'd' :   [0.147,     0,          0,      0,          0.218],
+                        'theta':[0,         np.pi/2,    0,      -np.pi/2,   0]}
 
 def rotmat2q(R):
     """Function for converting a 3x3 Rotation matrix R to quaternion q."""
@@ -73,7 +72,12 @@ def standard_dh(a, alpha, d, theta):
     # ╔════════════════════════════════════════════════════════════════════════╗
     # ║                    PART 2: COMPLETE THE DH FUNCTION                    ║
     # ╚════════════════════════════════════════════════════════════════════════╝
-
+    A = np.array([
+            [np.cos(theta), -np.sin(theta)*np.cos(alpha),  np.sin(theta)*np.sin(alpha), a*np.cos(theta)],
+            [np.sin(theta),  np.cos(theta)*np.cos(alpha), -np.cos(theta)*np.sin(alpha), a*np.sin(theta)],
+            [0.0,            np.sin(alpha),                np.cos(alpha),               d              ],
+            [0.0,            0.0,                          0.0,                         1.0            ]
+        ])
     # ╔════════════════════════════════════════════════════════════════════════╗
     # ╚════════════════════════════════════════════════════════════════════════╝
     
@@ -96,7 +100,16 @@ def forward_kinematics(dh_dict, joints_readings, up_to_joint=5):
     # ╔════════════════════════════════════════════════════════════════════════╗
     # ║                PART 3: COMPLETE THE FORWARD KINEMATICS                 ║
     # ╚════════════════════════════════════════════════════════════════════════╝
+    for i in range(up_to_joint):
+            a = dh_dict['a'][i]
+            alpha = dh_dict['alpha'][i]
+            d = dh_dict['d'][i]
+            theta = dh_dict['theta'][i] + joints_readings[i]
 
+            T_i = standard_dh(a, alpha, d, theta)
+            T = np.dot(T, T_i)
+            pos = T[0:3, 3]
+            print(f"Frame {i+1} position (relative to base): x={pos[0]:.3f}, y={pos[1]:.3f}, z={pos[2]:.3f}")
     # ╔════════════════════════════════════════════════════════════════════════╗
     # ╚════════════════════════════════════════════════════════════════════════╝
     
@@ -128,7 +141,30 @@ class ForwardKinematicsNode(Node):
         # ╔════════════════════════════════════════════════════════════════════════╗
         # ║                  PART 4: COMPLETE THE ROS 2 WRAPPER                  ║
         # ╚════════════════════════════════════════════════════════════════════════╝
-        
+        # 获取关节角数据
+        joints = list(joint_msg.position)
+
+        # 计算末端变换矩阵
+        T = forward_kinematics(youbot_dh_parameters, joints)
+
+        # 提取平移与旋转部分
+        R = T[:3, :3]
+        q = rotmat2q(R)
+
+        t = TransformStamped()
+        t.header.stamp = self.get_clock().now().to_msg()
+        t.header.frame_id = 'base_link'
+        t.child_frame_id = 'end_effector'
+
+        t.transform.translation.x = float(T[0, 3])
+        t.transform.translation.y = float(T[1, 3])
+        t.transform.translation.z = float(T[2, 3])
+        t.transform.rotation = q
+
+        self.br.sendTransform(t)
+        self.get_logger().info(
+            f"End-effector pose: x={T[0,3]:.3f}, y={T[1,3]:.3f}, z={T[2,3]:.3f}"
+        )
         # ╔════════════════════════════════════════════════════════════════════════╗
         # ╚════════════════════════════════════════════════════════════════════════╝
 
