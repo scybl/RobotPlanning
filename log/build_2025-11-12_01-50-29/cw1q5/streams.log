@@ -1,0 +1,46 @@
+[1.124s] Invoking command in '/home/bizare/Desktop/Robotics_System/cw1q5': AMENT_PREFIX_PATH=/home/bizare/Desktop/Robotics_System/install/youbot_simulator:/home/bizare/Desktop/Robotics_System/install/youbot_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/bizare/Desktop/Robotics_System/install/youbot_simulator:/home/bizare/Desktop/Robotics_System/install/youbot_description:${CMAKE_PREFIX_PATH} PYTHONPATH=/home/bizare/Desktop/Robotics_System/build/cw1q5/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bizare/Desktop/Robotics_System/install/cw1q5/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/cw1q5 build --build-base /home/bizare/Desktop/Robotics_System/build/cw1q5/build install --record /home/bizare/Desktop/Robotics_System/build/cw1q5/install.log --install-scripts $base/lib/cw1q5 --single-version-externally-managed install_data
+[1.556s] running egg_info
+[1.557s] creating ../build/cw1q5/cw1q5.egg-info
+[1.557s] writing ../build/cw1q5/cw1q5.egg-info/PKG-INFO
+[1.557s] writing dependency_links to ../build/cw1q5/cw1q5.egg-info/dependency_links.txt
+[1.558s] writing entry points to ../build/cw1q5/cw1q5.egg-info/entry_points.txt
+[1.558s] writing requirements to ../build/cw1q5/cw1q5.egg-info/requires.txt
+[1.559s] writing top-level names to ../build/cw1q5/cw1q5.egg-info/top_level.txt
+[1.560s] writing manifest file '../build/cw1q5/cw1q5.egg-info/SOURCES.txt'
+[1.630s] reading manifest file '../build/cw1q5/cw1q5.egg-info/SOURCES.txt'
+[1.633s] writing manifest file '../build/cw1q5/cw1q5.egg-info/SOURCES.txt'
+[1.633s] running build
+[1.633s] running build_py
+[1.634s] creating /home/bizare/Desktop/Robotics_System/build/cw1q5/build
+[1.634s] creating /home/bizare/Desktop/Robotics_System/build/cw1q5/build/lib
+[1.634s] creating /home/bizare/Desktop/Robotics_System/build/cw1q5/build/lib/cw1q5
+[1.634s] copying cw1q5/__init__.py -> /home/bizare/Desktop/Robotics_System/build/cw1q5/build/lib/cw1q5
+[1.635s] copying cw1q5/cw1q5b_node.py -> /home/bizare/Desktop/Robotics_System/build/cw1q5/build/lib/cw1q5
+[1.635s] copying cw1q5/cw1q5d_node.py -> /home/bizare/Desktop/Robotics_System/build/cw1q5/build/lib/cw1q5
+[1.636s] running install
+[1.637s] running install_lib
+[1.640s] creating /home/bizare/Desktop/Robotics_System/install/cw1q5/lib/python3.8/site-packages/cw1q5
+[1.640s] copying /home/bizare/Desktop/Robotics_System/build/cw1q5/build/lib/cw1q5/__init__.py -> /home/bizare/Desktop/Robotics_System/install/cw1q5/lib/python3.8/site-packages/cw1q5
+[1.640s] copying /home/bizare/Desktop/Robotics_System/build/cw1q5/build/lib/cw1q5/cw1q5b_node.py -> /home/bizare/Desktop/Robotics_System/install/cw1q5/lib/python3.8/site-packages/cw1q5
+[1.641s] copying /home/bizare/Desktop/Robotics_System/build/cw1q5/build/lib/cw1q5/cw1q5d_node.py -> /home/bizare/Desktop/Robotics_System/install/cw1q5/lib/python3.8/site-packages/cw1q5
+[1.641s] byte-compiling /home/bizare/Desktop/Robotics_System/install/cw1q5/lib/python3.8/site-packages/cw1q5/__init__.py to __init__.cpython-38.pyc
+[1.643s] byte-compiling /home/bizare/Desktop/Robotics_System/install/cw1q5/lib/python3.8/site-packages/cw1q5/cw1q5b_node.py to cw1q5b_node.cpython-38.pyc
+[1.646s] byte-compiling /home/bizare/Desktop/Robotics_System/install/cw1q5/lib/python3.8/site-packages/cw1q5/cw1q5d_node.py to cw1q5d_node.cpython-38.pyc
+[1.647s] running install_data
+[1.648s] creating /home/bizare/Desktop/Robotics_System/install/cw1q5/share/ament_index
+[1.648s] creating /home/bizare/Desktop/Robotics_System/install/cw1q5/share/ament_index/resource_index
+[1.648s] creating /home/bizare/Desktop/Robotics_System/install/cw1q5/share/ament_index/resource_index/packages
+[1.648s] copying resource/cw1q5 -> /home/bizare/Desktop/Robotics_System/install/cw1q5/share/ament_index/resource_index/packages
+[1.649s] copying package.xml -> /home/bizare/Desktop/Robotics_System/install/cw1q5/share/cw1q5
+[1.649s] creating /home/bizare/Desktop/Robotics_System/install/cw1q5/share/cw1q5/launch
+[1.649s] copying launch/q5b_launch.py -> /home/bizare/Desktop/Robotics_System/install/cw1q5/share/cw1q5/launch
+[1.650s] copying launch/q5d_launch.py -> /home/bizare/Desktop/Robotics_System/install/cw1q5/share/cw1q5/launch
+[1.651s] creating /home/bizare/Desktop/Robotics_System/install/cw1q5/share/cw1q5/rviz
+[1.651s] copying rviz/q5b.rviz -> /home/bizare/Desktop/Robotics_System/install/cw1q5/share/cw1q5/rviz
+[1.652s] running install_egg_info
+[1.655s] Copying ../build/cw1q5/cw1q5.egg-info to /home/bizare/Desktop/Robotics_System/install/cw1q5/lib/python3.8/site-packages/cw1q5-0.0.0-py3.8.egg-info
+[1.657s] running install_scripts
+[1.694s] Installing cw1q5b_node script to /home/bizare/Desktop/Robotics_System/install/cw1q5/lib/cw1q5
+[1.694s] Installing cw1q5d_node script to /home/bizare/Desktop/Robotics_System/install/cw1q5/lib/cw1q5
+[1.695s] writing list of installed files to '/home/bizare/Desktop/Robotics_System/build/cw1q5/install.log'
+[1.731s] Invoked command in '/home/bizare/Desktop/Robotics_System/cw1q5' returned '0': AMENT_PREFIX_PATH=/home/bizare/Desktop/Robotics_System/install/youbot_simulator:/home/bizare/Desktop/Robotics_System/install/youbot_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/bizare/Desktop/Robotics_System/install/youbot_simulator:/home/bizare/Desktop/Robotics_System/install/youbot_description:${CMAKE_PREFIX_PATH} PYTHONPATH=/home/bizare/Desktop/Robotics_System/build/cw1q5/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bizare/Desktop/Robotics_System/install/cw1q5/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/cw1q5 build --build-base /home/bizare/Desktop/Robotics_System/build/cw1q5/build install --record /home/bizare/Desktop/Robotics_System/build/cw1q5/install.log --install-scripts $base/lib/cw1q5 --single-version-externally-managed install_data

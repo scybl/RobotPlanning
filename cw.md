@@ -552,6 +552,9 @@ for i in range(up_to_joint):
   T_i = standard_dh(a, alpha, d, theta)
   T = np.dot(T, T_i)
 ```
+
+urdf robotics description
+
 ### Task 4: Implementing the fkine_wrapper() Function
 This function serves as the ROS 2 subscriber callback, connecting the mathematical forward-kinematics computation with the ROS communication system.
 It listens to the topic `/joint_states`, extracts the joint angle values, computes the end-effector pose using the previously defined `forward_kinematics()` function, converts the rotation matrix to a quaternion, and publishes the result as a TF transform.

@@ -100,18 +100,29 @@ def forward_kinematics(dh_dict, joints_readings, up_to_joint=5):
     # ╔════════════════════════════════════════════════════════════════════════╗
     # ║                PART 3: COMPLETE THE FORWARD KINEMATICS                 ║
     # ╚════════════════════════════════════════════════════════════════════════╝
-    for i in range(up_to_joint):
-            a = dh_dict['a'][i]
-            alpha = dh_dict['alpha'][i]
-            d = dh_dict['d'][i]
-            theta = dh_dict['theta'][i] + joints_readings[i]
 
-            T_i = standard_dh(a, alpha, d, theta)
-            T = np.dot(T, T_i)
-            
+    # 初始化为单位矩阵（从世界坐标系开始）
+    T = np.identity(4)
+    
+    # 遍历所有关节，累积变换
+    for i in range(up_to_joint):
+        # 实际关节角度 = DH零位偏移 + 实际读数
+        theta_actual = dh_dict['theta'][i] + joints_readings[i] 
+        
+        # 第i个关节的变换矩阵
+        T_i = standard_dh(
+            a=dh_dict['a'][i],
+            alpha=dh_dict['alpha'][i],
+            d=dh_dict['d'][i],
+            theta=theta_actual
+        )
+        
+        # 累积乘法：T = T @ T_i
+        # T_{0→n} = T_{0→1} × T_{1→2} × ... × T_{n-1→n}
+        T = T @ T_i
+
     # ╔════════════════════════════════════════════════════════════════════════╗
     # ╚════════════════════════════════════════════════════════════════════════╝
-    
     assert isinstance(T, np.ndarray), "Output wasn't of type ndarray"
     assert T.shape == (4, 4), "Output had wrong dimensions"
     return T
@@ -137,33 +148,53 @@ class ForwardKinematicsNode(Node):
         """
         assert isinstance(joint_msg, JointState), "Node must subscribe to a topic where JointState messages are published"
 
-        # ╔════════════════════════════════════════════════════════════════════════╗
-        # ║                  PART 4: COMPLETE THE ROS 2 WRAPPER                  ║
+# ╔════════════════════════════════════════════════════════════════════════╗
+        # ║                  PART 4: COMPLETE THE ROS 2 WRAPPER                    ║
         # ╚════════════════════════════════════════════════════════════════════════╝
-        joints = list(joint_msg.position)
+        
+        # 获取关节数量
+        num_joints = len(youbot_dh_parameters['a'])
+        
+        # 提取关节角度（转换为列表）
+        joints_readings = list(joint_msg.position[:num_joints])
+        
+        # 定义坐标系名称
+        parent_frame = 'base_link'
+        link_names = [f'dh_link_{i + 1}' for i in range(num_joints)]
+        
+        # 逐个计算并广播每个关节的TF
+        for i in range(num_joints):
+            # 计算从世界坐标系到当前关节的累积变换
+            T_cumulative = forward_kinematics(
+                dh_dict=youbot_dh_parameters,
+                joints_readings=joints_readings,
+                up_to_joint=i+1  # 计算到第i+1个关节
+            )
+            
+            # 创建TF消息
+            transform = TransformStamped()
+            
+            # 设置时间戳
+            transform.header.stamp = self.get_clock().now().to_msg()
+            
+            # 设置父子坐标系
+            transform.header.frame_id = parent_frame
+            transform.child_frame_id = link_names[i]
+            
+            # 填充平移信息（从变换矩阵的第4列提取）
+            transform.transform.translation.x = float(T_cumulative[0, 3])
+            transform.transform.translation.y = float(T_cumulative[1, 3])
+            transform.transform.translation.z = float(T_cumulative[2, 3])
+            
+            # 填充旋转信息（旋转矩阵转四元数）
+            rotation_matrix = T_cumulative[:3, :3]
+            transform.transform.rotation = rotmat2q(rotation_matrix)
+            
+            # 广播TF变换
+            self.br.sendTransform(transform)
 
-        T = forward_kinematics(youbot_dh_parameters, joints)
-
-        R = T[:3, :3]
-        q = rotmat2q(R)
-
-        t = TransformStamped()
-        t.header.stamp = self.get_clock().now().to_msg()
-        t.header.frame_id = 'base_link'
-        t.child_frame_id = 'end_effector'
-
-        t.transform.translation.x = float(T[0, 3])
-        t.transform.translation.y = float(T[1, 3])
-        t.transform.translation.z = float(T[2, 3])
-        t.transform.rotation = q
-
-        self.br.sendTransform(t)
-        self.get_logger().info(
-            f"End-effector pose: x={T[0,3]:.3f}, y={T[1,3]:.3f}, z={T[2,3]:.3f}"
-        )
         # ╔════════════════════════════════════════════════════════════════════════╗
         # ╚════════════════════════════════════════════════════════════════════════╝
-
 
 def main(args=None):
     rclpy.init(args=args)

@@ -1,0 +1,58 @@
+-- The C compiler identification is GNU 9.4.0
+-- The CXX compiler identification is GNU 9.4.0
+-- Check for working C compiler: /usr/bin/cc
+-- Check for working C compiler: /usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)
+-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") 
+-- Using PYTHON_EXECUTABLE: /usr/bin/python3
+-- Found urdf: 2.4.0 (/opt/ros/foxy/share/urdf/cmake)
+-- Found xacro: 2.0.7 (/opt/ros/foxy/share/xacro/cmake)
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/bizare/Desktop/Robotics_System/build/open_manipulator_description
+-- Install configuration: ""
+-- Installing: /home/bizare/Desktop/Robotics_System/install/open_manipulator_description/share/open_manipulator_description/launch
+-- Installing: /home/bizare/Desktop/Robotics_System/install/open_manipulator_description/share/open_manipulator_description/launch/open_manipulator_model.launch
+-- Installing: /home/bizare/Desktop/Robotics_System/install/open_manipulator_description/share/open_manipulator_description/launch/open_manipulator_rviz.launch
+-- Installing: /home/bizare/Desktop/Robotics_System/install/open_manipulator_description/share/open_manipulator_description/meshes
+-- Installing: /home/bizare/Desktop/Robotics_System/install/open_manipulator_description/share/open_manipulator_description/meshes/chain_link4.stl
+-- Installing: /home/bizare/Desktop/Robotics_System/install/open_manipulator_description/share/open_manipulator_description/meshes/chain_link3.stl
+-- Installing: /home/bizare/Desktop/Robotics_System/install/open_manipulator_description/share/open_manipulator_description/meshes/chain_link5.stl
+-- Installing: /home/bizare/Desktop/Robotics_System/install/open_manipulator_description/share/open_manipulator_description/meshes/chain_link2.stl
+-- Installing: /home/bizare/Desktop/Robotics_System/install/open_manipulator_description/share/open_manipulator_description/meshes/chain_link_grip_r.stl
+-- Installing: /home/bizare/Desktop/Robotics_System/install/open_manipulator_description/share/open_manipulator_description/meshes/chain_link1.stl
+-- Installing: /home/bizare/Desktop/Robotics_System/install/open_manipulator_description/share/open_manipulator_description/meshes/chain_link_grip_l.stl
+-- Installing: /home/bizare/Desktop/Robotics_System/install/open_manipulator_description/share/open_manipulator_description/rviz
+-- Installing: /home/bizare/Desktop/Robotics_System/install/open_manipulator_description/share/open_manipulator_description/rviz/open_manipulator_links_hidden11.rviz
+-- Installing: /home/bizare/Desktop/Robotics_System/install/open_manipulator_description/share/open_manipulator_description/rviz/open_manipulator_links_hidden.rviz
+-- Installing: /home/bizare/Desktop/Robotics_System/install/open_manipulator_description/share/open_manipulator_description/rviz/open_manipulator.rviz
+-- Installing: /home/bizare/Desktop/Robotics_System/install/open_manipulator_description/share/open_manipulator_description/rviz/open_manipulator11.rviz
+-- Installing: /home/bizare/Desktop/Robotics_System/install/open_manipulator_description/share/open_manipulator_description/urdf
+-- Installing: /home/bizare/Desktop/Robotics_System/install/open_manipulator_description/share/open_manipulator_description/urdf/open_manipulator.gazebo.xacro
+-- Installing: /home/bizare/Desktop/Robotics_System/install/open_manipulator_description/share/open_manipulator_description/urdf/materials.xacro
+-- Installing: /home/bizare/Desktop/Robotics_System/install/open_manipulator_description/share/open_manipulator_description/urdf/open_manipulator.urdf.xacro
+-- Installing: /home/bizare/Desktop/Robotics_System/install/open_manipulator_description/share/ament_index/resource_index/package_run_dependencies/open_manipulator_description
+-- Installing: /home/bizare/Desktop/Robotics_System/install/open_manipulator_description/share/ament_index/resource_index/parent_prefix_path/open_manipulator_description
+-- Installing: /home/bizare/Desktop/Robotics_System/install/open_manipulator_description/share/open_manipulator_description/environment/ament_prefix_path.sh
+-- Installing: /home/bizare/Desktop/Robotics_System/install/open_manipulator_description/share/open_manipulator_description/environment/ament_prefix_path.dsv
+-- Installing: /home/bizare/Desktop/Robotics_System/install/open_manipulator_description/share/open_manipulator_description/environment/path.sh
+-- Installing: /home/bizare/Desktop/Robotics_System/install/open_manipulator_description/share/open_manipulator_description/environment/path.dsv
+-- Installing: /home/bizare/Desktop/Robotics_System/install/open_manipulator_description/share/open_manipulator_description/local_setup.bash
+-- Installing: /home/bizare/Desktop/Robotics_System/install/open_manipulator_description/share/open_manipulator_description/local_setup.sh
+-- Installing: /home/bizare/Desktop/Robotics_System/install/open_manipulator_description/share/open_manipulator_description/local_setup.zsh
+-- Installing: /home/bizare/Desktop/Robotics_System/install/open_manipulator_description/share/open_manipulator_description/local_setup.dsv
+-- Installing: /home/bizare/Desktop/Robotics_System/install/open_manipulator_description/share/open_manipulator_description/package.dsv
+-- Installing: /home/bizare/Desktop/Robotics_System/install/open_manipulator_description/share/ament_index/resource_index/packages/open_manipulator_description
+-- Installing: /home/bizare/Desktop/Robotics_System/install/open_manipulator_description/share/open_manipulator_description/cmake/open_manipulator_descriptionConfig.cmake
+-- Installing: /home/bizare/Desktop/Robotics_System/install/open_manipulator_description/share/open_manipulator_description/cmake/open_manipulator_descriptionConfig-version.cmake
+-- Installing: /home/bizare/Desktop/Robotics_System/install/open_manipulator_description/share/open_manipulator_description/package.xml

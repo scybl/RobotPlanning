@@ -1,0 +1,54 @@
+[0.024s] Invoking command in '/home/bizare/Desktop/Robotics_System/build/youbot_simulator': AMENT_PREFIX_PATH=/home/bizare/Desktop/Robotics_System/install/youbot_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/bizare/Desktop/Robotics_System/install/youbot_description:/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces:/home/bizare/Desktop/Robotics_System/install/cw1q5:/home/bizare/Desktop/Robotics_System/install/cw1q9:/home/bizare/Desktop/Robotics_System/install/cw1q4:/opt/ros/foxy /usr/bin/cmake /home/bizare/Desktop/Robotics_System/youbot_simulator -DCMAKE_INSTALL_PREFIX=/home/bizare/Desktop/Robotics_System/install/youbot_simulator
+[0.221s] -- The C compiler identification is GNU 9.4.0
+[0.341s] -- The CXX compiler identification is GNU 9.4.0
+[0.348s] -- Check for working C compiler: /usr/bin/cc
+[0.526s] -- Check for working C compiler: /usr/bin/cc -- works
+[0.527s] -- Detecting C compiler ABI info
+[0.653s] -- Detecting C compiler ABI info - done
+[0.674s] -- Detecting C compile features
+[0.674s] -- Detecting C compile features - done
+[0.677s] -- Check for working CXX compiler: /usr/bin/c++
+[0.836s] -- Check for working CXX compiler: /usr/bin/c++ -- works
+[0.839s] -- Detecting CXX compiler ABI info
+[0.978s] -- Detecting CXX compiler ABI info - done
+[0.993s] -- Detecting CXX compile features
+[0.995s] -- Detecting CXX compile features - done
+[1.000s] -- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)
+[1.045s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") 
+[1.046s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[1.404s] -- Found ament_lint_auto: 0.9.8 (/opt/ros/foxy/share/ament_lint_auto/cmake)
+[1.532s] -- Added test 'copyright' to check source files copyright and LICENSE
+[1.536s] -- Added test 'flake8' to check Python code syntax and style conventions
+[1.537s] -- Added test 'lint_cmake' to check CMake code style
+[1.537s] -- Added test 'pep257' to check Python code against some of the style conventions in PEP 257
+[1.539s] -- Added test 'xmllint' to check XML markup files
+[1.543s] -- Configuring done
+[1.546s] -- Generating done
+[1.548s] -- Build files have been written to: /home/bizare/Desktop/Robotics_System/build/youbot_simulator
+[1.554s] Invoked command in '/home/bizare/Desktop/Robotics_System/build/youbot_simulator' returned '0': AMENT_PREFIX_PATH=/home/bizare/Desktop/Robotics_System/install/youbot_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/bizare/Desktop/Robotics_System/install/youbot_description:/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces:/home/bizare/Desktop/Robotics_System/install/cw1q5:/home/bizare/Desktop/Robotics_System/install/cw1q9:/home/bizare/Desktop/Robotics_System/install/cw1q4:/opt/ros/foxy /usr/bin/cmake /home/bizare/Desktop/Robotics_System/youbot_simulator -DCMAKE_INSTALL_PREFIX=/home/bizare/Desktop/Robotics_System/install/youbot_simulator
+[1.560s] Invoking command in '/home/bizare/Desktop/Robotics_System/build/youbot_simulator': AMENT_PREFIX_PATH=/home/bizare/Desktop/Robotics_System/install/youbot_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/bizare/Desktop/Robotics_System/install/youbot_description:/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces:/home/bizare/Desktop/Robotics_System/install/cw1q5:/home/bizare/Desktop/Robotics_System/install/cw1q9:/home/bizare/Desktop/Robotics_System/install/cw1q4:/opt/ros/foxy /usr/bin/cmake --build /home/bizare/Desktop/Robotics_System/build/youbot_simulator -- -j8 -l8
+[1.632s] Invoked command in '/home/bizare/Desktop/Robotics_System/build/youbot_simulator' returned '0': AMENT_PREFIX_PATH=/home/bizare/Desktop/Robotics_System/install/youbot_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/bizare/Desktop/Robotics_System/install/youbot_description:/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces:/home/bizare/Desktop/Robotics_System/install/cw1q5:/home/bizare/Desktop/Robotics_System/install/cw1q9:/home/bizare/Desktop/Robotics_System/install/cw1q4:/opt/ros/foxy /usr/bin/cmake --build /home/bizare/Desktop/Robotics_System/build/youbot_simulator -- -j8 -l8
+[1.638s] Invoking command in '/home/bizare/Desktop/Robotics_System/build/youbot_simulator': AMENT_PREFIX_PATH=/home/bizare/Desktop/Robotics_System/install/youbot_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/bizare/Desktop/Robotics_System/install/youbot_description:/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces:/home/bizare/Desktop/Robotics_System/install/cw1q5:/home/bizare/Desktop/Robotics_System/install/cw1q9:/home/bizare/Desktop/Robotics_System/install/cw1q4:/opt/ros/foxy /usr/bin/cmake --install /home/bizare/Desktop/Robotics_System/build/youbot_simulator
+[1.657s] -- Install configuration: ""
+[1.658s] -- Installing: /home/bizare/Desktop/Robotics_System/install/youbot_simulator/share/youbot_simulator/launch
+[1.658s] -- Installing: /home/bizare/Desktop/Robotics_System/install/youbot_simulator/share/youbot_simulator/launch/youbot_controller.launch.py
+[1.658s] -- Installing: /home/bizare/Desktop/Robotics_System/install/youbot_simulator/share/youbot_simulator/launch/youbot_sim.launch.py
+[1.659s] -- Installing: /home/bizare/Desktop/Robotics_System/install/youbot_simulator/share/youbot_simulator/config
+[1.659s] -- Installing: /home/bizare/Desktop/Robotics_System/install/youbot_simulator/share/youbot_simulator/config/youbot.rviz
+[1.659s] -- Installing: /home/bizare/Desktop/Robotics_System/install/youbot_simulator/share/youbot_simulator/config/youbot_control.yaml
+[1.660s] -- Installing: /home/bizare/Desktop/Robotics_System/install/youbot_simulator/share/ament_index/resource_index/package_run_dependencies/youbot_simulator
+[1.660s] -- Installing: /home/bizare/Desktop/Robotics_System/install/youbot_simulator/share/ament_index/resource_index/parent_prefix_path/youbot_simulator
+[1.660s] -- Installing: /home/bizare/Desktop/Robotics_System/install/youbot_simulator/share/youbot_simulator/environment/ament_prefix_path.sh
+[1.661s] -- Installing: /home/bizare/Desktop/Robotics_System/install/youbot_simulator/share/youbot_simulator/environment/ament_prefix_path.dsv
+[1.661s] -- Installing: /home/bizare/Desktop/Robotics_System/install/youbot_simulator/share/youbot_simulator/environment/path.sh
+[1.662s] -- Installing: /home/bizare/Desktop/Robotics_System/install/youbot_simulator/share/youbot_simulator/environment/path.dsv
+[1.662s] -- Installing: /home/bizare/Desktop/Robotics_System/install/youbot_simulator/share/youbot_simulator/local_setup.bash
+[1.663s] -- Installing: /home/bizare/Desktop/Robotics_System/install/youbot_simulator/share/youbot_simulator/local_setup.sh
+[1.663s] -- Installing: /home/bizare/Desktop/Robotics_System/install/youbot_simulator/share/youbot_simulator/local_setup.zsh
+[1.663s] -- Installing: /home/bizare/Desktop/Robotics_System/install/youbot_simulator/share/youbot_simulator/local_setup.dsv
+[1.664s] -- Installing: /home/bizare/Desktop/Robotics_System/install/youbot_simulator/share/youbot_simulator/package.dsv
+[1.664s] -- Installing: /home/bizare/Desktop/Robotics_System/install/youbot_simulator/share/ament_index/resource_index/packages/youbot_simulator
+[1.665s] -- Installing: /home/bizare/Desktop/Robotics_System/install/youbot_simulator/share/youbot_simulator/cmake/youbot_simulatorConfig.cmake
+[1.665s] -- Installing: /home/bizare/Desktop/Robotics_System/install/youbot_simulator/share/youbot_simulator/cmake/youbot_simulatorConfig-version.cmake
+[1.665s] -- Installing: /home/bizare/Desktop/Robotics_System/install/youbot_simulator/share/youbot_simulator/package.xml
+[1.670s] Invoked command in '/home/bizare/Desktop/Robotics_System/build/youbot_simulator' returned '0': AMENT_PREFIX_PATH=/home/bizare/Desktop/Robotics_System/install/youbot_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/bizare/Desktop/Robotics_System/install/youbot_description:/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces:/home/bizare/Desktop/Robotics_System/install/cw1q5:/home/bizare/Desktop/Robotics_System/install/cw1q9:/home/bizare/Desktop/Robotics_System/install/cw1q4:/opt/ros/foxy /usr/bin/cmake --install /home/bizare/Desktop/Robotics_System/build/youbot_simulator
