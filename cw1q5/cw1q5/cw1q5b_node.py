@@ -95,7 +95,6 @@ def forward_kinematics(dh_dict, joints_readings, up_to_joint=5):
     assert isinstance(up_to_joint, int)
     assert 0 <= up_to_joint <= len(dh_dict['a'])
     
-    T = np.identity(4)
 
     # ╔════════════════════════════════════════════════════════════════════════╗
     # ║                PART 3: COMPLETE THE FORWARD KINEMATICS                 ║
@@ -107,22 +106,20 @@ def forward_kinematics(dh_dict, joints_readings, up_to_joint=5):
     # 遍历所有关节，累积变换
     for i in range(up_to_joint):
         # 实际关节角度 = DH零位偏移 + 实际读数
-        theta_actual = dh_dict['theta'][i] + joints_readings[i] 
+        a = dh_dict['a'][i]
+        alpha = dh_dict['alpha'][i]
+        d = dh_dict['d'][i]
+        theta = dh_dict['theta'][i] + joints_readings[i] 
         
         # 第i个关节的变换矩阵
-        T_i = standard_dh(
-            a=dh_dict['a'][i],
-            alpha=dh_dict['alpha'][i],
-            d=dh_dict['d'][i],
-            theta=theta_actual
-        )
+        T_i = standard_dh(a=a, alpha=alpha, d=d, theta=theta)
         
-        # 累积乘法：T = T @ T_i
-        # T_{0→n} = T_{0→1} × T_{1→2} × ... × T_{n-1→n}
-        T = T @ T_i
+        # 累积乘法：
+        T = T.dot(T_i)
 
     # ╔════════════════════════════════════════════════════════════════════════╗
     # ╚════════════════════════════════════════════════════════════════════════╝
+    
     assert isinstance(T, np.ndarray), "Output wasn't of type ndarray"
     assert T.shape == (4, 4), "Output had wrong dimensions"
     return T
@@ -147,8 +144,7 @@ class ForwardKinematicsNode(Node):
         code with ROS 2 and is responsible for computing and publishing the transforms.
         """
         assert isinstance(joint_msg, JointState), "Node must subscribe to a topic where JointState messages are published"
-
-# ╔════════════════════════════════════════════════════════════════════════╗
+        # ╔════════════════════════════════════════════════════════════════════════╗
         # ║                  PART 4: COMPLETE THE ROS 2 WRAPPER                    ║
         # ╚════════════════════════════════════════════════════════════════════════╝
         
@@ -156,11 +152,10 @@ class ForwardKinematicsNode(Node):
         num_joints = len(youbot_dh_parameters['a'])
         
         # 提取关节角度（转换为列表）
-        joints_readings = list(joint_msg.position[:num_joints])
+        joints_readings = list(joint_msg.position[0:num_joints])
         
         # 定义坐标系名称
         parent_frame = 'base_link'
-        link_names = [f'dh_link_{i + 1}' for i in range(num_joints)]
         
         # 逐个计算并广播每个关节的TF
         for i in range(num_joints):
@@ -179,7 +174,7 @@ class ForwardKinematicsNode(Node):
             
             # 设置父子坐标系
             transform.header.frame_id = parent_frame
-            transform.child_frame_id = link_names[i]
+            transform.child_frame_id = 'link_'+ str(i+1)
             
             # 填充平移信息（从变换矩阵的第4列提取）
             transform.transform.translation.x = float(T_cumulative[0, 3])
@@ -187,14 +182,14 @@ class ForwardKinematicsNode(Node):
             transform.transform.translation.z = float(T_cumulative[2, 3])
             
             # 填充旋转信息（旋转矩阵转四元数）
-            rotation_matrix = T_cumulative[:3, :3]
-            transform.transform.rotation = rotmat2q(rotation_matrix)
+            transform.transform.rotation = rotmat2q(T_cumulative[:3, :3])
             
             # 广播TF变换
             self.br.sendTransform(transform)
 
         # ╔════════════════════════════════════════════════════════════════════════╗
         # ╚════════════════════════════════════════════════════════════════════════╝
+
 
 def main(args=None):
     rclpy.init(args=args)
