@@ -1,0 +1,5 @@
+  File "/home/bizare/Desktop/Robotics_System/install/cw1q5/lib/python3.8/site-packages/cw1q5/cw1q5d_node.py", line 31
+    'd':     [0.096,    0.155,   ,  0.135,      0.130  ],
+                                 ^
+SyntaxError: invalid syntax
+

@@ -1,0 +1,25 @@
+[0.631s] Invoking command in '/home/bizare/Desktop/Robotics_System/cw1q5': PYTHONPATH=/home/bizare/Desktop/Robotics_System/build/cw1q5/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bizare/Desktop/Robotics_System/install/cw1q5/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/cw1q5 build --build-base /home/bizare/Desktop/Robotics_System/build/cw1q5/build install --record /home/bizare/Desktop/Robotics_System/build/cw1q5/install.log --install-scripts $base/lib/cw1q5 --single-version-externally-managed install_data
+[0.814s] running egg_info
+[0.814s] writing ../build/cw1q5/cw1q5.egg-info/PKG-INFO
+[0.814s] writing dependency_links to ../build/cw1q5/cw1q5.egg-info/dependency_links.txt
+[0.815s] writing entry points to ../build/cw1q5/cw1q5.egg-info/entry_points.txt
+[0.815s] writing requirements to ../build/cw1q5/cw1q5.egg-info/requires.txt
+[0.815s] writing top-level names to ../build/cw1q5/cw1q5.egg-info/top_level.txt
+[0.844s] reading manifest file '../build/cw1q5/cw1q5.egg-info/SOURCES.txt'
+[0.844s] writing manifest file '../build/cw1q5/cw1q5.egg-info/SOURCES.txt'
+[0.844s] running build
+[0.844s] running build_py
+[0.845s] copying cw1q5/cw1q5d_node.py -> /home/bizare/Desktop/Robotics_System/build/cw1q5/build/lib/cw1q5
+[0.845s] running install
+[0.845s] running install_lib
+[0.846s] copying /home/bizare/Desktop/Robotics_System/build/cw1q5/build/lib/cw1q5/cw1q5d_node.py -> /home/bizare/Desktop/Robotics_System/install/cw1q5/lib/python3.8/site-packages/cw1q5
+[0.847s] byte-compiling /home/bizare/Desktop/Robotics_System/install/cw1q5/lib/python3.8/site-packages/cw1q5/cw1q5d_node.py to cw1q5d_node.cpython-38.pyc
+[0.848s] running install_data
+[0.849s] running install_egg_info
+[0.850s] removing '/home/bizare/Desktop/Robotics_System/install/cw1q5/lib/python3.8/site-packages/cw1q5-0.0.0-py3.8.egg-info' (and everything under it)
+[0.850s] Copying ../build/cw1q5/cw1q5.egg-info to /home/bizare/Desktop/Robotics_System/install/cw1q5/lib/python3.8/site-packages/cw1q5-0.0.0-py3.8.egg-info
+[0.851s] running install_scripts
+[0.865s] Installing cw1q5b_node script to /home/bizare/Desktop/Robotics_System/install/cw1q5/lib/cw1q5
+[0.866s] Installing cw1q5d_node script to /home/bizare/Desktop/Robotics_System/install/cw1q5/lib/cw1q5
+[0.866s] writing list of installed files to '/home/bizare/Desktop/Robotics_System/build/cw1q5/install.log'
+[0.883s] Invoked command in '/home/bizare/Desktop/Robotics_System/cw1q5' returned '0': PYTHONPATH=/home/bizare/Desktop/Robotics_System/build/cw1q5/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bizare/Desktop/Robotics_System/install/cw1q5/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/cw1q5 build --build-base /home/bizare/Desktop/Robotics_System/build/cw1q5/build install --record /home/bizare/Desktop/Robotics_System/build/cw1q5/install.log --install-scripts $base/lib/cw1q5 --single-version-externally-managed install_data

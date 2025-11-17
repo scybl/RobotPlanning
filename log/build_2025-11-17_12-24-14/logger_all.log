@@ -1,0 +1,507 @@
+[0.163s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[0.163s] DEBUG:colcon:Parsed command line arguments: Namespace(allow_overriding=[], ament_cmake_args=None, base_paths=['.'], build_base='build', catkin_cmake_args=None, catkin_skip_building_tests=False, cmake_args=None, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, cmake_target=None, cmake_target_skip_unavailable=False, continue_on_error=False, event_handlers=None, executor='parallel', ignore_user_meta=False, install_base='install', log_base=None, log_level=None, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7f98a80f5250>>, merge_install=False, metas=['./colcon.meta'], packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_end=None, packages_ignore=None, packages_ignore_regex=None, packages_select=None, packages_select_build_failed=False, packages_select_by_dep=None, packages_select_regex=None, packages_select_test_failures=False, packages_skip=None, packages_skip_build_finished=False, packages_skip_by_dep=None, packages_skip_regex=None, packages_skip_test_passed=False, packages_skip_up_to=None, packages_start=None, packages_up_to=None, packages_up_to_regex=None, parallel_workers=8, paths=None, symlink_install=False, test_result_base=None, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7f98a80f5250>, verb_name='build', verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x7f98a7fc0400>)
+[0.289s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.289s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.289s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.289s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.289s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.289s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.289s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/bizare/Desktop/Robotics_System'
+[0.289s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.289s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.289s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.289s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.289s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.290s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.290s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.290s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.290s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.299s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.299s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.299s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.299s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.299s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.299s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.300s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.300s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.300s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q4) by extensions ['ignore', 'ignore_ament_install']
+[0.300s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q4) by extension 'ignore'
+[0.300s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q4) by extension 'ignore_ament_install'
+[0.300s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q4) by extensions ['colcon_pkg']
+[0.300s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q4) by extension 'colcon_pkg'
+[0.300s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q4) by extensions ['colcon_meta']
+[0.300s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q4) by extension 'colcon_meta'
+[0.300s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q4) by extensions ['ros']
+[0.300s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q4) by extension 'ros'
+[0.302s] DEBUG:colcon.colcon_core.package_identification:Package 'cw1q4' with type 'ros.ament_python' and name 'cw1q4'
+[0.302s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q4_interfaces) by extensions ['ignore', 'ignore_ament_install']
+[0.302s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q4_interfaces) by extension 'ignore'
+[0.302s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q4_interfaces) by extension 'ignore_ament_install'
+[0.303s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q4_interfaces) by extensions ['colcon_pkg']
+[0.303s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q4_interfaces) by extension 'colcon_pkg'
+[0.303s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q4_interfaces) by extensions ['colcon_meta']
+[0.303s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q4_interfaces) by extension 'colcon_meta'
+[0.303s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q4_interfaces) by extensions ['ros']
+[0.303s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q4_interfaces) by extension 'ros'
+[0.303s] DEBUG:colcon.colcon_core.package_identification:Package 'cw1q4_interfaces' with type 'ros.ament_cmake' and name 'cw1q4_interfaces'
+[0.303s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q5) by extensions ['ignore', 'ignore_ament_install']
+[0.303s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q5) by extension 'ignore'
+[0.303s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q5) by extension 'ignore_ament_install'
+[0.304s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q5) by extensions ['colcon_pkg']
+[0.304s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q5) by extension 'colcon_pkg'
+[0.304s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q5) by extensions ['colcon_meta']
+[0.304s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q5) by extension 'colcon_meta'
+[0.304s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q5) by extensions ['ros']
+[0.304s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q5) by extension 'ros'
+[0.304s] DEBUG:colcon.colcon_core.package_identification:Package 'cw1q5' with type 'ros.ament_python' and name 'cw1q5'
+[0.304s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q9) by extensions ['ignore', 'ignore_ament_install']
+[0.304s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q9) by extension 'ignore'
+[0.304s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q9) by extension 'ignore_ament_install'
+[0.304s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q9) by extensions ['colcon_pkg']
+[0.305s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q9) by extension 'colcon_pkg'
+[0.305s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q9) by extensions ['colcon_meta']
+[0.305s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q9) by extension 'colcon_meta'
+[0.305s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q9) by extensions ['ros']
+[0.305s] Level 1:colcon.colcon_core.package_identification:_identify(cw1q9) by extension 'ros'
+[0.306s] DEBUG:colcon.colcon_core.package_identification:Package 'cw1q9' with type 'ros.ament_python' and name 'cw1q9'
+[0.306s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.306s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.306s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.306s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.306s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.306s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.306s] Level 1:colcon.colcon_core.package_identification:_identify(pic) by extensions ['ignore', 'ignore_ament_install']
+[0.306s] Level 1:colcon.colcon_core.package_identification:_identify(pic) by extension 'ignore'
+[0.306s] Level 1:colcon.colcon_core.package_identification:_identify(pic) by extension 'ignore_ament_install'
+[0.306s] Level 1:colcon.colcon_core.package_identification:_identify(pic) by extensions ['colcon_pkg']
+[0.306s] Level 1:colcon.colcon_core.package_identification:_identify(pic) by extension 'colcon_pkg'
+[0.306s] Level 1:colcon.colcon_core.package_identification:_identify(pic) by extensions ['colcon_meta']
+[0.307s] Level 1:colcon.colcon_core.package_identification:_identify(pic) by extension 'colcon_meta'
+[0.307s] Level 1:colcon.colcon_core.package_identification:_identify(pic) by extensions ['ros']
+[0.307s] Level 1:colcon.colcon_core.package_identification:_identify(pic) by extension 'ros'
+[0.307s] Level 1:colcon.colcon_core.package_identification:_identify(pic) by extensions ['cmake', 'python']
+[0.307s] Level 1:colcon.colcon_core.package_identification:_identify(pic) by extension 'cmake'
+[0.307s] Level 1:colcon.colcon_core.package_identification:_identify(pic) by extension 'python'
+[0.307s] Level 1:colcon.colcon_core.package_identification:_identify(pic) by extensions ['python_setup_py']
+[0.307s] Level 1:colcon.colcon_core.package_identification:_identify(pic) by extension 'python_setup_py'
+[0.307s] Level 1:colcon.colcon_core.package_identification:_identify(robot_description) by extensions ['ignore', 'ignore_ament_install']
+[0.307s] Level 1:colcon.colcon_core.package_identification:_identify(robot_description) by extension 'ignore'
+[0.307s] Level 1:colcon.colcon_core.package_identification:_identify(robot_description) by extension 'ignore_ament_install'
+[0.307s] Level 1:colcon.colcon_core.package_identification:_identify(robot_description) by extensions ['colcon_pkg']
+[0.307s] Level 1:colcon.colcon_core.package_identification:_identify(robot_description) by extension 'colcon_pkg'
+[0.307s] Level 1:colcon.colcon_core.package_identification:_identify(robot_description) by extensions ['colcon_meta']
+[0.307s] Level 1:colcon.colcon_core.package_identification:_identify(robot_description) by extension 'colcon_meta'
+[0.307s] Level 1:colcon.colcon_core.package_identification:_identify(robot_description) by extensions ['ros']
+[0.307s] Level 1:colcon.colcon_core.package_identification:_identify(robot_description) by extension 'ros'
+[0.307s] Level 1:colcon.colcon_core.package_identification:_identify(robot_description) by extensions ['cmake', 'python']
+[0.307s] Level 1:colcon.colcon_core.package_identification:_identify(robot_description) by extension 'cmake'
+[0.307s] Level 1:colcon.colcon_core.package_identification:_identify(robot_description) by extension 'python'
+[0.307s] Level 1:colcon.colcon_core.package_identification:_identify(robot_description) by extensions ['python_setup_py']
+[0.308s] Level 1:colcon.colcon_core.package_identification:_identify(robot_description) by extension 'python_setup_py'
+[0.308s] Level 1:colcon.colcon_core.package_identification:_identify(robot_description/open_manipulator_description) by extensions ['ignore', 'ignore_ament_install']
+[0.308s] Level 1:colcon.colcon_core.package_identification:_identify(robot_description/open_manipulator_description) by extension 'ignore'
+[0.308s] Level 1:colcon.colcon_core.package_identification:_identify(robot_description/open_manipulator_description) by extension 'ignore_ament_install'
+[0.308s] Level 1:colcon.colcon_core.package_identification:_identify(robot_description/open_manipulator_description) by extensions ['colcon_pkg']
+[0.308s] Level 1:colcon.colcon_core.package_identification:_identify(robot_description/open_manipulator_description) by extension 'colcon_pkg'
+[0.308s] Level 1:colcon.colcon_core.package_identification:_identify(robot_description/open_manipulator_description) by extensions ['colcon_meta']
+[0.308s] Level 1:colcon.colcon_core.package_identification:_identify(robot_description/open_manipulator_description) by extension 'colcon_meta'
+[0.308s] Level 1:colcon.colcon_core.package_identification:_identify(robot_description/open_manipulator_description) by extensions ['ros']
+[0.308s] Level 1:colcon.colcon_core.package_identification:_identify(robot_description/open_manipulator_description) by extension 'ros'
+[0.309s] DEBUG:colcon.colcon_core.package_identification:Package 'robot_description/open_manipulator_description' with type 'ros.ament_cmake' and name 'open_manipulator_description'
+[0.309s] Level 1:colcon.colcon_core.package_identification:_identify(robot_description/youbot_description) by extensions ['ignore', 'ignore_ament_install']
+[0.309s] Level 1:colcon.colcon_core.package_identification:_identify(robot_description/youbot_description) by extension 'ignore'
+[0.309s] Level 1:colcon.colcon_core.package_identification:_identify(robot_description/youbot_description) by extension 'ignore_ament_install'
+[0.309s] Level 1:colcon.colcon_core.package_identification:_identify(robot_description/youbot_description) by extensions ['colcon_pkg']
+[0.309s] Level 1:colcon.colcon_core.package_identification:_identify(robot_description/youbot_description) by extension 'colcon_pkg'
+[0.309s] Level 1:colcon.colcon_core.package_identification:_identify(robot_description/youbot_description) by extensions ['colcon_meta']
+[0.309s] Level 1:colcon.colcon_core.package_identification:_identify(robot_description/youbot_description) by extension 'colcon_meta'
+[0.309s] Level 1:colcon.colcon_core.package_identification:_identify(robot_description/youbot_description) by extensions ['ros']
+[0.309s] Level 1:colcon.colcon_core.package_identification:_identify(robot_description/youbot_description) by extension 'ros'
+[0.310s] DEBUG:colcon.colcon_core.package_identification:Package 'robot_description/youbot_description' with type 'ros.ament_cmake' and name 'youbot_description'
+[0.310s] Level 1:colcon.colcon_core.package_identification:_identify(youbot_simulator) by extensions ['ignore', 'ignore_ament_install']
+[0.310s] Level 1:colcon.colcon_core.package_identification:_identify(youbot_simulator) by extension 'ignore'
+[0.310s] Level 1:colcon.colcon_core.package_identification:_identify(youbot_simulator) by extension 'ignore_ament_install'
+[0.310s] Level 1:colcon.colcon_core.package_identification:_identify(youbot_simulator) by extensions ['colcon_pkg']
+[0.310s] Level 1:colcon.colcon_core.package_identification:_identify(youbot_simulator) by extension 'colcon_pkg'
+[0.310s] Level 1:colcon.colcon_core.package_identification:_identify(youbot_simulator) by extensions ['colcon_meta']
+[0.310s] Level 1:colcon.colcon_core.package_identification:_identify(youbot_simulator) by extension 'colcon_meta'
+[0.310s] Level 1:colcon.colcon_core.package_identification:_identify(youbot_simulator) by extensions ['ros']
+[0.310s] Level 1:colcon.colcon_core.package_identification:_identify(youbot_simulator) by extension 'ros'
+[0.311s] DEBUG:colcon.colcon_core.package_identification:Package 'youbot_simulator' with type 'ros.ament_cmake' and name 'youbot_simulator'
+[0.311s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.311s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.311s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.311s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.311s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.326s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.326s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.328s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 7 installed packages in /home/bizare/Desktop/Robotics_System/install
+[0.329s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 267 installed packages in /opt/ros/foxy
+[0.330s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.396s] Level 5:colcon.colcon_core.verb:set package 'cw1q4' build argument 'cmake_args' from command line to 'None'
+[0.396s] Level 5:colcon.colcon_core.verb:set package 'cw1q4' build argument 'cmake_target' from command line to 'None'
+[0.397s] Level 5:colcon.colcon_core.verb:set package 'cw1q4' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.397s] Level 5:colcon.colcon_core.verb:set package 'cw1q4' build argument 'cmake_clean_cache' from command line to 'False'
+[0.397s] Level 5:colcon.colcon_core.verb:set package 'cw1q4' build argument 'cmake_clean_first' from command line to 'False'
+[0.397s] Level 5:colcon.colcon_core.verb:set package 'cw1q4' build argument 'cmake_force_configure' from command line to 'False'
+[0.397s] Level 5:colcon.colcon_core.verb:set package 'cw1q4' build argument 'ament_cmake_args' from command line to 'None'
+[0.397s] Level 5:colcon.colcon_core.verb:set package 'cw1q4' build argument 'catkin_cmake_args' from command line to 'None'
+[0.397s] Level 5:colcon.colcon_core.verb:set package 'cw1q4' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.397s] DEBUG:colcon.colcon_core.verb:Building package 'cw1q4' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/bizare/Desktop/Robotics_System/build/cw1q4', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/bizare/Desktop/Robotics_System/install/cw1q4', 'merge_install': False, 'path': '/home/bizare/Desktop/Robotics_System/cw1q4', 'symlink_install': False, 'test_result_base': None}
+[0.397s] Level 5:colcon.colcon_core.verb:set package 'cw1q4_interfaces' build argument 'cmake_args' from command line to 'None'
+[0.397s] Level 5:colcon.colcon_core.verb:set package 'cw1q4_interfaces' build argument 'cmake_target' from command line to 'None'
+[0.397s] Level 5:colcon.colcon_core.verb:set package 'cw1q4_interfaces' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.397s] Level 5:colcon.colcon_core.verb:set package 'cw1q4_interfaces' build argument 'cmake_clean_cache' from command line to 'False'
+[0.397s] Level 5:colcon.colcon_core.verb:set package 'cw1q4_interfaces' build argument 'cmake_clean_first' from command line to 'False'
+[0.397s] Level 5:colcon.colcon_core.verb:set package 'cw1q4_interfaces' build argument 'cmake_force_configure' from command line to 'False'
+[0.397s] Level 5:colcon.colcon_core.verb:set package 'cw1q4_interfaces' build argument 'ament_cmake_args' from command line to 'None'
+[0.397s] Level 5:colcon.colcon_core.verb:set package 'cw1q4_interfaces' build argument 'catkin_cmake_args' from command line to 'None'
+[0.397s] Level 5:colcon.colcon_core.verb:set package 'cw1q4_interfaces' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.397s] DEBUG:colcon.colcon_core.verb:Building package 'cw1q4_interfaces' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/bizare/Desktop/Robotics_System/build/cw1q4_interfaces', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces', 'merge_install': False, 'path': '/home/bizare/Desktop/Robotics_System/cw1q4_interfaces', 'symlink_install': False, 'test_result_base': None}
+[0.398s] Level 5:colcon.colcon_core.verb:set package 'cw1q9' build argument 'cmake_args' from command line to 'None'
+[0.398s] Level 5:colcon.colcon_core.verb:set package 'cw1q9' build argument 'cmake_target' from command line to 'None'
+[0.398s] Level 5:colcon.colcon_core.verb:set package 'cw1q9' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.398s] Level 5:colcon.colcon_core.verb:set package 'cw1q9' build argument 'cmake_clean_cache' from command line to 'False'
+[0.398s] Level 5:colcon.colcon_core.verb:set package 'cw1q9' build argument 'cmake_clean_first' from command line to 'False'
+[0.398s] Level 5:colcon.colcon_core.verb:set package 'cw1q9' build argument 'cmake_force_configure' from command line to 'False'
+[0.398s] Level 5:colcon.colcon_core.verb:set package 'cw1q9' build argument 'ament_cmake_args' from command line to 'None'
+[0.398s] Level 5:colcon.colcon_core.verb:set package 'cw1q9' build argument 'catkin_cmake_args' from command line to 'None'
+[0.398s] Level 5:colcon.colcon_core.verb:set package 'cw1q9' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.398s] DEBUG:colcon.colcon_core.verb:Building package 'cw1q9' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/bizare/Desktop/Robotics_System/build/cw1q9', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/bizare/Desktop/Robotics_System/install/cw1q9', 'merge_install': False, 'path': '/home/bizare/Desktop/Robotics_System/cw1q9', 'symlink_install': False, 'test_result_base': None}
+[0.398s] Level 5:colcon.colcon_core.verb:set package 'open_manipulator_description' build argument 'cmake_args' from command line to 'None'
+[0.398s] Level 5:colcon.colcon_core.verb:set package 'open_manipulator_description' build argument 'cmake_target' from command line to 'None'
+[0.398s] Level 5:colcon.colcon_core.verb:set package 'open_manipulator_description' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.398s] Level 5:colcon.colcon_core.verb:set package 'open_manipulator_description' build argument 'cmake_clean_cache' from command line to 'False'
+[0.398s] Level 5:colcon.colcon_core.verb:set package 'open_manipulator_description' build argument 'cmake_clean_first' from command line to 'False'
+[0.399s] Level 5:colcon.colcon_core.verb:set package 'open_manipulator_description' build argument 'cmake_force_configure' from command line to 'False'
+[0.399s] Level 5:colcon.colcon_core.verb:set package 'open_manipulator_description' build argument 'ament_cmake_args' from command line to 'None'
+[0.399s] Level 5:colcon.colcon_core.verb:set package 'open_manipulator_description' build argument 'catkin_cmake_args' from command line to 'None'
+[0.399s] Level 5:colcon.colcon_core.verb:set package 'open_manipulator_description' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.399s] DEBUG:colcon.colcon_core.verb:Building package 'open_manipulator_description' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/bizare/Desktop/Robotics_System/build/open_manipulator_description', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/bizare/Desktop/Robotics_System/install/open_manipulator_description', 'merge_install': False, 'path': '/home/bizare/Desktop/Robotics_System/robot_description/open_manipulator_description', 'symlink_install': False, 'test_result_base': None}
+[0.399s] Level 5:colcon.colcon_core.verb:set package 'youbot_description' build argument 'cmake_args' from command line to 'None'
+[0.399s] Level 5:colcon.colcon_core.verb:set package 'youbot_description' build argument 'cmake_target' from command line to 'None'
+[0.399s] Level 5:colcon.colcon_core.verb:set package 'youbot_description' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.399s] Level 5:colcon.colcon_core.verb:set package 'youbot_description' build argument 'cmake_clean_cache' from command line to 'False'
+[0.399s] Level 5:colcon.colcon_core.verb:set package 'youbot_description' build argument 'cmake_clean_first' from command line to 'False'
+[0.399s] Level 5:colcon.colcon_core.verb:set package 'youbot_description' build argument 'cmake_force_configure' from command line to 'False'
+[0.399s] Level 5:colcon.colcon_core.verb:set package 'youbot_description' build argument 'ament_cmake_args' from command line to 'None'
+[0.399s] Level 5:colcon.colcon_core.verb:set package 'youbot_description' build argument 'catkin_cmake_args' from command line to 'None'
+[0.399s] Level 5:colcon.colcon_core.verb:set package 'youbot_description' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.399s] DEBUG:colcon.colcon_core.verb:Building package 'youbot_description' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/bizare/Desktop/Robotics_System/build/youbot_description', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/bizare/Desktop/Robotics_System/install/youbot_description', 'merge_install': False, 'path': '/home/bizare/Desktop/Robotics_System/robot_description/youbot_description', 'symlink_install': False, 'test_result_base': None}
+[0.399s] Level 5:colcon.colcon_core.verb:set package 'youbot_simulator' build argument 'cmake_args' from command line to 'None'
+[0.399s] Level 5:colcon.colcon_core.verb:set package 'youbot_simulator' build argument 'cmake_target' from command line to 'None'
+[0.400s] Level 5:colcon.colcon_core.verb:set package 'youbot_simulator' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.400s] Level 5:colcon.colcon_core.verb:set package 'youbot_simulator' build argument 'cmake_clean_cache' from command line to 'False'
+[0.400s] Level 5:colcon.colcon_core.verb:set package 'youbot_simulator' build argument 'cmake_clean_first' from command line to 'False'
+[0.400s] Level 5:colcon.colcon_core.verb:set package 'youbot_simulator' build argument 'cmake_force_configure' from command line to 'False'
+[0.400s] Level 5:colcon.colcon_core.verb:set package 'youbot_simulator' build argument 'ament_cmake_args' from command line to 'None'
+[0.400s] Level 5:colcon.colcon_core.verb:set package 'youbot_simulator' build argument 'catkin_cmake_args' from command line to 'None'
+[0.400s] Level 5:colcon.colcon_core.verb:set package 'youbot_simulator' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.400s] DEBUG:colcon.colcon_core.verb:Building package 'youbot_simulator' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/bizare/Desktop/Robotics_System/build/youbot_simulator', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/bizare/Desktop/Robotics_System/install/youbot_simulator', 'merge_install': False, 'path': '/home/bizare/Desktop/Robotics_System/youbot_simulator', 'symlink_install': False, 'test_result_base': None}
+[0.400s] Level 5:colcon.colcon_core.verb:set package 'cw1q5' build argument 'cmake_args' from command line to 'None'
+[0.400s] Level 5:colcon.colcon_core.verb:set package 'cw1q5' build argument 'cmake_target' from command line to 'None'
+[0.400s] Level 5:colcon.colcon_core.verb:set package 'cw1q5' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.400s] Level 5:colcon.colcon_core.verb:set package 'cw1q5' build argument 'cmake_clean_cache' from command line to 'False'
+[0.400s] Level 5:colcon.colcon_core.verb:set package 'cw1q5' build argument 'cmake_clean_first' from command line to 'False'
+[0.400s] Level 5:colcon.colcon_core.verb:set package 'cw1q5' build argument 'cmake_force_configure' from command line to 'False'
+[0.400s] Level 5:colcon.colcon_core.verb:set package 'cw1q5' build argument 'ament_cmake_args' from command line to 'None'
+[0.400s] Level 5:colcon.colcon_core.verb:set package 'cw1q5' build argument 'catkin_cmake_args' from command line to 'None'
+[0.400s] Level 5:colcon.colcon_core.verb:set package 'cw1q5' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.400s] DEBUG:colcon.colcon_core.verb:Building package 'cw1q5' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/bizare/Desktop/Robotics_System/build/cw1q5', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/bizare/Desktop/Robotics_System/install/cw1q5', 'merge_install': False, 'path': '/home/bizare/Desktop/Robotics_System/cw1q5', 'symlink_install': False, 'test_result_base': None}
+[0.400s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.401s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.402s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/bizare/Desktop/Robotics_System/robot_description/youbot_description' with build type 'ament_cmake'
+[0.402s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/bizare/Desktop/Robotics_System/robot_description/youbot_description'
+[0.404s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.405s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.405s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.411s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/bizare/Desktop/Robotics_System/cw1q4' with build type 'ament_python'
+[0.411s] Level 1:colcon.colcon_core.shell:create_environment_hook('cw1q4', 'ament_prefix_path')
+[0.412s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bizare/Desktop/Robotics_System/install/cw1q4/share/cw1q4/hook/ament_prefix_path.ps1'
+[0.413s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/bizare/Desktop/Robotics_System/install/cw1q4/share/cw1q4/hook/ament_prefix_path.dsv'
+[0.413s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bizare/Desktop/Robotics_System/install/cw1q4/share/cw1q4/hook/ament_prefix_path.sh'
+[0.414s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.414s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.421s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/bizare/Desktop/Robotics_System/cw1q4_interfaces' with build type 'ament_cmake'
+[0.422s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/bizare/Desktop/Robotics_System/cw1q4_interfaces'
+[0.422s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.422s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.427s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/bizare/Desktop/Robotics_System/cw1q9' with build type 'ament_python'
+[0.428s] Level 1:colcon.colcon_core.shell:create_environment_hook('cw1q9', 'ament_prefix_path')
+[0.428s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bizare/Desktop/Robotics_System/install/cw1q9/share/cw1q9/hook/ament_prefix_path.ps1'
+[0.431s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/bizare/Desktop/Robotics_System/install/cw1q9/share/cw1q9/hook/ament_prefix_path.dsv'
+[0.431s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bizare/Desktop/Robotics_System/install/cw1q9/share/cw1q9/hook/ament_prefix_path.sh'
+[0.432s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.433s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.438s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/bizare/Desktop/Robotics_System/robot_description/open_manipulator_description' with build type 'ament_cmake'
+[0.438s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/bizare/Desktop/Robotics_System/robot_description/open_manipulator_description'
+[0.439s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.439s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.454s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/bizare/Desktop/Robotics_System/build/youbot_description': CMAKE_PREFIX_PATH=/home/bizare/Desktop/Robotics_System/install/youbot_simulator:/home/bizare/Desktop/Robotics_System/install/cw1q5:/home/bizare/Desktop/Robotics_System/install/cw1q9:/home/bizare/Desktop/Robotics_System/install/cw1q4:/opt/ros/foxy:/home/bizare/Desktop/Robotics_System/install/youbot_description:/home/bizare/Desktop/Robotics_System/install/open_manipulator_description:/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces /usr/bin/cmake --build /home/bizare/Desktop/Robotics_System/build/youbot_description -- -j8 -l8
+[0.645s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/bizare/Desktop/Robotics_System/cw1q4'
+[0.646s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.646s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.658s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/bizare/Desktop/Robotics_System/build/cw1q4_interfaces': CMAKE_PREFIX_PATH=/home/bizare/Desktop/Robotics_System/install/youbot_simulator:/home/bizare/Desktop/Robotics_System/install/cw1q5:/home/bizare/Desktop/Robotics_System/install/cw1q9:/home/bizare/Desktop/Robotics_System/install/cw1q4:/opt/ros/foxy:/home/bizare/Desktop/Robotics_System/install/youbot_description:/home/bizare/Desktop/Robotics_System/install/open_manipulator_description:/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces /usr/bin/cmake --build /home/bizare/Desktop/Robotics_System/build/cw1q4_interfaces -- -j8 -l8
+[0.876s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/bizare/Desktop/Robotics_System/cw1q9'
+[0.877s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.877s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.891s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/bizare/Desktop/Robotics_System/build/open_manipulator_description': CMAKE_PREFIX_PATH=/home/bizare/Desktop/Robotics_System/install/youbot_simulator:/home/bizare/Desktop/Robotics_System/install/cw1q5:/home/bizare/Desktop/Robotics_System/install/cw1q9:/home/bizare/Desktop/Robotics_System/install/cw1q4:/opt/ros/foxy:/home/bizare/Desktop/Robotics_System/install/youbot_description:/home/bizare/Desktop/Robotics_System/install/open_manipulator_description:/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces /usr/bin/cmake --build /home/bizare/Desktop/Robotics_System/build/open_manipulator_description -- -j8 -l8
+[0.903s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/bizare/Desktop/Robotics_System/build/youbot_description' returned '0': CMAKE_PREFIX_PATH=/home/bizare/Desktop/Robotics_System/install/youbot_simulator:/home/bizare/Desktop/Robotics_System/install/cw1q5:/home/bizare/Desktop/Robotics_System/install/cw1q9:/home/bizare/Desktop/Robotics_System/install/cw1q4:/opt/ros/foxy:/home/bizare/Desktop/Robotics_System/install/youbot_description:/home/bizare/Desktop/Robotics_System/install/open_manipulator_description:/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces /usr/bin/cmake --build /home/bizare/Desktop/Robotics_System/build/youbot_description -- -j8 -l8
+[0.914s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/bizare/Desktop/Robotics_System/build/youbot_description': CMAKE_PREFIX_PATH=/home/bizare/Desktop/Robotics_System/install/youbot_simulator:/home/bizare/Desktop/Robotics_System/install/cw1q5:/home/bizare/Desktop/Robotics_System/install/cw1q9:/home/bizare/Desktop/Robotics_System/install/cw1q4:/opt/ros/foxy:/home/bizare/Desktop/Robotics_System/install/youbot_description:/home/bizare/Desktop/Robotics_System/install/open_manipulator_description:/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces /usr/bin/cmake --install /home/bizare/Desktop/Robotics_System/build/youbot_description
+[0.938s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/bizare/Desktop/Robotics_System/build/cw1q4_interfaces' returned '0': CMAKE_PREFIX_PATH=/home/bizare/Desktop/Robotics_System/install/youbot_simulator:/home/bizare/Desktop/Robotics_System/install/cw1q5:/home/bizare/Desktop/Robotics_System/install/cw1q9:/home/bizare/Desktop/Robotics_System/install/cw1q4:/opt/ros/foxy:/home/bizare/Desktop/Robotics_System/install/youbot_description:/home/bizare/Desktop/Robotics_System/install/open_manipulator_description:/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces /usr/bin/cmake --build /home/bizare/Desktop/Robotics_System/build/cw1q4_interfaces -- -j8 -l8
+[0.938s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/bizare/Desktop/Robotics_System/build/cw1q4_interfaces': CMAKE_PREFIX_PATH=/home/bizare/Desktop/Robotics_System/install/youbot_simulator:/home/bizare/Desktop/Robotics_System/install/cw1q5:/home/bizare/Desktop/Robotics_System/install/cw1q9:/home/bizare/Desktop/Robotics_System/install/cw1q4:/opt/ros/foxy:/home/bizare/Desktop/Robotics_System/install/youbot_description:/home/bizare/Desktop/Robotics_System/install/open_manipulator_description:/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces /usr/bin/cmake --install /home/bizare/Desktop/Robotics_System/build/cw1q4_interfaces
+[0.942s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(youbot_description)
+[0.944s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/bizare/Desktop/Robotics_System/build/youbot_description' returned '0': CMAKE_PREFIX_PATH=/home/bizare/Desktop/Robotics_System/install/youbot_simulator:/home/bizare/Desktop/Robotics_System/install/cw1q5:/home/bizare/Desktop/Robotics_System/install/cw1q9:/home/bizare/Desktop/Robotics_System/install/cw1q4:/opt/ros/foxy:/home/bizare/Desktop/Robotics_System/install/youbot_description:/home/bizare/Desktop/Robotics_System/install/open_manipulator_description:/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces /usr/bin/cmake --install /home/bizare/Desktop/Robotics_System/build/youbot_description
+[0.946s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/youbot_description' for CMake module files
+[0.947s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/youbot_description' for CMake config files
+[0.947s] Level 1:colcon.colcon_core.shell:create_environment_hook('youbot_description', 'cmake_prefix_path')
+[0.947s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bizare/Desktop/Robotics_System/install/youbot_description/share/youbot_description/hook/cmake_prefix_path.ps1'
+[0.948s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/bizare/Desktop/Robotics_System/install/youbot_description/share/youbot_description/hook/cmake_prefix_path.dsv'
+[0.954s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bizare/Desktop/Robotics_System/install/youbot_description/share/youbot_description/hook/cmake_prefix_path.sh'
+[0.957s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/youbot_description/bin'
+[0.958s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/youbot_description/lib/pkgconfig/youbot_description.pc'
+[0.958s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/youbot_description/lib/python3.8/site-packages'
+[0.958s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/youbot_description/bin'
+[0.958s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/youbot_description/share/youbot_description/package.ps1'
+[0.962s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/bizare/Desktop/Robotics_System/install/youbot_description/share/youbot_description/package.dsv'
+[0.964s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/youbot_description/share/youbot_description/package.sh'
+[0.964s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/youbot_description/share/youbot_description/package.bash'
+[0.965s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/youbot_description/share/youbot_description/package.zsh'
+[0.966s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/bizare/Desktop/Robotics_System/install/youbot_description/share/colcon-core/packages/youbot_description)
+[0.967s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(youbot_description)
+[0.967s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/youbot_description' for CMake module files
+[0.967s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/youbot_description' for CMake config files
+[0.968s] Level 1:colcon.colcon_core.shell:create_environment_hook('youbot_description', 'cmake_prefix_path')
+[0.968s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bizare/Desktop/Robotics_System/install/youbot_description/share/youbot_description/hook/cmake_prefix_path.ps1'
+[0.968s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/bizare/Desktop/Robotics_System/install/youbot_description/share/youbot_description/hook/cmake_prefix_path.dsv'
+[0.969s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bizare/Desktop/Robotics_System/install/youbot_description/share/youbot_description/hook/cmake_prefix_path.sh'
+[0.969s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/youbot_description/bin'
+[0.970s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/youbot_description/lib/pkgconfig/youbot_description.pc'
+[0.970s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/youbot_description/lib/python3.8/site-packages'
+[0.970s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/youbot_description/bin'
+[0.970s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/youbot_description/share/youbot_description/package.ps1'
+[0.971s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/bizare/Desktop/Robotics_System/install/youbot_description/share/youbot_description/package.dsv'
+[0.971s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/youbot_description/share/youbot_description/package.sh'
+[0.972s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/youbot_description/share/youbot_description/package.bash'
+[0.972s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/youbot_description/share/youbot_description/package.zsh'
+[0.973s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/bizare/Desktop/Robotics_System/install/youbot_description/share/colcon-core/packages/youbot_description)
+[0.973s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/bizare/Desktop/Robotics_System/youbot_simulator' with build type 'ament_cmake'
+[0.973s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/bizare/Desktop/Robotics_System/youbot_simulator'
+[0.974s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.974s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.981s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/bizare/Desktop/Robotics_System/build/open_manipulator_description' returned '0': CMAKE_PREFIX_PATH=/home/bizare/Desktop/Robotics_System/install/youbot_simulator:/home/bizare/Desktop/Robotics_System/install/cw1q5:/home/bizare/Desktop/Robotics_System/install/cw1q9:/home/bizare/Desktop/Robotics_System/install/cw1q4:/opt/ros/foxy:/home/bizare/Desktop/Robotics_System/install/youbot_description:/home/bizare/Desktop/Robotics_System/install/open_manipulator_description:/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces /usr/bin/cmake --build /home/bizare/Desktop/Robotics_System/build/open_manipulator_description -- -j8 -l8
+[0.984s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/bizare/Desktop/Robotics_System/build/open_manipulator_description': CMAKE_PREFIX_PATH=/home/bizare/Desktop/Robotics_System/install/youbot_simulator:/home/bizare/Desktop/Robotics_System/install/cw1q5:/home/bizare/Desktop/Robotics_System/install/cw1q9:/home/bizare/Desktop/Robotics_System/install/cw1q4:/opt/ros/foxy:/home/bizare/Desktop/Robotics_System/install/youbot_description:/home/bizare/Desktop/Robotics_System/install/open_manipulator_description:/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces /usr/bin/cmake --install /home/bizare/Desktop/Robotics_System/build/open_manipulator_description
+[1.003s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(open_manipulator_description)
+[1.003s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/open_manipulator_description' for CMake module files
+[1.005s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/open_manipulator_description' for CMake config files
+[1.006s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/bizare/Desktop/Robotics_System/build/youbot_simulator': CMAKE_PREFIX_PATH=/home/bizare/Desktop/Robotics_System/install/cw1q5:/home/bizare/Desktop/Robotics_System/install/cw1q9:/home/bizare/Desktop/Robotics_System/install/cw1q4:/opt/ros/foxy:/home/bizare/Desktop/Robotics_System/install/youbot_description:/home/bizare/Desktop/Robotics_System/install/youbot_simulator:/home/bizare/Desktop/Robotics_System/install/open_manipulator_description:/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces /usr/bin/cmake --build /home/bizare/Desktop/Robotics_System/build/youbot_simulator -- -j8 -l8
+[1.010s] Level 1:colcon.colcon_core.shell:create_environment_hook('open_manipulator_description', 'cmake_prefix_path')
+[1.011s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bizare/Desktop/Robotics_System/install/open_manipulator_description/share/open_manipulator_description/hook/cmake_prefix_path.ps1'
+[1.018s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/bizare/Desktop/Robotics_System/install/open_manipulator_description/share/open_manipulator_description/hook/cmake_prefix_path.dsv'
+[1.020s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bizare/Desktop/Robotics_System/install/open_manipulator_description/share/open_manipulator_description/hook/cmake_prefix_path.sh'
+[1.021s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/bizare/Desktop/Robotics_System/build/open_manipulator_description' returned '0': CMAKE_PREFIX_PATH=/home/bizare/Desktop/Robotics_System/install/youbot_simulator:/home/bizare/Desktop/Robotics_System/install/cw1q5:/home/bizare/Desktop/Robotics_System/install/cw1q9:/home/bizare/Desktop/Robotics_System/install/cw1q4:/opt/ros/foxy:/home/bizare/Desktop/Robotics_System/install/youbot_description:/home/bizare/Desktop/Robotics_System/install/open_manipulator_description:/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces /usr/bin/cmake --install /home/bizare/Desktop/Robotics_System/build/open_manipulator_description
+[1.022s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/open_manipulator_description/bin'
+[1.022s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/open_manipulator_description/lib/pkgconfig/open_manipulator_description.pc'
+[1.022s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/open_manipulator_description/lib/python3.8/site-packages'
+[1.022s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/open_manipulator_description/bin'
+[1.023s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/open_manipulator_description/share/open_manipulator_description/package.ps1'
+[1.024s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/bizare/Desktop/Robotics_System/install/open_manipulator_description/share/open_manipulator_description/package.dsv'
+[1.025s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/open_manipulator_description/share/open_manipulator_description/package.sh'
+[1.025s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/open_manipulator_description/share/open_manipulator_description/package.bash'
+[1.026s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/open_manipulator_description/share/open_manipulator_description/package.zsh'
+[1.026s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/bizare/Desktop/Robotics_System/install/open_manipulator_description/share/colcon-core/packages/open_manipulator_description)
+[1.027s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(open_manipulator_description)
+[1.027s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/open_manipulator_description' for CMake module files
+[1.027s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/open_manipulator_description' for CMake config files
+[1.028s] Level 1:colcon.colcon_core.shell:create_environment_hook('open_manipulator_description', 'cmake_prefix_path')
+[1.028s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bizare/Desktop/Robotics_System/install/open_manipulator_description/share/open_manipulator_description/hook/cmake_prefix_path.ps1'
+[1.028s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/bizare/Desktop/Robotics_System/install/open_manipulator_description/share/open_manipulator_description/hook/cmake_prefix_path.dsv'
+[1.029s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bizare/Desktop/Robotics_System/install/open_manipulator_description/share/open_manipulator_description/hook/cmake_prefix_path.sh'
+[1.029s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/open_manipulator_description/bin'
+[1.029s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/open_manipulator_description/lib/pkgconfig/open_manipulator_description.pc'
+[1.029s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/open_manipulator_description/lib/python3.8/site-packages'
+[1.030s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/open_manipulator_description/bin'
+[1.030s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/open_manipulator_description/share/open_manipulator_description/package.ps1'
+[1.030s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/bizare/Desktop/Robotics_System/install/open_manipulator_description/share/open_manipulator_description/package.dsv'
+[1.031s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/open_manipulator_description/share/open_manipulator_description/package.sh'
+[1.031s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/open_manipulator_description/share/open_manipulator_description/package.bash'
+[1.032s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/open_manipulator_description/share/open_manipulator_description/package.zsh'
+[1.033s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/bizare/Desktop/Robotics_System/install/open_manipulator_description/share/colcon-core/packages/open_manipulator_description)
+[1.033s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(cw1q4_interfaces)
+[1.034s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces' for CMake module files
+[1.035s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces' for CMake config files
+[1.036s] Level 1:colcon.colcon_core.shell:create_environment_hook('cw1q4_interfaces', 'cmake_prefix_path')
+[1.037s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/hook/cmake_prefix_path.ps1'
+[1.038s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/hook/cmake_prefix_path.dsv'
+[1.039s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/hook/cmake_prefix_path.sh'
+[1.040s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/bizare/Desktop/Robotics_System/build/cw1q4_interfaces' returned '0': CMAKE_PREFIX_PATH=/home/bizare/Desktop/Robotics_System/install/youbot_simulator:/home/bizare/Desktop/Robotics_System/install/cw1q5:/home/bizare/Desktop/Robotics_System/install/cw1q9:/home/bizare/Desktop/Robotics_System/install/cw1q4:/opt/ros/foxy:/home/bizare/Desktop/Robotics_System/install/youbot_description:/home/bizare/Desktop/Robotics_System/install/open_manipulator_description:/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces /usr/bin/cmake --install /home/bizare/Desktop/Robotics_System/build/cw1q4_interfaces
+[1.040s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/lib'
+[1.041s] Level 1:colcon.colcon_core.shell:create_environment_hook('cw1q4_interfaces', 'ld_library_path_lib')
+[1.041s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/hook/ld_library_path_lib.ps1'
+[1.042s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/hook/ld_library_path_lib.dsv'
+[1.042s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/hook/ld_library_path_lib.sh'
+[1.043s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/bin'
+[1.043s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/lib/pkgconfig/cw1q4_interfaces.pc'
+[1.043s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/lib/python3.8/site-packages'
+[1.043s] Level 1:colcon.colcon_core.shell:create_environment_hook('cw1q4_interfaces', 'pythonpath')
+[1.043s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/hook/pythonpath.ps1'
+[1.044s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/hook/pythonpath.dsv'
+[1.044s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/hook/pythonpath.sh'
+[1.045s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/bin'
+[1.045s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/package.ps1'
+[1.046s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/package.dsv'
+[1.046s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/package.sh'
+[1.047s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/package.bash'
+[1.048s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/package.zsh'
+[1.049s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/colcon-core/packages/cw1q4_interfaces)
+[1.050s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(cw1q4_interfaces)
+[1.051s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces' for CMake module files
+[1.051s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces' for CMake config files
+[1.052s] Level 1:colcon.colcon_core.shell:create_environment_hook('cw1q4_interfaces', 'cmake_prefix_path')
+[1.052s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/hook/cmake_prefix_path.ps1'
+[1.052s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/hook/cmake_prefix_path.dsv'
+[1.053s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/hook/cmake_prefix_path.sh'
+[1.054s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/lib'
+[1.054s] Level 1:colcon.colcon_core.shell:create_environment_hook('cw1q4_interfaces', 'ld_library_path_lib')
+[1.054s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/hook/ld_library_path_lib.ps1'
+[1.054s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/hook/ld_library_path_lib.dsv'
+[1.055s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/hook/ld_library_path_lib.sh'
+[1.055s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/bin'
+[1.055s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/lib/pkgconfig/cw1q4_interfaces.pc'
+[1.056s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/lib/python3.8/site-packages'
+[1.056s] Level 1:colcon.colcon_core.shell:create_environment_hook('cw1q4_interfaces', 'pythonpath')
+[1.056s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/hook/pythonpath.ps1'
+[1.056s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/hook/pythonpath.dsv'
+[1.057s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/hook/pythonpath.sh'
+[1.058s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/bin'
+[1.058s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/package.ps1'
+[1.059s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/package.dsv'
+[1.060s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/package.sh'
+[1.061s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/package.bash'
+[1.062s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/cw1q4_interfaces/package.zsh'
+[1.063s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces/share/colcon-core/packages/cw1q4_interfaces)
+[1.065s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/bizare/Desktop/Robotics_System/build/youbot_simulator' returned '0': CMAKE_PREFIX_PATH=/home/bizare/Desktop/Robotics_System/install/cw1q5:/home/bizare/Desktop/Robotics_System/install/cw1q9:/home/bizare/Desktop/Robotics_System/install/cw1q4:/opt/ros/foxy:/home/bizare/Desktop/Robotics_System/install/youbot_description:/home/bizare/Desktop/Robotics_System/install/youbot_simulator:/home/bizare/Desktop/Robotics_System/install/open_manipulator_description:/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces /usr/bin/cmake --build /home/bizare/Desktop/Robotics_System/build/youbot_simulator -- -j8 -l8
+[1.069s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/bizare/Desktop/Robotics_System/build/youbot_simulator': CMAKE_PREFIX_PATH=/home/bizare/Desktop/Robotics_System/install/cw1q5:/home/bizare/Desktop/Robotics_System/install/cw1q9:/home/bizare/Desktop/Robotics_System/install/cw1q4:/opt/ros/foxy:/home/bizare/Desktop/Robotics_System/install/youbot_description:/home/bizare/Desktop/Robotics_System/install/youbot_simulator:/home/bizare/Desktop/Robotics_System/install/open_manipulator_description:/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces /usr/bin/cmake --install /home/bizare/Desktop/Robotics_System/build/youbot_simulator
+[1.083s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(youbot_simulator)
+[1.084s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/bizare/Desktop/Robotics_System/build/youbot_simulator' returned '0': CMAKE_PREFIX_PATH=/home/bizare/Desktop/Robotics_System/install/cw1q5:/home/bizare/Desktop/Robotics_System/install/cw1q9:/home/bizare/Desktop/Robotics_System/install/cw1q4:/opt/ros/foxy:/home/bizare/Desktop/Robotics_System/install/youbot_description:/home/bizare/Desktop/Robotics_System/install/youbot_simulator:/home/bizare/Desktop/Robotics_System/install/open_manipulator_description:/home/bizare/Desktop/Robotics_System/install/cw1q4_interfaces /usr/bin/cmake --install /home/bizare/Desktop/Robotics_System/build/youbot_simulator
+[1.084s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/youbot_simulator' for CMake module files
+[1.085s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/youbot_simulator' for CMake config files
+[1.086s] Level 1:colcon.colcon_core.shell:create_environment_hook('youbot_simulator', 'cmake_prefix_path')
+[1.086s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bizare/Desktop/Robotics_System/install/youbot_simulator/share/youbot_simulator/hook/cmake_prefix_path.ps1'
+[1.088s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/bizare/Desktop/Robotics_System/install/youbot_simulator/share/youbot_simulator/hook/cmake_prefix_path.dsv'
+[1.088s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bizare/Desktop/Robotics_System/install/youbot_simulator/share/youbot_simulator/hook/cmake_prefix_path.sh'
+[1.090s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/youbot_simulator/bin'
+[1.090s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/youbot_simulator/lib/pkgconfig/youbot_simulator.pc'
+[1.090s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/youbot_simulator/lib/python3.8/site-packages'
+[1.091s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/youbot_simulator/bin'
+[1.091s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/youbot_simulator/share/youbot_simulator/package.ps1'
+[1.093s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/bizare/Desktop/Robotics_System/install/youbot_simulator/share/youbot_simulator/package.dsv'
+[1.093s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/youbot_simulator/share/youbot_simulator/package.sh'
+[1.094s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/youbot_simulator/share/youbot_simulator/package.bash'
+[1.095s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/youbot_simulator/share/youbot_simulator/package.zsh'
+[1.095s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/bizare/Desktop/Robotics_System/install/youbot_simulator/share/colcon-core/packages/youbot_simulator)
+[1.096s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(youbot_simulator)
+[1.096s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/youbot_simulator' for CMake module files
+[1.097s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/youbot_simulator' for CMake config files
+[1.097s] Level 1:colcon.colcon_core.shell:create_environment_hook('youbot_simulator', 'cmake_prefix_path')
+[1.097s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bizare/Desktop/Robotics_System/install/youbot_simulator/share/youbot_simulator/hook/cmake_prefix_path.ps1'
+[1.098s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/bizare/Desktop/Robotics_System/install/youbot_simulator/share/youbot_simulator/hook/cmake_prefix_path.dsv'
+[1.098s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bizare/Desktop/Robotics_System/install/youbot_simulator/share/youbot_simulator/hook/cmake_prefix_path.sh'
+[1.099s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/youbot_simulator/bin'
+[1.099s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/youbot_simulator/lib/pkgconfig/youbot_simulator.pc'
+[1.101s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/youbot_simulator/lib/python3.8/site-packages'
+[1.101s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/youbot_simulator/bin'
+[1.102s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/youbot_simulator/share/youbot_simulator/package.ps1'
+[1.103s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/bizare/Desktop/Robotics_System/install/youbot_simulator/share/youbot_simulator/package.dsv'
+[1.105s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/youbot_simulator/share/youbot_simulator/package.sh'
+[1.106s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/youbot_simulator/share/youbot_simulator/package.bash'
+[1.107s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/youbot_simulator/share/youbot_simulator/package.zsh'
+[1.108s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/bizare/Desktop/Robotics_System/install/youbot_simulator/share/colcon-core/packages/youbot_simulator)
+[1.109s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/bizare/Desktop/Robotics_System/cw1q5' with build type 'ament_python'
+[1.109s] Level 1:colcon.colcon_core.shell:create_environment_hook('cw1q5', 'ament_prefix_path')
+[1.110s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bizare/Desktop/Robotics_System/install/cw1q5/share/cw1q5/hook/ament_prefix_path.ps1'
+[1.110s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/bizare/Desktop/Robotics_System/install/cw1q5/share/cw1q5/hook/ament_prefix_path.dsv'
+[1.111s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bizare/Desktop/Robotics_System/install/cw1q5/share/cw1q5/hook/ament_prefix_path.sh'
+[1.111s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.111s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.345s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/bizare/Desktop/Robotics_System/cw1q5'
+[1.346s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.346s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.360s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/bizare/Desktop/Robotics_System/cw1q9': PYTHONPATH=/home/bizare/Desktop/Robotics_System/build/cw1q9/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bizare/Desktop/Robotics_System/install/cw1q9/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/cw1q9 build --build-base /home/bizare/Desktop/Robotics_System/build/cw1q9/build install --record /home/bizare/Desktop/Robotics_System/build/cw1q9/install.log --install-scripts $base/lib/cw1q9 --single-version-externally-managed install_data
+[1.363s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/bizare/Desktop/Robotics_System/cw1q4': PYTHONPATH=/home/bizare/Desktop/Robotics_System/build/cw1q4/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bizare/Desktop/Robotics_System/install/cw1q4/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/cw1q4 build --build-base /home/bizare/Desktop/Robotics_System/build/cw1q4/build install --record /home/bizare/Desktop/Robotics_System/build/cw1q4/install.log --install-scripts $base/lib/cw1q4 --single-version-externally-managed install_data
+[1.655s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q9' for CMake module files
+[1.656s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/bizare/Desktop/Robotics_System/cw1q9' returned '0': PYTHONPATH=/home/bizare/Desktop/Robotics_System/build/cw1q9/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bizare/Desktop/Robotics_System/install/cw1q9/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/cw1q9 build --build-base /home/bizare/Desktop/Robotics_System/build/cw1q9/build install --record /home/bizare/Desktop/Robotics_System/build/cw1q9/install.log --install-scripts $base/lib/cw1q9 --single-version-externally-managed install_data
+[1.656s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q9' for CMake config files
+[1.657s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q9/lib'
+[1.657s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q9/bin'
+[1.657s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q9/lib/pkgconfig/cw1q9.pc'
+[1.657s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q9/lib/python3.8/site-packages'
+[1.658s] Level 1:colcon.colcon_core.shell:create_environment_hook('cw1q9', 'pythonpath')
+[1.658s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bizare/Desktop/Robotics_System/install/cw1q9/share/cw1q9/hook/pythonpath.ps1'
+[1.659s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/bizare/Desktop/Robotics_System/install/cw1q9/share/cw1q9/hook/pythonpath.dsv'
+[1.660s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bizare/Desktop/Robotics_System/install/cw1q9/share/cw1q9/hook/pythonpath.sh'
+[1.660s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q9/bin'
+[1.660s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(cw1q9)
+[1.661s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/cw1q9/share/cw1q9/package.ps1'
+[1.661s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/bizare/Desktop/Robotics_System/install/cw1q9/share/cw1q9/package.dsv'
+[1.662s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/cw1q9/share/cw1q9/package.sh'
+[1.662s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/cw1q9/share/cw1q9/package.bash'
+[1.663s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/cw1q9/share/cw1q9/package.zsh'
+[1.663s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/bizare/Desktop/Robotics_System/install/cw1q9/share/colcon-core/packages/cw1q9)
+[1.666s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q4' for CMake module files
+[1.666s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/bizare/Desktop/Robotics_System/cw1q4' returned '0': PYTHONPATH=/home/bizare/Desktop/Robotics_System/build/cw1q4/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bizare/Desktop/Robotics_System/install/cw1q4/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/cw1q4 build --build-base /home/bizare/Desktop/Robotics_System/build/cw1q4/build install --record /home/bizare/Desktop/Robotics_System/build/cw1q4/install.log --install-scripts $base/lib/cw1q4 --single-version-externally-managed install_data
+[1.667s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q4' for CMake config files
+[1.667s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q4/lib'
+[1.667s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q4/bin'
+[1.667s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q4/lib/pkgconfig/cw1q4.pc'
+[1.668s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q4/lib/python3.8/site-packages'
+[1.668s] Level 1:colcon.colcon_core.shell:create_environment_hook('cw1q4', 'pythonpath')
+[1.668s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bizare/Desktop/Robotics_System/install/cw1q4/share/cw1q4/hook/pythonpath.ps1'
+[1.669s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/bizare/Desktop/Robotics_System/install/cw1q4/share/cw1q4/hook/pythonpath.dsv'
+[1.669s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bizare/Desktop/Robotics_System/install/cw1q4/share/cw1q4/hook/pythonpath.sh'
+[1.670s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q4/bin'
+[1.670s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(cw1q4)
+[1.670s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/cw1q4/share/cw1q4/package.ps1'
+[1.671s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/bizare/Desktop/Robotics_System/install/cw1q4/share/cw1q4/package.dsv'
+[1.671s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/cw1q4/share/cw1q4/package.sh'
+[1.672s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/cw1q4/share/cw1q4/package.bash'
+[1.672s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/cw1q4/share/cw1q4/package.zsh'
+[1.672s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/bizare/Desktop/Robotics_System/install/cw1q4/share/colcon-core/packages/cw1q4)
+[1.768s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/bizare/Desktop/Robotics_System/cw1q5': PYTHONPATH=/home/bizare/Desktop/Robotics_System/build/cw1q5/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bizare/Desktop/Robotics_System/install/cw1q5/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/cw1q5 build --build-base /home/bizare/Desktop/Robotics_System/build/cw1q5/build install --record /home/bizare/Desktop/Robotics_System/build/cw1q5/install.log --install-scripts $base/lib/cw1q5 --single-version-externally-managed install_data
+[2.016s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q5' for CMake module files
+[2.016s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/bizare/Desktop/Robotics_System/cw1q5' returned '0': PYTHONPATH=/home/bizare/Desktop/Robotics_System/build/cw1q5/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bizare/Desktop/Robotics_System/install/cw1q5/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/cw1q5 build --build-base /home/bizare/Desktop/Robotics_System/build/cw1q5/build install --record /home/bizare/Desktop/Robotics_System/build/cw1q5/install.log --install-scripts $base/lib/cw1q5 --single-version-externally-managed install_data
+[2.017s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q5' for CMake config files
+[2.017s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q5/lib'
+[2.017s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q5/bin'
+[2.017s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q5/lib/pkgconfig/cw1q5.pc'
+[2.018s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q5/lib/python3.8/site-packages'
+[2.018s] Level 1:colcon.colcon_core.shell:create_environment_hook('cw1q5', 'pythonpath')
+[2.018s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bizare/Desktop/Robotics_System/install/cw1q5/share/cw1q5/hook/pythonpath.ps1'
+[2.019s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/bizare/Desktop/Robotics_System/install/cw1q5/share/cw1q5/hook/pythonpath.dsv'
+[2.019s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/bizare/Desktop/Robotics_System/install/cw1q5/share/cw1q5/hook/pythonpath.sh'
+[2.020s] Level 1:colcon.colcon_core.environment:checking '/home/bizare/Desktop/Robotics_System/install/cw1q5/bin'
+[2.020s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(cw1q5)
+[2.020s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/cw1q5/share/cw1q5/package.ps1'
+[2.021s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/bizare/Desktop/Robotics_System/install/cw1q5/share/cw1q5/package.dsv'
+[2.021s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/cw1q5/share/cw1q5/package.sh'
+[2.022s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/cw1q5/share/cw1q5/package.bash'
+[2.023s] INFO:colcon.colcon_core.shell:Creating package script '/home/bizare/Desktop/Robotics_System/install/cw1q5/share/cw1q5/package.zsh'
+[2.023s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/bizare/Desktop/Robotics_System/install/cw1q5/share/colcon-core/packages/cw1q5)
+[2.023s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[2.023s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[2.024s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[2.024s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[2.029s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[2.029s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[2.029s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[2.040s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[2.040s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/bizare/Desktop/Robotics_System/install/local_setup.ps1'
+[2.041s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/bizare/Desktop/Robotics_System/install/_local_setup_util_ps1.py'
+[2.043s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/bizare/Desktop/Robotics_System/install/setup.ps1'
+[2.045s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/bizare/Desktop/Robotics_System/install/local_setup.sh'
+[2.045s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/bizare/Desktop/Robotics_System/install/_local_setup_util_sh.py'
+[2.046s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/bizare/Desktop/Robotics_System/install/setup.sh'
+[2.047s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/bizare/Desktop/Robotics_System/install/local_setup.bash'
+[2.048s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/bizare/Desktop/Robotics_System/install/setup.bash'
+[2.049s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/bizare/Desktop/Robotics_System/install/local_setup.zsh'
+[2.049s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/bizare/Desktop/Robotics_System/install/setup.zsh'
