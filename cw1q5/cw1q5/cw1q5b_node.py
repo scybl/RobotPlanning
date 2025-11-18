@@ -116,7 +116,6 @@ def forward_kinematics(dh_dict, joints_readings, up_to_joint=5):
         
         # 累积乘法：
         T = T.dot(T_i)
-
     # ╔════════════════════════════════════════════════════════════════════════╗
     # ╚════════════════════════════════════════════════════════════════════════╝
     
@@ -149,13 +148,10 @@ class ForwardKinematicsNode(Node):
         # ╚════════════════════════════════════════════════════════════════════════╝
         
         # 获取关节数量
-        num_joints = len(youbot_dh_parameters['a'])
+        num_joints = len(youbot_dh_parameters['alpha'])
         
         # 提取关节角度（转换为列表）
         joints_readings = list(joint_msg.position[0:num_joints])
-        
-        # 定义坐标系名称
-        parent_frame = 'base_link'
         
         # 逐个计算并广播每个关节的TF
         for i in range(num_joints):
@@ -173,7 +169,7 @@ class ForwardKinematicsNode(Node):
             transform.header.stamp = self.get_clock().now().to_msg()
             
             # 设置父子坐标系
-            transform.header.frame_id = parent_frame
+            transform.header.frame_id = 'base_link'
             transform.child_frame_id = 'link_'+ str(i+1)
             
             # 填充平移信息（从变换矩阵的第4列提取）
