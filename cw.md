@@ -615,20 +615,32 @@ RViz visualization confirms that the implementation is correct and functions as 
 
 ## c: Derivation of Standard DH Parameters from the URDF Model
 ![q5c](pic/q5_c.png)
-- 你要从 youbot_arm_only.urdf.xacro 文件中提取机械臂每个关节的几何关系；
-- 根据这些几何数据推导出标准 DH 参数（a, α, d, θ）；
-- 用表格列出结果；
-- 简单解释一下这些参数是怎么从 URDF 推出来的。
 
-在`robot_description/youbot_description/robots/youbot_arm_only.urdf.xacro`并没有直接描述arm的相关信息，而是作为top-level file，其中以下代码定义了机械臂模块
+在`robot_description/youbot_description/robots/youbot_arm_only.urdf.xacro`并没有直接描述arm的相关信息，而是作为top-level file，其中以下代码定义了机械臂模块同时包含一个bias
 ```xml
   <!-- youbot arm -->
   <xacro:include filename="$(find youbot_description)/urdf/youbot_arm/arm.urdf.xacro" />
+
+  ...
+
+    <xacro:youbot_arm name="$(arg robot_name)" parent="base_link">
+    <origin xyz="-0.024 0 0.030" rpy="0 0 0" />
+  </xacro:youbot_arm>
 ```
 其中`urdf/youbot_arm/arm.urdf.xacro`定义了关键的信息在`youbot_arm`模块中，如下
 ```xml
 <xacro:macro name="youbot_arm" params="parent name *origin">
+
+		<!-- joint between base_link and arm_0_link -->
+		<joint name="${name}_joint_0" type="fixed" >
+			<xacro:insert_block name="origin" />
+			<parent link="${parent}" />
+			<child link="${name}_link_0" />
+			
+		</joint>
+
   ...
+
 </xacro:macro>
 ```
 
@@ -661,11 +673,11 @@ $$
 
 | Joint (i) |  θᵢ *(Joint Angle)*  | dᵢ *(m)* | aᵢ *(m)* | αᵢ *(rad)* 
 |:---------:|:--------------------:|:---------:|:---------:|:------------:
-| 1         | $\theta_1 $        | 0.096     | 0.033     | $+\pi/2$ 
+| 1         | $\theta_1 $        | 0.147     | 0.033     | $+\pi/2$ 
 | 2         | $\theta_2 + \pi/2$ | 0.019     | 0.155     | 0 
 | 3         | $\theta_3$         | 0         | 0.135     | 0 
 | 4         | $\theta_4-\pi/2$   | 0         | 0         | $-\pi/2$ 
-| 5         | $\theta_5$         | 0.218     | -0.002    | 0 
+| 5         | $\theta_5$         | 0.185     | -0.002    | 0 
 
 同时可知joint offsets和joint readings polarity为
 
@@ -677,9 +689,172 @@ $$
 | 4         | $-102.5^\circ$   | 1         
 | 5         | $167.5^\circ$    | -1    
 
+综上所述
+
+| Joint (i) |  θᵢ *(Joint Angle)*  | dᵢ *(m)*  | aᵢ *(m)*  | αᵢ *(rad)* 
+|:---------:|:--------------------:|:---------:|:---------:|:------------:
+| 1         |$\theta_1 + 170^\circ$| 0.147     | 0.033     | $+\pi/2$ 
+| 2         |$\theta_2 +25^\circ$  | 0.019     | 0.155     | 0 
+| 3         |$\theta_3+ 146^\circ$ | 0         | 0.135     | 0 
+| 4         |$\theta_4-192.5^\circ$| 0         | 0         | $-\pi/2$ 
+| 5         |$\theta_5+167.5^\circ$| 0.185     | -0.002    | 0 
 
 ## d
 ![q5d](pic/q5_d.png)
 code部分如`cw1q5/cw1q5d.py`部分所示，运行结果如下
 
+![q5d_ans](pic/q5_dans.jpg)
+如图所示，当前结果于urdf预设模型高度重合，结果无误
 
+# q6
+![q6](pic/q6.png)
+对于一个 2D 平面上的 4 旋转关节机械臂（4R planar manipulator），当末端执行器 给定一个可达的位置与姿态 x_e 时，它的逆运动学（IK）一共有多少个解？并要求你解释为什么会有这些解。
+
+设4R 平面机械臂的末端姿态为：
+$$
+x_e = (x, y, \phi)^T
+$$
+关节角为：
+$$
+\theta = (\theta_1,\theta_2,\theta_3,\theta_4)^T.
+$$
+末端速度与关节速度间满足：
+$$
+\dot{x}_e = J(\theta)\dot{\theta},
+$$
+其中 Jacobian 为：
+$$
+J(\theta) \in \mathbb{R}^{3\times 4}.
+$$
+
+在非奇异配置下，由于映射 4 维关节速度到 3 维末端速度，Jacobian 满秩,存在：$$\operatorname{rank}(J)=3.$$
+
+
+根据秩–零度定理（Rank–Nullity Theorem）：
+$$
+\dim(\mathrm{Null}(J)) = 4 - \operatorname{rank}(J)
+= 4-3 = 1.
+$$
+
+因此存在非零向量 $v\neq 0$ 使：
+$$
+J(\theta)v = 0.
+$$
+
+将：
+$$
+\dot{\theta} = \alpha(t)\, v, \qquad (\alpha(t) \in \mathbb{R})
+$$
+代入速度方程得到：
+$$
+\dot{x}_e = J \dot{\theta} = J (\alpha v) = \alpha\, Jv = 0.
+$$
+因此：
+$$
+\dot{x}_e = 0 \quad\Rightarrow\quad x_e = \text{a}.
+$$
+where: 
+a是一个常数
+
+即末端位置与姿态保持不动。
+
+因为末端姿态不变，所以所有满足
+$$
+\dot{\theta}(t)=\alpha(t)v
+$$
+的关节轨迹都满足
+$$
+f(\theta(t)) = x_e.
+$$
+积分得到：
+$$
+\theta(t) = \theta_0 + \int_0^t \alpha(\tau)v\,d\tau.
+$$
+这是一条 1 维连续曲线。包含无限多个点。故IK 解是无限个
+
+
+# q7
+![q7](pic/q6.png)
+
+假设机器人在自由空间中运动（即没有障碍物），并且对于给定的末端执行器姿态 x_e 存在多个逆运动学解，那么在选择一个最优解时应考虑哪些准则？”
+
+
+1. 关节极限（Joint Limits）最小化
+
+优先选择远离关节角度极限的解，使关节角 \theta_i 尽可能处于其运动范围的中间区域。
+数学上可最小化：
+\sum_i (\theta_i - \theta_{i,\mathrm{mid}})^2
+
+2. 最小关节移动量（Minimum Joint Motion）
+
+若已知当前关节角为 \theta_{\mathrm{cur}}，可选择使关节变化量最小的解：
+\min_{\theta} \|\theta - \theta_{\mathrm{cur}}\|
+
+3. 远离奇异位形（Avoid Singularities）
+
+避免选择使雅可比矩阵接近奇异的解（\det(JJ^T) 很小）。
+可最小化：
+\frac{1}{\det(JJ^T)}
+
+4. 操作性能指标（Manipulability）最大化
+
+选择能够提供更好操作能力（manipulability）的解。
+常用 Yoshikawa 指标：
+w = \sqrt{\det(JJ^T)}
+
+5. 连续性与可预测性（Continuity / Smoothness）
+
+轨迹规划中优先选择与前一时刻解连续的逆解，避免“突然跳变”，例如肘形态突然翻转。
+
+
+在自由空间中从多个逆运动学解选择最优解时，应综合考虑以下准则：远离关节极限、最小关节变化量、避免奇异位形、最大操控性能、能量与力矩最小化、以及关节空间的连续性。这些准则有助于提高机械臂的稳定性、安全性、效率和控制性能。
+
+# q8
+![q8](pic/q8.png)
+
+
+在什么情况下函数 atan2(y, x) 的输出会不同于函数 atan(y/x) 的输出？”
+
+
+1. 输入点处于不同象限时（核心原因）
+
+原因：atan(y/x) 无法区分象限，而 atan2(y, x) 可以。
+	•	atan(y/x) 仅根据比值 y/x 决定角度，得到的角度范围是
+(-\pi/2, \pi/2)
+因此无法判断点 (x, y) 位于第二象限还是第一象限，也无法区分第三与第四象限。
+	•	atan2(y, x) 根据 x 与 y 的符号确定正确象限，输出范围为
+(-\pi, \pi]
+
+因此，当 x < 0（第二或第三象限）时，两者一定不同。
+
+例如：
+(x, y)=(-1, 1)
+\text{atan}(y/x) = \text{atan}(-1) = -\frac{\pi}{4}
+但真正角度应在第二象限：
+\text{atan2}(1, -1) = \frac{3\pi}{4}
+
+两者相差整整 \pi。
+
+⸻
+
+2. 当 x = 0 时（除零问题）
+
+原因：atan(y/x) 未定义，而 atan2(y, 0) 有明确结果。
+	•	若 x = 0，则 y/x 不存在（除以零）。
+	•	atan2 正确处理：
+\text{atan2}(y,0)=
+\begin{cases}
++\frac{\pi}{2}, & y>0\\[4pt]
+-\frac{\pi}{2}, & y<0
+\end{cases}
+
+因此在 x = 0 的所有情况下，两者也不同。
+
+⸻
+
+最终总结（适合写在报告里的句子）
+
+atan2(y, x) 与 atan(y/x) 的输出不同主要发生在两种情况：其一是当点 (x, y) 位于第二或第三象限（即 x < 0）时，因为 atan(y/x) 无法区分象限；其二是当 x = 0 时，atan(y/x) 不定义，而 atan2(y, x) 能给出正确的角度。因此，只要需要区分象限或避免除零问题，都必须使用 atan2。
+
+# q9
+![q9](pic/q9.png)
