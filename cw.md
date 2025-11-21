@@ -616,7 +616,7 @@ RViz visualization confirms that the implementation is correct and functions as 
 ## c: Derivation of Standard DH Parameters from the URDF Model
 ![q5c](pic/q5_c.png)
 
-在`robot_description/youbot_description/robots/youbot_arm_only.urdf.xacro`并没有直接描述arm的相关信息，而是作为top-level file，其中以下代码定义了机械臂模块同时包含一个bias
+In `robot_description/youbot_description/robots/youbot_arm_only.urdf.xacro`, the arm information is not directly described; instead, this file serves as the top-level URDF. The following code defines the arm module and includes a fixed bias transformation:
 ```xml
   <!-- youbot arm -->
   <xacro:include filename="$(find youbot_description)/urdf/youbot_arm/arm.urdf.xacro" />
@@ -627,7 +627,7 @@ RViz visualization confirms that the implementation is correct and functions as 
     <origin xyz="-0.024 0 0.030" rpy="0 0 0" />
   </xacro:youbot_arm>
 ```
-其中`urdf/youbot_arm/arm.urdf.xacro`定义了关键的信息在`youbot_arm`模块中，如下
+The file `urdf/youbot_arm/arm.urdf.xacro` contains the key definitions inside the `youbot_arm` macro, including:
 ```xml
 <xacro:macro name="youbot_arm" params="parent name *origin">
 
@@ -644,32 +644,17 @@ RViz visualization confirms that the implementation is correct and functions as 
 </xacro:macro>
 ```
 
-基于可以得到以下信息
+Based on this, we can extract the following information:
 
-|   Axis (x,y,z)   |   Original (x,y,z)  |   RPY (x,y,z)     |
-|:----------------:|:-------------------:|:-----------------:|
-|      0, 0, -1    |   0.024, 0, 0.096   |   0, 0     , 170  |
-|      0, 1, 0     |   0.033, 0, 0.019   |   0, -65   , 0    |
-|      0, 1, 0     |   0,     0, 0.155   |   0, 146   , 0    |
-|      0, 1, 0.    |   0,     0, 0.135   |   0, -102.5, 0    |
-|      0, 0, -1    |  -0.002, 0, 0.130   |   0, 0     , 167.5|
+| Axis (x,y,z) | Origin (x,y,z) | RPY (x,y,z) |
+|:------------:|:---------------:|:------------:|
+| 0, 0, -1 | 0.024, 0, 0.096 | 0, 0, 170 |
+| 0, 1, 0 | 0.033, 0, 0.019 | 0, -65, 0 |
+| 0, 1, 0 | 0, 0, 0.155 | 0, 146, 0 |
+| 0, 1, 0 | 0, 0, 0.135 | 0, -102.5, 0 |
+| 0, 0, -1 | -0.002, 0, 0.130 | 0, 0, 167.5 |
 
-
-在 URDF 中，axis 表示关节在 joint 坐标系中的旋转轴，因此在分析关节运动方向时，需要结合 joint frame 的实际方向进行判断。origin 则定义了 joint 坐标系相对于父坐标系的固定变换，包括平移 xyz 与绕父坐标系的 RPY 旋转。
-
-标准 DH 参数采用如下固定变换顺序：
-$$
-T_i^{i+1}=R_z(\theta)\;T_z(d)\;T_x(a)\;R_x(\alpha),
-$$
-而 URDF 的 <origin> 使用的顺序为：
-$$
-T = \text{Trans}(xyz)\;R_z(yaw)\;R_y(pitch)\;R_x(roll).
-$$
-由于两者的计算顺序不同，因此无法将 URDF 中的平移或旋转项直接对应为 DH 参数（例如不能直接把 origin 的 z 平移当作 DH 中的 d）。必须根据坐标系的相对方向和姿态进行几何分析后，才能正确确定 DH 变量。
-
-综上所述，根据上述宏中定义的内容可以得到 DH-table 为：
-
-
+The following information can be extracted from the above table
 
 | Joint (i) |  θᵢ *(Joint Angle)*  | dᵢ *(m)* | aᵢ *(m)* | αᵢ *(rad)* 
 |:---------:|:--------------------:|:---------:|:---------:|:------------:
@@ -679,7 +664,7 @@ $$
 | 4         | $\theta_4-\pi/2$   | 0         | 0         | $-\pi/2$ 
 | 5         | $\theta_5$         | 0.185     | -0.002    | 0 
 
-同时可知joint offsets和joint readings polarity为
+and
 
 | Joint (i) |  offset  | joint readings polarity
 |:---------:|:--------------------:|:---------:
@@ -689,7 +674,19 @@ $$
 | 4         | $-102.5^\circ$   | 1         
 | 5         | $167.5^\circ$    | -1    
 
-综上所述
+In a URDF, the `axis` field specifies the rotation axis of the joint expressed in the joint frame, meaning that to determine the actual motion direction of a joint, one must consider the orientation of the joint frame defined by its `origin`. The `origin` element specifies the fixed transform from the parent frame to the joint frame, including translation (xyz) and rotation (RPY).
+
+Standard DH parameters, however, use a different convention, with the transform defined as:
+$$
+T_i^{i+1} = R_z(\theta)\;T_z(d)\;T_x(a)\;R_x(\alpha),
+$$
+while URDF uses:
+$$
+T = \text{Trans}(xyz)\;R_z(\text{yaw})\;R_y(\text{pitch})\;R_x(\text{roll}).
+$$
+Since these two conventions use different orders of operations, URDF parameters cannot be directly mapped to DH parameters (e.g., the z-translation in a URDF origin cannot simply be interpreted as the DH parameter \(d\)). Instead, geometric analysis of the link frames and their relative orientations is required to determine the correct DH parameters.
+
+To sum up, based on the contents defined in the above macros, the DH-table can be obtained as:
 
 | Joint (i) |  θᵢ *(Joint Angle)*  | dᵢ *(m)*  | aᵢ *(m)*  | αᵢ *(rad)* 
 |:---------:|:--------------------:|:---------:|:---------:|:------------:
@@ -701,160 +698,154 @@ $$
 
 ## d
 ![q5d](pic/q5_d.png)
-code部分如`cw1q5/cw1q5d.py`部分所示，运行结果如下
+The code implementation can be found in `cw1q5/cw1q5d.py`, and the execution result is shown below.
 
 ![q5d_ans](pic/q5_dans.jpg)
-如图所示，当前结果于urdf预设模型高度重合，结果无误
+As illustrated in the figure, the current result aligns very well with the URDF predefined model, confirming that the implementation is correct.
 
 # q6
 ![q6](pic/q6.png)
-对于一个 2D 平面上的 4 旋转关节机械臂（4R planar manipulator），当末端执行器 给定一个可达的位置与姿态 x_e 时，它的逆运动学（IK）一共有多少个解？并要求你解释为什么会有这些解。
 
-设4R 平面机械臂的末端姿态为：
+Set a 4R planar manipulator whose end-effector pose is:
 $$
 x_e = (x, y, \phi)^T
 $$
-关节角为：
+and whose joint angles are:
 $$
 \theta = (\theta_1,\theta_2,\theta_3,\theta_4)^T.
 $$
-末端速度与关节速度间满足：
+The differential relationship between end-effector velocity and joint velocity is:
 $$
 \dot{x}_e = J(\theta)\dot{\theta},
 $$
-其中 Jacobian 为：
+where:
 $$
 J(\theta) \in \mathbb{R}^{3\times 4}.
 $$
 
-在非奇异配置下，由于映射 4 维关节速度到 3 维末端速度，Jacobian 满秩,存在：$$\operatorname{rank}(J)=3.$$
+In a nonsingular configuration, since 4 joint variables control a 3-dimensional end-effector motion, the Jacobian has full row rank:
+$$
+\operatorname{rank}(J)=3.
+$$
 
-
-根据秩–零度定理（Rank–Nullity Theorem）：
+By the Rank–Nullity Theorem:
 $$
 \dim(\mathrm{Null}(J)) = 4 - \operatorname{rank}(J)
 = 4-3 = 1.
 $$
 
-因此存在非零向量 $v\neq 0$ 使：
+Thus, there exists a non-zero vector $v\neq 0$ such that
 $$
 J(\theta)v = 0.
 $$
 
-将：
+Let the joint velocity be:
 $$
 \dot{\theta} = \alpha(t)\, v, \qquad (\alpha(t) \in \mathbb{R})
 $$
-代入速度方程得到：
+
+Then,
 $$
 \dot{x}_e = J \dot{\theta} = J (\alpha v) = \alpha\, Jv = 0.
 $$
-因此：
-$$
-\dot{x}_e = 0 \quad\Rightarrow\quad x_e = \text{a}.
-$$
-where: 
-a是一个常数
 
-即末端位置与姿态保持不动。
+Therefore,
+$$
+\dot{x}_e = 0 \quad\Rightarrow\quad x_e = \text{constant}.
+$$
 
-因为末端姿态不变，所以所有满足
+This means the end-effector pose remains unchanged.
+
+All joint trajectories satisfying:
 $$
 \dot{\theta}(t)=\alpha(t)v
 $$
-的关节轨迹都满足
+produce
 $$
 f(\theta(t)) = x_e.
 $$
-积分得到：
+Integrating,
 $$
 \theta(t) = \theta_0 + \int_0^t \alpha(\tau)v\,d\tau.
 $$
-这是一条 1 维连续曲线。包含无限多个点。故IK 解是无限个
-
+This forms a one-dimensional continuous curve in joint space that **contains infinitely many configurations**.
+Hence, the inverse kinematics solution is not unique—there are **infinitely many solutions**.
 
 # q7
 ![q7](pic/q6.png)
 
-假设机器人在自由空间中运动（即没有障碍物），并且对于给定的末端执行器姿态 x_e 存在多个逆运动学解，那么在选择一个最优解时应考虑哪些准则？”
+When choosing one IK solution among multiple valid ones in free space, several criteria can be considered:
 
+1. **Joint-limit avoidance**
 
-1. 关节极限（Joint Limits）最小化
-
-优先选择远离关节角度极限的解，使关节角 \theta_i 尽可能处于其运动范围的中间区域。
-数学上可最小化：
+Prefer solutions far from joint limits to keep joints near the middle of their feasible range.
+A typical cost function is
+$$
 \sum_i (\theta_i - \theta_{i,\mathrm{mid}})^2
+$$
+2. **Minimum Joint Motion**
 
-2. 最小关节移动量（Minimum Joint Motion）
-
-若已知当前关节角为 \theta_{\mathrm{cur}}，可选择使关节变化量最小的解：
+Given the current joint configuration  $\theta_{\mathrm{cur}}$, choose the IK solution that requires the smallest change:
+$$
 \min_{\theta} \|\theta - \theta_{\mathrm{cur}}\|
+$$
 
-3. 远离奇异位形（Avoid Singularities）
+3. **Avoid Singularities**
 
-避免选择使雅可比矩阵接近奇异的解（\det(JJ^T) 很小）。
-可最小化：
+Avoid configurations where the Jacobian becomes nearly singular (e.g., $\det(JJ^T)$ is small).
+
+A common metric is to minimize
+$$
 \frac{1}{\det(JJ^T)}
+$$
 
-4. 操作性能指标（Manipulability）最大化
+4. **Maximizing manipulability**
 
-选择能够提供更好操作能力（manipulability）的解。
-常用 Yoshikawa 指标：
+Select configurations with better dexterity.
+
+The Yoshikawa manipulability index:
+$$
 w = \sqrt{\det(JJ^T)}
+$$
 
-5. 连续性与可预测性（Continuity / Smoothness）
+5. **Continuity and smoothness**
 
-轨迹规划中优先选择与前一时刻解连续的逆解，避免“突然跳变”，例如肘形态突然翻转。
+Choose IK solutions that vary smoothly along the trajectory, preventing sudden switches (such as elbow-up / elbow-down flips).
 
-
-在自由空间中从多个逆运动学解选择最优解时，应综合考虑以下准则：远离关节极限、最小关节变化量、避免奇异位形、最大操控性能、能量与力矩最小化、以及关节空间的连续性。这些准则有助于提高机械臂的稳定性、安全性、效率和控制性能。
+### Summary:
+When selecting the best IK solution, joint-limit avoidance, minimal motion, singularity avoidance, manipulability maximization, energy efficiency, and joint-space continuity should all be considered to ensure safe, stable, and efficient robot control.
 
 # q8
 ![q8](pic/q8.png)
 
+1. When $(x,y)$ lies in different quadrants
 
-在什么情况下函数 atan2(y, x) 的输出会不同于函数 atan(y/x) 的输出？”
+Reason:
 
+$atan(y/x)$ cannot distinguish quadrants, while $atan2(y, x)$ can.
+- $atan(y/x)$ determines the angle only from the ratio $y/x$ and its output range is $(-\pi/2, \pi/2)$. Therefore, it cannot tell whether the point (x, y) is in the first or second quadrant, nor can it distinguish between the third and fourth quadrants.
+- $atan2(y, x)$ determines the correct quadrant based on the signs of $x$ and $y$, and its output range is $(-\pi, \pi]$
 
-1. 输入点处于不同象限时（核心原因）
+Thus, when x < 0 (meaning the point is in the second or third quadrant), the two results will definitely differ.
 
-原因：atan(y/x) 无法区分象限，而 atan2(y, x) 可以。
-	•	atan(y/x) 仅根据比值 y/x 决定角度，得到的角度范围是
-(-\pi/2, \pi/2)
-因此无法判断点 (x, y) 位于第二象限还是第一象限，也无法区分第三与第四象限。
-	•	atan2(y, x) 根据 x 与 y 的符号确定正确象限，输出范围为
-(-\pi, \pi]
-
-因此，当 x < 0（第二或第三象限）时，两者一定不同。
-
-例如：
-(x, y)=(-1, 1)
-\text{atan}(y/x) = \text{atan}(-1) = -\frac{\pi}{4}
-但真正角度应在第二象限：
-\text{atan2}(1, -1) = \frac{3\pi}{4}
-
-两者相差整整 \pi。
-
-⸻
-
-2. 当 x = 0 时（除零问题）
-
-原因：atan(y/x) 未定义，而 atan2(y, 0) 有明确结果。
-	•	若 x = 0，则 y/x 不存在（除以零）。
-	•	atan2 正确处理：
+2. When $x = 0$ (division-by-zero)
+- $\text{atan}(y/x)$ is undefined.
+- $\text{atan2}(y,0)$ correctly returns:
+$$
 \text{atan2}(y,0)=
 \begin{cases}
-+\frac{\pi}{2}, & y>0\\[4pt]
--\frac{\pi}{2}, & y<0
++\frac{\pi}{2}, & y>0,\\
+-\frac{\pi}{2}, & y<0.
 \end{cases}
+$$
 
-因此在 x = 0 的所有情况下，两者也不同。
+### Summary
 
-⸻
+$\text{atan2}(y,x)$ differs from $\text{atan}(y/x)$ whenever:
+1. **x < 0**: the point is in the second or third quadrant, and $\text{atan}$ cannot determine the correct quadrant.
+2. **x = 0**: $\text{atan}(y/x)$ is undefined, while $\text{atan2}$ gives the correct angle.
 
-最终总结（适合写在报告里的句子）
-
-atan2(y, x) 与 atan(y/x) 的输出不同主要发生在两种情况：其一是当点 (x, y) 位于第二或第三象限（即 x < 0）时，因为 atan(y/x) 无法区分象限；其二是当 x = 0 时，atan(y/x) 不定义，而 atan2(y, x) 能给出正确的角度。因此，只要需要区分象限或避免除零问题，都必须使用 atan2。
+Thus, **atan2** must be used whenever quadrant information or division-by-zero safety is required.
 
 # q9
 ![q9](pic/q9.png)
