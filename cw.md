@@ -613,8 +613,73 @@ The node subscribes to /joint_states, computes transformations, and publishes th
 RViz visualization confirms that the implementation is correct and functions as expected.
 
 
-
-## c
+## c: Derivation of Standard DH Parameters from the URDF Model
 ![q5c](pic/q5_c.png)
+- 你要从 youbot_arm_only.urdf.xacro 文件中提取机械臂每个关节的几何关系；
+- 根据这些几何数据推导出标准 DH 参数（a, α, d, θ）；
+- 用表格列出结果；
+- 简单解释一下这些参数是怎么从 URDF 推出来的。
+
+在`robot_description/youbot_description/robots/youbot_arm_only.urdf.xacro`并没有直接描述arm的相关信息，而是作为top-level file，其中以下代码定义了机械臂模块
+```xml
+  <!-- youbot arm -->
+  <xacro:include filename="$(find youbot_description)/urdf/youbot_arm/arm.urdf.xacro" />
+```
+其中`urdf/youbot_arm/arm.urdf.xacro`定义了关键的信息在`youbot_arm`模块中，如下
+```xml
+<xacro:macro name="youbot_arm" params="parent name *origin">
+  ...
+</xacro:macro>
+```
+
+基于可以得到以下信息
+
+|   Axis (x,y,z)   |   Original (x,y,z)  |   RPY (x,y,z)     |
+|:----------------:|:-------------------:|:-----------------:|
+|      0, 0, -1    |   0.024, 0, 0.096   |   0, 0     , 170  |
+|      0, 1, 0     |   0.033, 0, 0.019   |   0, -65   , 0    |
+|      0, 1, 0     |   0,     0, 0.155   |   0, 146   , 0    |
+|      0, 1, 0.    |   0,     0, 0.135   |   0, -102.5, 0    |
+|      0, 0, -1    |  -0.002, 0, 0.130   |   0, 0     , 167.5|
+
+
+在 URDF 中，axis 表示关节在 joint 坐标系中的旋转轴，因此在分析关节运动方向时，需要结合 joint frame 的实际方向进行判断。origin 则定义了 joint 坐标系相对于父坐标系的固定变换，包括平移 xyz 与绕父坐标系的 RPY 旋转。
+
+标准 DH 参数采用如下固定变换顺序：
+$$
+T_i^{i+1}=R_z(\theta)\;T_z(d)\;T_x(a)\;R_x(\alpha),
+$$
+而 URDF 的 <origin> 使用的顺序为：
+$$
+T = \text{Trans}(xyz)\;R_z(yaw)\;R_y(pitch)\;R_x(roll).
+$$
+由于两者的计算顺序不同，因此无法将 URDF 中的平移或旋转项直接对应为 DH 参数（例如不能直接把 origin 的 z 平移当作 DH 中的 d）。必须根据坐标系的相对方向和姿态进行几何分析后，才能正确确定 DH 变量。
+
+综上所述，根据上述宏中定义的内容可以得到 DH-table 为：
+
+
+
+| Joint (i) |  θᵢ *(Joint Angle)*  | dᵢ *(m)* | aᵢ *(m)* | αᵢ *(rad)* 
+|:---------:|:--------------------:|:---------:|:---------:|:------------:
+| 1         | $\theta_1 $        | 0.096     | 0.033     | $+\pi/2$ 
+| 2         | $\theta_2 + \pi/2$ | 0.019     | 0.155     | 0 
+| 3         | $\theta_3$         | 0         | 0.135     | 0 
+| 4         | $\theta_4-\pi/2$   | 0         | 0         | $-\pi/2$ 
+| 5         | $\theta_5$         | 0.218     | -0.002    | 0 
+
+同时可知joint offsets和joint readings polarity为
+
+| Joint (i) |  offset  | joint readings polarity
+|:---------:|:--------------------:|:---------:
+| 1         | $170^\circ$      | -1    
+| 2         | $-65^\circ$     | 1   
+| 3         | $146^\circ$      | 1        
+| 4         | $-102.5^\circ$   | 1         
+| 5         | $167.5^\circ$    | -1    
+
+
 ## d
 ![q5d](pic/q5_d.png)
+code部分如`cw1q5/cw1q5d.py`部分所示，运行结果如下
+
+
