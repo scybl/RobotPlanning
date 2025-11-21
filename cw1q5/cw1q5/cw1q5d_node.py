@@ -24,9 +24,10 @@ in RViz.
 
 youbot_dh_parameters = {'a':    [0.033,     0.155,      0.135,  0,          -0.002],
                         'alpha':[np.pi/2,   0,          0,      -np.pi/2,   0],
-                        'd' :   [0.096,     0.019,      0,      0,          0.218],
+                        'd' :   [0.147,     0.019,      0,      0,          0.185],
                         'theta':[0,         np.pi/2,    0,      -np.pi/2,   0]}
 
+# zhuwenjian yeyou bias d0 d5
 
 # Joint offsets to align the DH model with the URDF representation
 deg = np.pi/180
