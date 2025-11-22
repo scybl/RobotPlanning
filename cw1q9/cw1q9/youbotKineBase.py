@@ -16,10 +16,11 @@ class YoubotKinematicBase(Node):
         # ║                    FILL IN the DH PARAMETER FOUND IN CW1Q5             ║
         # ╚════════════════════════════════════════════════════════════════════════╝
         # Currently a set of dummy DH parameters for testing
-        youbot_dh_parameters = {'a': [0, 0.25, 0.20, 0, 0],
-                                'alpha': [np.pi / 2, 0, 0, np.pi / 2, -np.pi / 2],
-                                'd': [0.3, 0, 0, 0, 0.1],
-                                'theta': [0, 0, 0, 0, 0]}
+        youbot_dh_parameters = {'a':    [0.033,     0.155,      0.135,  0,          -0.002],
+                                'alpha':[np.pi/2,   0,          0,      -np.pi/2,   0],
+                                'd' :   [0.147,     0.019,      0,      0,          0.185],
+                                'theta':[0,         np.pi/2,    0,      -np.pi/2,   0]}
+
         # ╔════════════════════════════════════════════════════════════════════════╗
         # ╚════════════════════════════════════════════════════════════════════════╝
         self.dh_params = youbot_dh_parameters.copy()
@@ -75,7 +76,12 @@ class YoubotKinematicBase(Node):
         # ╔════════════════════════════════════════════════════════════════════════╗
         # ║                     THE SAME DH FUNCTION AS CW1Q5b                     ║
         # ╚════════════════════════════════════════════════════════════════════════╝
-
+        A = np.array([
+            [np.cos(theta), -np.sin(theta)*np.cos(alpha),  np.sin(theta)*np.sin(alpha), a*np.cos(theta)],
+            [np.sin(theta),  np.cos(theta)*np.cos(alpha), -np.cos(theta)*np.sin(alpha), a*np.sin(theta)],
+            [0.0,            np.sin(alpha),                np.cos(alpha),               d              ],
+            [0.0,            0.0,                          0.0,                         1.0            ]
+        ])
         # ╔════════════════════════════════════════════════════════════════════════╗
         # ╚════════════════════════════════════════════════════════════════════════╝
         

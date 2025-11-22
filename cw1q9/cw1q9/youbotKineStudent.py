@@ -55,9 +55,46 @@ class YoubotKinematicStudent(YoubotKinematicBase):
         # ╚════════════════════════════════════════════════════════════════════════╝
         # For your solution to match the KDL Jacobian, z0 needs to be set [0, 0, -1] instead of [0, 0, 1], since that is how its defined in the URDF.
         # Both are correct.
+        
+        # Step 1: compute all transforms from base to each joint
+        T = np.identity(4)
+        joints = [s * q for s, q in zip(self.youbot_joint_readings_polarity, joint)]
 
-            
-        # Your code ends here ------------------------------
+        # base axis z0 must be [0,0,-1] for KDL compatibility
+        z_axes = [np.array([0, 0, -1])]
+        p_positions = [np.array([0, 0, 0])]
+
+        # Forward kinematics to collect z_i and p_i for i = 1..5
+        for i in range(5):
+            A_i = self.standard_dh(
+                self.dh_params['a'][i],
+                self.dh_params['alpha'][i],
+                self.dh_params['d'][i],
+                self.dh_params['theta'][i] + joints[i]
+            )
+            T = T @ A_i
+
+            # extract rotation Z axis
+            z_i = T[0:3, 2]      # axis of current joint in base frame
+            p_i = T[0:3, 3]      # position of current joint frame origin
+
+            z_axes.append(z_i)
+            p_positions.append(p_i)
+
+        # End effector position pe
+        pe = p_positions[-1]
+
+        # Build Jacobian 6x5
+        jacobian = np.zeros((6, 5))
+
+        for i in range(5):
+            zi = z_axes[i]
+            pi = p_positions[i]
+
+            # revolute joint Jacobian
+            jacobian[0:3, i] = np.cross(zi, pe - pi)   # linear velocity part
+            jacobian[3:6, i] = zi                      # angular velocity part
+
         # ╔════════════════════════════════════════════════════════════════════════╗
         # ╚════════════════════════════════════════════════════════════════════════╝
         assert jacobian.shape == (6, 5)
@@ -80,7 +117,14 @@ class YoubotKinematicStudent(YoubotKinematicBase):
         # ╔════════════════════════════════════════════════════════════════════════╗
         # ║                  YOUR CODE STARTS HERE: CHECK SINGULARITY              ║
         # ╚════════════════════════════════════════════════════════════════════════╝
+        # 1. 先用自己写的 get_jacobian 计算当前关节下的雅可比矩阵
+        J = self.get_jacobian(joint)
 
+        # 2. 计算雅可比矩阵的秩，5 自由度机械臂如果秩 < 5 则为奇异
+        # 设置一个容差避免数值误差造成错误判断
+        rank_J = np.linalg.matrix_rank(J, tol=1e-5)
+
+        singularity = rank_J < 5
         # Your code ends here ------------------------------
         # ╔════════════════════════════════════════════════════════════════════════╗
         # ╚════════════════════════════════════════════════════════════════════════╝
