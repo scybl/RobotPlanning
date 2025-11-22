@@ -615,59 +615,56 @@ RViz visualization confirms that the implementation is correct and functions as 
 
 ## c: Derivation of Standard DH Parameters from the URDF Model
 ![q5c](pic/q5_c.png)
-- 你要从 youbot_arm_only.urdf.xacro 文件中提取机械臂每个关节的几何关系；
-- 根据这些几何数据推导出标准 DH 参数（a, α, d, θ）；
-- 用表格列出结果；
-- 简单解释一下这些参数是怎么从 URDF 推出来的。
 
-在`robot_description/youbot_description/robots/youbot_arm_only.urdf.xacro`并没有直接描述arm的相关信息，而是作为top-level file，其中以下代码定义了机械臂模块
+In `robot_description/youbot_description/robots/youbot_arm_only.urdf.xacro`, the arm information is not directly described; instead, this file serves as the top-level URDF. The following code defines the arm module and includes a fixed bias transformation:
 ```xml
   <!-- youbot arm -->
   <xacro:include filename="$(find youbot_description)/urdf/youbot_arm/arm.urdf.xacro" />
+
+  ...
+
+    <xacro:youbot_arm name="$(arg robot_name)" parent="base_link">
+    <origin xyz="-0.024 0 0.030" rpy="0 0 0" />
+  </xacro:youbot_arm>
 ```
-其中`urdf/youbot_arm/arm.urdf.xacro`定义了关键的信息在`youbot_arm`模块中，如下
+The file `urdf/youbot_arm/arm.urdf.xacro` contains the key definitions inside the `youbot_arm` macro, including:
 ```xml
 <xacro:macro name="youbot_arm" params="parent name *origin">
+
+		<!-- joint between base_link and arm_0_link -->
+		<joint name="${name}_joint_0" type="fixed" >
+			<xacro:insert_block name="origin" />
+			<parent link="${parent}" />
+			<child link="${name}_link_0" />
+			
+		</joint>
+
   ...
+
 </xacro:macro>
 ```
 
-基于可以得到以下信息
+Based on this, we can extract the following information:
 
-|   Axis (x,y,z)   |   Original (x,y,z)  |   RPY (x,y,z)     |
-|:----------------:|:-------------------:|:-----------------:|
-|      0, 0, -1    |   0.024, 0, 0.096   |   0, 0     , 170  |
-|      0, 1, 0     |   0.033, 0, 0.019   |   0, -65   , 0    |
-|      0, 1, 0     |   0,     0, 0.155   |   0, 146   , 0    |
-|      0, 1, 0.    |   0,     0, 0.135   |   0, -102.5, 0    |
-|      0, 0, -1    |  -0.002, 0, 0.130   |   0, 0     , 167.5|
+| Axis (x,y,z) | Origin (x,y,z) | RPY (x,y,z) |
+|:------------:|:---------------:|:------------:|
+| 0, 0, -1 | 0.024, 0, 0.096 | 0, 0, 170 |
+| 0, 1, 0 | 0.033, 0, 0.019 | 0, -65, 0 |
+| 0, 1, 0 | 0, 0, 0.155 | 0, 146, 0 |
+| 0, 1, 0 | 0, 0, 0.135 | 0, -102.5, 0 |
+| 0, 0, -1 | -0.002, 0, 0.130 | 0, 0, 167.5 |
 
-
-在 URDF 中，axis 表示关节在 joint 坐标系中的旋转轴，因此在分析关节运动方向时，需要结合 joint frame 的实际方向进行判断。origin 则定义了 joint 坐标系相对于父坐标系的固定变换，包括平移 xyz 与绕父坐标系的 RPY 旋转。
-
-标准 DH 参数采用如下固定变换顺序：
-$$
-T_i^{i+1}=R_z(\theta)\;T_z(d)\;T_x(a)\;R_x(\alpha),
-$$
-而 URDF 的 <origin> 使用的顺序为：
-$$
-T = \text{Trans}(xyz)\;R_z(yaw)\;R_y(pitch)\;R_x(roll).
-$$
-由于两者的计算顺序不同，因此无法将 URDF 中的平移或旋转项直接对应为 DH 参数（例如不能直接把 origin 的 z 平移当作 DH 中的 d）。必须根据坐标系的相对方向和姿态进行几何分析后，才能正确确定 DH 变量。
-
-综上所述，根据上述宏中定义的内容可以得到 DH-table 为：
-
-
+The following information can be extracted from the above table
 
 | Joint (i) |  θᵢ *(Joint Angle)*  | dᵢ *(m)* | aᵢ *(m)* | αᵢ *(rad)* 
 |:---------:|:--------------------:|:---------:|:---------:|:------------:
-| 1         | $\theta_1 $        | 0.096     | 0.033     | $+\pi/2$ 
+| 1         | $\theta_1 $        | 0.147     | 0.033     | $+\pi/2$ 
 | 2         | $\theta_2 + \pi/2$ | 0.019     | 0.155     | 0 
 | 3         | $\theta_3$         | 0         | 0.135     | 0 
 | 4         | $\theta_4-\pi/2$   | 0         | 0         | $-\pi/2$ 
-| 5         | $\theta_5$         | 0.218     | -0.002    | 0 
+| 5         | $\theta_5$         | 0.185     | -0.002    | 0 
 
-同时可知joint offsets和joint readings polarity为
+and
 
 | Joint (i) |  offset  | joint readings polarity
 |:---------:|:--------------------:|:---------:
@@ -677,9 +674,421 @@ $$
 | 4         | $-102.5^\circ$   | 1         
 | 5         | $167.5^\circ$    | -1    
 
+In a URDF, the `axis` field specifies the rotation axis of the joint expressed in the joint frame, meaning that to determine the actual motion direction of a joint, one must consider the orientation of the joint frame defined by its `origin`. The `origin` element specifies the fixed transform from the parent frame to the joint frame, including translation (xyz) and rotation (RPY).
+
+Standard DH parameters, however, use a different convention, with the transform defined as:
+$$
+T_i^{i+1} = R_z(\theta)\;T_z(d)\;T_x(a)\;R_x(\alpha),
+$$
+while URDF uses:
+$$
+T = \text{Trans}(xyz)\;R_z(\text{yaw})\;R_y(\text{pitch})\;R_x(\text{roll}).
+$$
+Since these two conventions use different orders of operations, URDF parameters cannot be directly mapped to DH parameters (e.g., the z-translation in a URDF origin cannot simply be interpreted as the DH parameter \(d\)). Instead, geometric analysis of the link frames and their relative orientations is required to determine the correct DH parameters.
+
+To sum up, based on the contents defined in the above macros, the DH-table can be obtained as:
+
+| Joint (i) |  θᵢ *(Joint Angle)*  | dᵢ *(m)*  | aᵢ *(m)*  | αᵢ *(rad)* 
+|:---------:|:--------------------:|:---------:|:---------:|:------------:
+| 1         |$\theta_1 $           | 0.147     | 0.033     | $+\pi/2$ 
+| 2         |$\theta_2 +90^\circ$  | 0.019     | 0.155     | 0 
+| 3         |$\theta_3$            | 0         | 0.135     | 0 
+| 4         |$\theta_4-90^\circ$   | 0         | 0         | $-\pi/2$ 
+| 5         |$\theta_5$            | 0.185     | 0         | 0 
+
 
 ## d
 ![q5d](pic/q5_d.png)
-code部分如`cw1q5/cw1q5d.py`部分所示，运行结果如下
+The code implementation can be found in `cw1q5/cw1q5d.py`, and the execution result is shown below.
 
+![q5d_ans](pic/q5_dans.jpg)
+As illustrated in the figure, the current result aligns very well with the URDF predefined model, confirming that the implementation is correct.
+
+# q6
+![q6](pic/q6.png)
+
+Set a 4R planar manipulator whose end-effector pose is:
+$$
+x_e = (x, y, \phi)^T
+$$
+and whose joint angles are:
+$$
+\theta = (\theta_1,\theta_2,\theta_3,\theta_4)^T.
+$$
+The differential relationship between end-effector velocity and joint velocity is:
+$$
+\dot{x}_e = J(\theta)\dot{\theta},
+$$
+where:
+$$
+J(\theta) \in \mathbb{R}^{3\times 4}.
+$$
+
+In a nonsingular configuration, since 4 joint variables control a 3-dimensional end-effector motion, the Jacobian has full row rank:
+$$
+\operatorname{rank}(J)=3.
+$$
+
+By the Rank–Nullity Theorem:
+$$
+\dim(\mathrm{Null}(J)) = 4 - \operatorname{rank}(J)
+= 4-3 = 1.
+$$
+
+Thus, there exists a non-zero vector $v\neq 0$ such that
+$$
+J(\theta)v = 0.
+$$
+
+Let the joint velocity be:
+$$
+\dot{\theta} = \alpha(t)\, v, \quad (\alpha(t) \in \mathbb{R})
+$$
+
+Then,
+$$
+\dot{x}_e = J \dot{\theta} = J (\alpha v) = \alpha\, Jv = 0.
+$$
+
+Therefore,
+$$
+\dot{x}_e = 0 \; \Rightarrow\; x_e = \text{constant}.
+$$
+
+This means the end-effector pose remains unchanged.
+
+All joint trajectories satisfying:
+$$
+\dot{\theta}(t)=\alpha(t)v
+$$
+produce
+$$
+f(\theta(t)) = x_e.
+$$
+Integrating,
+$$
+\theta(t) = \theta_0 + \int_0^t \alpha(\tau)v\,d\tau.
+$$
+This forms a one-dimensional continuous curve in joint space that **contains infinitely many configurations**.
+Hence, the inverse kinematics solution is not unique—there are **infinitely many solutions**.
+
+# q7
+![q7](pic/q6.png)
+
+When choosing one IK solution among multiple valid ones in free space, several criteria can be considered:
+
+1. **Joint-limit avoidance**
+
+Prefer solutions far from joint limits to keep joints near the middle of their feasible range.
+A typical cost function is
+$$
+\sum_i (\theta_i - \theta_{i,\mathrm{mid}})^2
+$$
+2. **Minimum Joint Motion**
+
+Given the current joint configuration  $\theta_{\mathrm{cur}}$, choose the IK solution that requires the smallest change:
+$$
+\min_{\theta} \|\theta - \theta_{\mathrm{cur}}\|
+$$
+
+3. **Avoid Singularities**
+
+Avoid configurations where the Jacobian becomes nearly singular (e.g., $\det(JJ^T)$ is small).
+
+A common metric is to minimize
+$$
+\frac{1}{\det(JJ^T)}
+$$
+
+4. **Maximizing manipulability**
+
+Select configurations with better dexterity.
+
+The Yoshikawa manipulability index:
+$$
+w = \sqrt{\det(JJ^T)}
+$$
+
+5. **Continuity and smoothness**
+
+Choose IK solutions that vary smoothly along the trajectory, preventing sudden switches (such as elbow-up / elbow-down flips).
+
+### Summary:
+When selecting the best IK solution, joint-limit avoidance, minimal motion, singularity avoidance, manipulability maximization, energy efficiency, and joint-space continuity should all be considered to ensure safe, stable, and efficient robot control.
+
+# q8
+![q8](pic/q8.png)
+
+1. **When $(x,y)$ lies in different quadrants**
+
+Reason:
+
+$atan(y/x)$ cannot distinguish quadrants, while $\operatorname{atan2}(y, x)$ can.
+- $atan(y/x)$ determines the angle only from the ratio $y/x$ and its output range is $(-\pi/2, \pi/2)$. Therefore, it cannot tell whether the point (x, y) is in the first or second quadrant, nor can it distinguish between the third and fourth quadrants.
+- $\operatorname{atan2}(y, x)$ determines the correct quadrant based on the signs of $x$ and $y$, and its output range is $(-\pi, \pi]$
+
+Thus, when x < 0 (meaning the point is in the second or third quadrant), the two results will definitely differ.
+
+2. **When $x = 0$ (division-by-zero)**
+- $\operatorname{atan}(y/x)$ is undefined.
+- $\operatorname{atan2}(y,0)$ correctly returns:
+$$
+\operatorname{atan2}(y,0)=
+\begin{cases}
++\frac{\pi}{2}, & y>0,\\
+-\frac{\pi}{2}, & y<0.
+\end{cases}
+$$
+
+### Summary
+
+$\operatorname{atan2}(y,x)$ differs from $\text{atan}(y/x)$ whenever:
+1. **x < 0**: the point is in the second or third quadrant, and $\operatorname{atan}$ cannot determine the correct quadrant.
+2. **x = 0**: $\text{atan}(y/x)$ is undefined, while $\operatorname{atan2}$ gives the correct angle.
+
+Thus, **atan2** must be used whenever quadrant information or division-by-zero safety is required.
+
+# q9
+![q9](pic/q9.png)
+## a: calculate YouBot 的Jacobian matrix
+
+This question implemented the geometric Jacobian of the KUKA YouBot manipulator inside `get_jacobian()` in `youbotKineStudent.py`.
+The computation follows the standard DH-based forward kinematics and the geometric Jacobian formulas.
+
+1. Forward Kinematics: For each joint, I use the provided standard_dh() function to compute the homogeneous transform $T_0^i$.
+From each transform I extract:
+
+- the joint origin $p_i$
+- the joint axis $z_i$
+	​
+The base-frame axis $z_0$ is set to $[0,0,−1]$ to match the `URDF/KDL` convention.
+
+2. End-effector Position: After computing all transforms, the end-effector position $p_e$ is taken from the last frame.
+
+3. Jacobian Columns: All YouBot joints are revolute, so each Jacobian column is computed using the geometric definition:
+$$
+J_{v,i} = z_i \times (p_e - p_i),\; J_{w,i} = z_i,
+
+\\
+\text{The linear and angular parts are stacked to form a } 6 \times 5 \text{ Jacobian matrix.}
+$$
+
+4. Result
+The resulting Jacobian matches the KDL implementation provided, confirming the correctness of the DH-based computation.
+
+## b: 推导 YouBot 的 closed-form IK
+
+
+YouBot 的 5 自由度机械臂属于 非球形腕（non-spherical wrist）结构，因此其末端姿态不能分解成三个相交轴的旋转。在底座关节 \theta_1 确定之后，关节 2 和 3 可以视为构成竖直平面的 2R 机构，后 2 个关节形成 2-DOF 腕部，因此可以获得完整的解析形式解。
+
+设定给定末端期望位姿为
+
+$$
+T_{des} = \begin{bmatrix}R & p \\ 0 & 1\end{bmatrix},\; p =[x,y,z]^T,
+$$
+
+求对应的关节角向量：
+$$
+\theta = [\theta_1,\;\theta_2,\;\theta_3,\;\theta_4,\;\theta_5]^T
+$$
+
+### 腕点（Wrist Centre）计算
+
+由于 YouBot 的末端执行器的最后一段连杆沿工具坐标系 z 轴方向延伸，其长度记为$d_5$
+
+可知腕点位置为：
+$$
+p_w = p - d_5 R \hat{z}, \; \hat{z} = [0,0,1]^T,
+$$
+
+腕点只与关节 1–3 有关，因此接下来所有位置 IK 都基于  $p_w$实现
+
+### 求解关节 1（底座旋转角）
+
+关节 1 是绕竖直轴旋转，其作用是将腕点在水平面上的投影对准：
+$$
+r = \sqrt{x_w^2 + y_w^2}
+$$
+
+因此可得：
+$$
+\theta_1 = \operatorname{atan2}(y_w, x_w)
+$$
+
+并且这是唯一不产生多解的平面旋转。
+
+此时将腕点变换到frame1中，可知
+$$
+p_w^{(1)} = A_1^{-1}(\theta_1)\, p_w
+$$
+其中：
+$$
+
+A_1^{-1}(\theta_1)=
+\begin{bmatrix}
+c{\theta_1} & s{\theta_1} & 0 & -a_1 c{\theta_1} \\
+-s{\theta_1} & c{\theta_1} & 0 & a_1 s{\theta_1} \\
+0 & 0 & 1 & -d_1 \\
+0 & 0 & 0 & 1
+\end{bmatrix}
+\begin{bmatrix}
+1 & 0 & 0 & 0 \\
+0 & c{\alpha_1} & s{\alpha_1} & 0 \\
+0 & -s{\alpha_1} & c{\alpha_1} & 0 \\
+0 & 0 & 0 & 1
+\end{bmatrix}
+$$
+
+得到：
+
+$$
+p_w^{(1)} =
+\begin{bmatrix}
+x_1(\theta_1, p_w) \\
+y_1(\theta_1, p_w) \\
+z_1(\theta_1, p_w)
+\end{bmatrix}
+$$
+
+
+### 平面 2R 几何求解关节 2 和关节 3
+
+在确定 $\theta_1$ 后，可以将关节 2 和关节 3 看作位于竖直平面内的一组 2R 机械臂，用于到达腕点位置。
+
+将腕点转换到关节 2 的平面坐标：
+$$
+x' = r - a_1, \; y' = z_w - d_1.
+$$
+
+关节 2 和关节 3 的结构完全对应于长度分别为$L_2$与$L_3$的两连杆平面机构。
+
+而对于joint3可以分别使用余弦定理求解
+
+由平面 2R 几何关系可知：
+$$
+D = \frac{{x'}^2 + {y'}^2 - L_2^2 - L_3^2}{2 L_2 L_3},
+$$
+
+因此可得:
+
+$$
+\theta_3 = \operatorname{atan2}(\pm \sqrt{1 - D^2},\, D)
+$$
+
+where:
+- 正向表示肘上（elbow-up）
+- 负号表示肘下（elbow-down）
+
+因此 $\theta_3$ 存在两组解。
+
+对于joint 2（θ₂）的求解可使用几何角度分解方式
+
+令：
+$$
+\phi = \operatorname{atan2}(y',\, x'), \\
+\psi = \operatorname{atan2}(L_3 \sin\theta_3,\, L_2 + L_3 \cos\theta_3).\\
+$$
+则
+$$
+\theta_2 = \phi - \psi
+$$
+
+有上述公式可知$\theta_2$得取值基于$\theta_3$，所以$\theta_2$同样存在两组解
+
+
+### 求解关节 4 和关节 5（腕部姿态）
+
+三个位移关节确定腕点后，joint 4与joint5用于调整末端的朝向。
+
+首先得到前 3 个关节的旋转矩阵：
+
+$$
+R_{123} = R_1(\theta_1)R_2(\theta_2)R_3(\theta_3), \\
+$$
+需要满足：
+$$
+R = R_{123}R_{45},\; R_{45} = R_y(\theta_4)R_z(\theta_5).
+$$
+
+因此，
+$$
+R_{45} = R_{123}^TR
+$$
+故只需从矩阵中直接提取旋转角即可：
+
+对于joint 4（θ₄）
+
+由于关节 4 绕 y 轴旋转：
+
+$$
+\theta_4 = \operatorname{atan2}(R_{45}(3,1),R_45(3,3))
+$$
+
+
+对于关节 5 绕 z 轴旋转：
+$$
+\theta_5 = \operatorname{atan2}(R_{45}(2,1), R_{45}(2,2))
+$$
+
+此过程即对剩余 2-DOF 的腕部旋转矩阵进行分解。
+
+### 逆解的多解性分析
+
+YouBot 的闭式 IK 具有多个有效解，原因包括：
+
+1. 平面 2R 的两种肘部结构
+
+    肘上（elbow-up）
+    
+    肘下（elbow-down）
+
+2. 角度函数的周期性
+
+    关节角增加 $2\pi$仍是同一姿态
+
+因此总计可产生：
+
+最多4组主要闭式逆解
+	​
+### 综上所述
+
+由上述推导可得到 YouBot 机械臂的闭式逆运动学解，关键结果如下：
+
+- 底座关节：
+  $$
+  \theta_1 = \operatorname{atan2}(y_w,\; x_w)
+  $$
+
+- 臂部关节：
+  $$
+  D = \frac{{x'}^2 + {z'}^2 - L_2^2 - L_3^2}{2 L_2 L_3}
+  $$
+  $$
+  \theta_3 = \operatorname{atan2}\big(\pm\sqrt{1 - D^2},\; D\big)
+  $$
+  $$
+  \phi = \operatorname{atan2}(z',\, x'),\quad
+  \psi = \operatorname{atan2}\big(L_3 \sin\theta_3,\; L_2 + L_3 \cos\theta_3\big)
+  $$
+  $$
+  \theta_2 = \phi - \psi
+  $$
+
+- 腕部关节（记 $R_{45} = R_{123}^T R_{des} = [r_{ij}]$）：
+  $$
+  \theta_4 = \operatorname{atan2}(r_{13},\; r_{33}),\quad
+  \theta_5 = \operatorname{atan2}(r_{21},\; r_{22})
+  $$
+
+其中：
+
+- $(x_w, y_w, z_w)$：腕点在基坐标系中的坐标，由 $p_w = p - d_5 R \hat z$ 得到  
+- $(x', z')$：腕点在关节 2 所在竖直平面中的坐标（平面 2R 的工作平面坐标）  
+- $L_2, L_3$：第 2、3 连杆长度  
+- $a_1, d_1, d_5$：基座连杆的水平/竖直偏移以及末端段长度等 DH 参数  
+- $[r_{ij}]$：矩阵 $R_{45} = R_{123}^T R_{des}$ 的元素
+
+整体 IK 由于平面 2R 的肘上 / 肘下结构以及关节角的 $2\pi$ 周期性，最多给出 4 组主要解，且全程无需数值迭代，属于完全解析求解。
+
+## c Singularity detection
 
