@@ -25,8 +25,9 @@ setup(
     license='TODO',
     tests_require=['pytest'],
     entry_points={
-        'console_scripts': [
-            'youbot_student_node = cw1q9.youbotKineStudent:main',
-        ],
-    },
+    'console_scripts': [
+        'youbot_student_node = cw1q9.youbotKineStudent:main',
+        'singularity_checker = cw1q9.singularity_checker:main',
+    ],
+},
 )
