@@ -690,11 +690,12 @@ To sum up, based on the contents defined in the above macros, the DH-table can b
 
 | Joint (i) |  θᵢ *(Joint Angle)*  | dᵢ *(m)*  | aᵢ *(m)*  | αᵢ *(rad)* 
 |:---------:|:--------------------:|:---------:|:---------:|:------------:
-| 1         |$\theta_1 + 170^\circ$| 0.147     | 0.033     | $+\pi/2$ 
-| 2         |$\theta_2 +25^\circ$  | 0.019     | 0.155     | 0 
-| 3         |$\theta_3+ 146^\circ$ | 0         | 0.135     | 0 
-| 4         |$\theta_4-192.5^\circ$| 0         | 0         | $-\pi/2$ 
-| 5         |$\theta_5+167.5^\circ$| 0.185     | -0.002    | 0 
+| 1         |$\theta_1 $           | 0.147     | 0.033     | $+\pi/2$ 
+| 2         |$\theta_2 +90^\circ$  | 0.019     | 0.155     | 0 
+| 3         |$\theta_3$            | 0         | 0.135     | 0 
+| 4         |$\theta_4-90^\circ$   | 0         | 0         | $-\pi/2$ 
+| 5         |$\theta_5$            | 0.185     | 0         | 0 
+
 
 ## d
 ![q5d](pic/q5_d.png)
@@ -741,7 +742,7 @@ $$
 
 Let the joint velocity be:
 $$
-\dot{\theta} = \alpha(t)\, v, \qquad (\alpha(t) \in \mathbb{R})
+\dot{\theta} = \alpha(t)\, v, \quad (\alpha(t) \in \mathbb{R})
 $$
 
 Then,
@@ -751,7 +752,7 @@ $$
 
 Therefore,
 $$
-\dot{x}_e = 0 \quad\Rightarrow\quad x_e = \text{constant}.
+\dot{x}_e = 0 \; \Rightarrow\; x_e = \text{constant}.
 $$
 
 This means the end-effector pose remains unchanged.
@@ -818,21 +819,21 @@ When selecting the best IK solution, joint-limit avoidance, minimal motion, sing
 # q8
 ![q8](pic/q8.png)
 
-1. When $(x,y)$ lies in different quadrants
+1. **When $(x,y)$ lies in different quadrants**
 
 Reason:
 
-$atan(y/x)$ cannot distinguish quadrants, while $atan2(y, x)$ can.
+$atan(y/x)$ cannot distinguish quadrants, while $\operatorname{atan2}(y, x)$ can.
 - $atan(y/x)$ determines the angle only from the ratio $y/x$ and its output range is $(-\pi/2, \pi/2)$. Therefore, it cannot tell whether the point (x, y) is in the first or second quadrant, nor can it distinguish between the third and fourth quadrants.
-- $atan2(y, x)$ determines the correct quadrant based on the signs of $x$ and $y$, and its output range is $(-\pi, \pi]$
+- $\operatorname{atan2}(y, x)$ determines the correct quadrant based on the signs of $x$ and $y$, and its output range is $(-\pi, \pi]$
 
 Thus, when x < 0 (meaning the point is in the second or third quadrant), the two results will definitely differ.
 
-2. When $x = 0$ (division-by-zero)
-- $\text{atan}(y/x)$ is undefined.
-- $\text{atan2}(y,0)$ correctly returns:
+2. **When $x = 0$ (division-by-zero)**
+- $\operatorname{atan}(y/x)$ is undefined.
+- $\operatorname{atan2}(y,0)$ correctly returns:
 $$
-\text{atan2}(y,0)=
+\operatorname{atan2}(y,0)=
 \begin{cases}
 +\frac{\pi}{2}, & y>0,\\
 -\frac{\pi}{2}, & y<0.
@@ -841,11 +842,253 @@ $$
 
 ### Summary
 
-$\text{atan2}(y,x)$ differs from $\text{atan}(y/x)$ whenever:
-1. **x < 0**: the point is in the second or third quadrant, and $\text{atan}$ cannot determine the correct quadrant.
-2. **x = 0**: $\text{atan}(y/x)$ is undefined, while $\text{atan2}$ gives the correct angle.
+$\operatorname{atan2}(y,x)$ differs from $\text{atan}(y/x)$ whenever:
+1. **x < 0**: the point is in the second or third quadrant, and $\operatorname{atan}$ cannot determine the correct quadrant.
+2. **x = 0**: $\text{atan}(y/x)$ is undefined, while $\operatorname{atan2}$ gives the correct angle.
 
 Thus, **atan2** must be used whenever quadrant information or division-by-zero safety is required.
 
 # q9
 ![q9](pic/q9.png)
+## a: calculate YouBot 的Jacobian matrix
+
+This question implemented the geometric Jacobian of the KUKA YouBot manipulator inside `get_jacobian()` in `youbotKineStudent.py`.
+The computation follows the standard DH-based forward kinematics and the geometric Jacobian formulas.
+
+1. Forward Kinematics: For each joint, I use the provided standard_dh() function to compute the homogeneous transform $T_0^i$.
+From each transform I extract:
+
+- the joint origin $p_i$
+- the joint axis $z_i$
+	​
+The base-frame axis $z_0$ is set to $[0,0,−1]$ to match the `URDF/KDL` convention.
+
+2. End-effector Position: After computing all transforms, the end-effector position $p_e$ is taken from the last frame.
+
+3. Jacobian Columns: All YouBot joints are revolute, so each Jacobian column is computed using the geometric definition:
+$$
+J_{v,i} = z_i \times (p_e - p_i),\; J_{w,i} = z_i,
+
+\\
+\text{The linear and angular parts are stacked to form a } 6 \times 5 \text{ Jacobian matrix.}
+$$
+
+4. Result
+The resulting Jacobian matches the KDL implementation provided, confirming the correctness of the DH-based computation.
+
+## b: 推导 YouBot 的 closed-form IK
+
+
+YouBot 的 5 自由度机械臂属于 非球形腕（non-spherical wrist）结构，因此其末端姿态不能分解成三个相交轴的旋转。在底座关节 \theta_1 确定之后，关节 2 和 3 可以视为构成竖直平面的 2R 机构，后 2 个关节形成 2-DOF 腕部，因此可以获得完整的解析形式解。
+
+设定给定末端期望位姿为
+
+$$
+T_{des} = \begin{bmatrix}R & p \\ 0 & 1\end{bmatrix},\; p =[x,y,z]^T,
+$$
+
+求对应的关节角向量：
+$$
+\theta = [\theta_1,\;\theta_2,\;\theta_3,\;\theta_4,\;\theta_5]^T
+$$
+
+### 腕点（Wrist Centre）计算
+
+由于 YouBot 的末端执行器的最后一段连杆沿工具坐标系 z 轴方向延伸，其长度记为$d_5$
+
+可知腕点位置为：
+$$
+p_w = p - d_5 R \hat{z}, \; \hat{z} = [0,0,1]^T,
+$$
+
+腕点只与关节 1–3 有关，因此接下来所有位置 IK 都基于  $p_w$实现
+
+### 求解关节 1（底座旋转角）
+
+关节 1 是绕竖直轴旋转，其作用是将腕点在水平面上的投影对准：
+$$
+r = \sqrt{x_w^2 + y_w^2}
+$$
+
+因此可得：
+$$
+\theta_1 = \operatorname{atan2}(y_w, x_w)
+$$
+
+并且这是唯一不产生多解的平面旋转。
+
+此时将腕点变换到frame1中，可知
+$$
+p_w^{(1)} = A_1^{-1}(\theta_1)\, p_w
+$$
+其中：
+$$
+
+A_1^{-1}(\theta_1)=
+\begin{bmatrix}
+c{\theta_1} & s{\theta_1} & 0 & -a_1 c{\theta_1} \\
+-s{\theta_1} & c{\theta_1} & 0 & a_1 s{\theta_1} \\
+0 & 0 & 1 & -d_1 \\
+0 & 0 & 0 & 1
+\end{bmatrix}
+\begin{bmatrix}
+1 & 0 & 0 & 0 \\
+0 & c{\alpha_1} & s{\alpha_1} & 0 \\
+0 & -s{\alpha_1} & c{\alpha_1} & 0 \\
+0 & 0 & 0 & 1
+\end{bmatrix}
+$$
+
+得到：
+
+$$
+p_w^{(1)} =
+\begin{bmatrix}
+x_1(\theta_1, p_w) \\
+y_1(\theta_1, p_w) \\
+z_1(\theta_1, p_w)
+\end{bmatrix}
+$$
+
+
+### 平面 2R 几何求解关节 2 和关节 3
+
+在确定 $\theta_1$ 后，可以将关节 2 和关节 3 看作位于竖直平面内的一组 2R 机械臂，用于到达腕点位置。
+
+将腕点转换到关节 2 的平面坐标：
+$$
+x' = r - a_1, \; y' = z_w - d_1.
+$$
+
+关节 2 和关节 3 的结构完全对应于长度分别为$L_2$与$L_3$的两连杆平面机构。
+
+而对于joint3可以分别使用余弦定理求解
+
+由平面 2R 几何关系可知：
+$$
+D = \frac{{x'}^2 + {y'}^2 - L_2^2 - L_3^2}{2 L_2 L_3},
+$$
+
+因此可得:
+
+$$
+\theta_3 = \operatorname{atan2}(\pm \sqrt{1 - D^2},\, D)
+$$
+
+where:
+- 正向表示肘上（elbow-up）
+- 负号表示肘下（elbow-down）
+
+因此 $\theta_3$ 存在两组解。
+
+对于joint 2（θ₂）的求解可使用几何角度分解方式
+
+令：
+$$
+\phi = \operatorname{atan2}(y',\, x'), \\
+\psi = \operatorname{atan2}(L_3 \sin\theta_3,\, L_2 + L_3 \cos\theta_3).\\
+$$
+则
+$$
+\theta_2 = \phi - \psi
+$$
+
+有上述公式可知$\theta_2$得取值基于$\theta_3$，所以$\theta_2$同样存在两组解
+
+
+### 求解关节 4 和关节 5（腕部姿态）
+
+三个位移关节确定腕点后，joint 4与joint5用于调整末端的朝向。
+
+首先得到前 3 个关节的旋转矩阵：
+
+$$
+R_{123} = R_1(\theta_1)R_2(\theta_2)R_3(\theta_3), \\
+$$
+需要满足：
+$$
+R = R_{123}R_{45},\; R_{45} = R_y(\theta_4)R_z(\theta_5).
+$$
+
+因此，
+$$
+R_{45} = R_{123}^TR
+$$
+故只需从矩阵中直接提取旋转角即可：
+
+对于joint 4（θ₄）
+
+由于关节 4 绕 y 轴旋转：
+
+$$
+\theta_4 = \operatorname{atan2}(R_{45}(3,1),R_45(3,3))
+$$
+
+
+对于关节 5 绕 z 轴旋转：
+$$
+\theta_5 = \operatorname{atan2}(R_{45}(2,1), R_{45}(2,2))
+$$
+
+此过程即对剩余 2-DOF 的腕部旋转矩阵进行分解。
+
+### 逆解的多解性分析
+
+YouBot 的闭式 IK 具有多个有效解，原因包括：
+
+1. 平面 2R 的两种肘部结构
+
+    肘上（elbow-up）
+    
+    肘下（elbow-down）
+
+2. 角度函数的周期性
+
+    关节角增加 $2\pi$仍是同一姿态
+
+因此总计可产生：
+
+最多4组主要闭式逆解
+	​
+### 综上所述
+
+由上述推导可得到 YouBot 机械臂的闭式逆运动学解，关键结果如下：
+
+- 底座关节：
+  $$
+  \theta_1 = \operatorname{atan2}(y_w,\; x_w)
+  $$
+
+- 臂部关节：
+  $$
+  D = \frac{{x'}^2 + {z'}^2 - L_2^2 - L_3^2}{2 L_2 L_3}
+  $$
+  $$
+  \theta_3 = \operatorname{atan2}\big(\pm\sqrt{1 - D^2},\; D\big)
+  $$
+  $$
+  \phi = \operatorname{atan2}(z',\, x'),\quad
+  \psi = \operatorname{atan2}\big(L_3 \sin\theta_3,\; L_2 + L_3 \cos\theta_3\big)
+  $$
+  $$
+  \theta_2 = \phi - \psi
+  $$
+
+- 腕部关节（记 $R_{45} = R_{123}^T R_{des} = [r_{ij}]$）：
+  $$
+  \theta_4 = \operatorname{atan2}(r_{13},\; r_{33}),\quad
+  \theta_5 = \operatorname{atan2}(r_{21},\; r_{22})
+  $$
+
+其中：
+
+- $(x_w, y_w, z_w)$：腕点在基坐标系中的坐标，由 $p_w = p - d_5 R \hat z$ 得到  
+- $(x', z')$：腕点在关节 2 所在竖直平面中的坐标（平面 2R 的工作平面坐标）  
+- $L_2, L_3$：第 2、3 连杆长度  
+- $a_1, d_1, d_5$：基座连杆的水平/竖直偏移以及末端段长度等 DH 参数  
+- $[r_{ij}]$：矩阵 $R_{45} = R_{123}^T R_{des}$ 的元素
+
+整体 IK 由于平面 2R 的肘上 / 肘下结构以及关节角的 $2\pi$ 周期性，最多给出 4 组主要解，且全程无需数值迭代，属于完全解析求解。
+
+## c Singularity detection
+
