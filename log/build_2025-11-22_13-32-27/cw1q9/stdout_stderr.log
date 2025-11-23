@@ -1,0 +1,23 @@
+running egg_info
+writing ../build/cw1q9/cw1q9.egg-info/PKG-INFO
+writing dependency_links to ../build/cw1q9/cw1q9.egg-info/dependency_links.txt
+writing entry points to ../build/cw1q9/cw1q9.egg-info/entry_points.txt
+writing requirements to ../build/cw1q9/cw1q9.egg-info/requires.txt
+writing top-level names to ../build/cw1q9/cw1q9.egg-info/top_level.txt
+reading manifest file '../build/cw1q9/cw1q9.egg-info/SOURCES.txt'
+writing manifest file '../build/cw1q9/cw1q9.egg-info/SOURCES.txt'
+running build
+running build_py
+copying cw1q9/youbotChecker.py -> /home/bizare/Desktop/Robotics_System/build/cw1q9/build/lib/cw1q9
+running install
+running install_lib
+copying /home/bizare/Desktop/Robotics_System/build/cw1q9/build/lib/cw1q9/youbotChecker.py -> /home/bizare/Desktop/Robotics_System/install/cw1q9/lib/python3.8/site-packages/cw1q9
+byte-compiling /home/bizare/Desktop/Robotics_System/install/cw1q9/lib/python3.8/site-packages/cw1q9/youbotChecker.py to youbotChecker.cpython-38.pyc
+running install_data
+running install_egg_info
+removing '/home/bizare/Desktop/Robotics_System/install/cw1q9/lib/python3.8/site-packages/cw1q9-0.0.0-py3.8.egg-info' (and everything under it)
+Copying ../build/cw1q9/cw1q9.egg-info to /home/bizare/Desktop/Robotics_System/install/cw1q9/lib/python3.8/site-packages/cw1q9-0.0.0-py3.8.egg-info
+running install_scripts
+Installing youbot_checker script to /home/bizare/Desktop/Robotics_System/install/cw1q9/lib/cw1q9
+Installing youbot_student_node script to /home/bizare/Desktop/Robotics_System/install/cw1q9/lib/cw1q9
+writing list of installed files to '/home/bizare/Desktop/Robotics_System/build/cw1q9/install.log'

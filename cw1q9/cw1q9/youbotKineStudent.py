@@ -124,7 +124,7 @@ class YoubotKinematicStudent(YoubotKinematicBase):
         # 设置一个容差避免数值误差造成错误判断
         rank_J = np.linalg.matrix_rank(J, tol=1e-5)
 
-        singularity = rank_J < 5
+        singularity = bool(rank_J < 5)
         # Your code ends here ------------------------------
         # ╔════════════════════════════════════════════════════════════════════════╗
         # ╚════════════════════════════════════════════════════════════════════════╝

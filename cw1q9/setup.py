@@ -27,7 +27,7 @@ setup(
     entry_points={
     'console_scripts': [
         'youbot_student_node = cw1q9.youbotKineStudent:main',
-        'singularity_checker = cw1q9.singularity_checker:main',
+        'youbot_checker = cw1q9.youbotChecker:main',
     ],
 },
 )

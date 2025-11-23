@@ -5,40 +5,65 @@ import numpy as np
 import rclpy
 from cw1q9.youbotKineStudent import YoubotKinematicStudent
 
-def main(args=None):
-    rclpy.init(args=args)
-    node = YoubotKinematicStudent(tf_suffix='student')
 
-    # 期望: ros2 run cw1q9 singularity_checker -- q1 q2 q3 q4 q5 (单位: 度 或 弧度你自己统一)
+def main(args=None):
+    # 初始化 ROS2
+    rclpy.init(args=args)
+
+    # 创建你自己写的 kinematic student 节点（注意：不传 tf_suffix）
+    node = YoubotKinematicStudent()
+    logger = node.get_logger()
+
+    # 用法：
+    #   ros2 run cw1q9 youbot_checker -- q1 q2 q3 q4 q5
+    # 这里约定输入单位是：度（degrees）
     if len(sys.argv) != 6:
-        node.get_logger().info(
-            "Usage: ros2 run cw1q9 singularity_checker -- q1 q2 q3 q4 q5 (in degrees)"
+        logger.info(
+            "Usage: ros2 run cw1q9 youbot_checker -- q1 q2 q3 q4 q5 (in degrees)"
         )
         node.destroy_node()
         rclpy.shutdown()
         return
 
+    # 解析命令行参数
     try:
         joint_deg = [float(v) for v in sys.argv[1:6]]
     except ValueError:
-        node.get_logger().error("All 5 joint values must be numbers.")
+        logger.error("All 5 joint values must be numbers.")
         node.destroy_node()
         rclpy.shutdown()
         return
 
-    # 如果你内部都是用弧度，就转成弧度
+    # 转成弧度，因为你在 kinematics 里用的是弧度
     joint_rad = [np.deg2rad(v) for v in joint_deg]
 
-    # 用“自己写的” Student 版检查奇异性
-    is_singular = node.check_singularity(joint_rad)
+    # 先用你自己写的 check_singularity
+    try:
+        is_singular = node.check_singularity(joint_rad)
+    except AssertionError:
+        # 如果你在 check_singularity 里有 assert 类型检查炸了，这里兜底算一次
+        J = node.get_jacobian(joint_rad)
+        rank_J = np.linalg.matrix_rank(J, tol=1e-5)
+        is_singular = bool(rank_J < 5)
 
+    # 打印奇异性检测结果
     if is_singular:
-        node.get_logger().info(f"Joint configuration {joint_deg} deg is SINGULAR.")
+        logger.info(f"Joint configuration {joint_deg} deg is SINGULAR.")
     else:
-        node.get_logger().info(f"Joint configuration {joint_deg} deg is NOT singular.")
+        logger.info(f"Joint configuration {joint_deg} deg is NOT singular.")
+
+    # （可选）再打印一下 Jacobian 的奇异值，方便你 debug / 写报告
+    try:
+        J = node.get_jacobian(joint_rad)
+        _, s, _ = np.linalg.svd(J)
+        logger.info(f"Jacobian singular values: {s}")
+        logger.info(f"Smallest singular value: {s[-1]}")
+    except Exception as e:
+        logger.warn(f"Could not compute Jacobian singular values: {e}")
 
     node.destroy_node()
     rclpy.shutdown()
+
 
 if __name__ == "__main__":
     main()
