@@ -102,25 +102,23 @@ class ForwardKinematicsOffsetNode(Node):
         # ╔════════════════════════════════════════════════════════════════════════╗
         # ║                      PART 2: FKINE WRAPPER IMPLEMENTATION              ║
         # ╚════════════════════════════════════════════════════════════════════════╝
-        # 关节数量（youbot 5 个关节）
         num_joints = len(youbot_dh_offset_paramters['a'])
 
-        # (1) 取前 num_joints 个关节读数
         raw_readings = list(joint_msg.position[0:num_joints])
 
-        # (2) 极性修正
+        # change the direction
         corrected_readings = [
             raw * polarity
             for raw, polarity in zip(raw_readings, youbot_joint_readings_polarity)
         ]
 
-        # (3) 使用已经加好 offset 的 DH 参数
+        # load offsetof的 DH
         dh_dict = youbot_dh_offset_paramters
 
-        # (4) 逐关节计算 FK 并发布 TF（链式：base_link -> link_1 -> ... -> link_5）
+        # Iterate over all joints
         for i in range(num_joints):
 
-            # base_link → link_(i+1) 的齐次变换
+            # base_link → link_(i+1)
             T_curr = forward_kinematics(
                 dh_dict=dh_dict,
                 joints_readings=corrected_readings,
@@ -143,21 +141,17 @@ class ForwardKinematicsOffsetNode(Node):
             # link_i → link_(i+1)
             T_rel = np.linalg.inv(T_prev) @ T_curr
 
-            # 构造 TF 消息
             transform = TransformStamped()
             transform.header.stamp = self.get_clock().now().to_msg()
             transform.header.frame_id = parent_frame
             transform.child_frame_id = f'link_{i+1}'
 
-            # 平移向量
             transform.transform.translation.x = float(T_rel[0, 3])
             transform.transform.translation.y = float(T_rel[1, 3])
             transform.transform.translation.z = float(T_rel[2, 3])
 
-            # 旋转四元数（由旋转矩阵转为 Quaternion）
             transform.transform.rotation = rotmat2q(T_rel[:3, :3])
 
-            # 发布 TF
             self.br.sendTransform(transform)
         # ╔════════════════════════════════════════════════════════════════════════╗
         # ║                              END OF PART 2                             ║

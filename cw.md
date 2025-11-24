@@ -144,9 +144,9 @@ so one may take $\mathbf{u}\propto$ any nonzero column (or row) of $(R+I)_{:j}$ 
 The basic 3D rotation matrices are:
 $$
 \begin{gathered}
-R_x(\alpha)=\begin{bmatrix}1&0&0\\[2pt]0&\cos\alpha&-\sin\alpha\\[2pt]0&\sin\alpha&\cos\alpha\end{bmatrix},
+R_x(\alpha)=\begin{bmatrix}1&0&0\\[2pt]0&\cos\alpha&-\sin\alpha\\[2pt]0&\sin\alpha&\cos\alpha\end{bmatrix},\\
 
-R_y(\beta)=\begin{bmatrix}\cos\beta&0&\sin\beta\\[2pt]0&1&0\\[2pt]-\sin\beta&0&\cos\beta\end{bmatrix},
+R_y(\beta)=\begin{bmatrix}\cos\beta&0&\sin\beta\\[2pt]0&1&0\\[2pt]-\sin\beta&0&\cos\beta\end{bmatrix},\\
 
 R_z(\gamma)=\begin{bmatrix}\cos\gamma&-\sin\gamma&0\\[2pt]\sin\gamma&\cos\gamma&0\\[2pt]0&0&1\end{bmatrix}.
 \end{gathered}
@@ -256,7 +256,6 @@ sw+\mathbf u\!\cdot\!\mathbf v
 $$
 For the $p_2$ vector part :
 $$
-
 \begin{aligned}
 -s\,\mathbf v + w\mathbf u - \mathbf u\times\mathbf v
 &= (\mathbf v\!\cdot\!\mathbf p)\mathbf v + w^2\mathbf p
@@ -495,6 +494,7 @@ DH Coordinate Frame Setup:
 | 5         | $\theta_5$         | 218       | 0         | 0 
 
 ## b
+
 ![q5b](pic/q5_b.png)
 ### Task 1: Define the DH Table Based on Question 5a
 ```python
@@ -504,7 +504,7 @@ youbot_dh_parameters = {
   'd' : [0.147, 0, 0, 0, 0.218],
   'theta':[0, np.pi/2, 0, -np.pi/2, 0]
   }
-``` 
+```
 The DH parameters obtained in Question 5a were filled into the dictionary above, representing the link lengths, twists, offsets, and joint angles of the YouBot manipulator.
 ### Task 2: Implementing the Standard DH Transformation
 According to the standard DH formulation,
@@ -638,9 +638,7 @@ The file `urdf/youbot_arm/arm.urdf.xacro` contains the key definitions inside th
 			<child link="${name}_link_0" />
 			
 		</joint>
-
   ...
-
 </xacro:macro>
 ```
 
@@ -655,16 +653,6 @@ Based on this, we can extract the following information:
 | 0, 0, -1 | -0.002, 0, 0.130 | 0, 0, 167.5 |
 
 The following information can be extracted from the above table
-
-| Joint (i) |  θᵢ *(Joint Angle)*  | dᵢ *(m)* | aᵢ *(m)* | αᵢ *(rad)* 
-|:---------:|:--------------------:|:---------:|:---------:|:------------:
-| 1         | $\theta_1 $        | 0.147     | 0.033     | $+\pi/2$ 
-| 2         | $\theta_2 + \pi/2$ | 0.019     | 0.155     | 0 
-| 3         | $\theta_3$         | 0         | 0.135     | 0 
-| 4         | $\theta_4-\pi/2$   | 0         | 0         | $-\pi/2$ 
-| 5         | $\theta_5$         | 0.185     | -0.002    | 0 
-
-and
 
 | Joint (i) |  offset  | joint readings polarity
 |:---------:|:--------------------:|:---------:
@@ -861,85 +849,95 @@ From each transform I extract:
 - the joint origin $p_i$
 - the joint axis $z_i$
 	​
-The base-frame axis $z_0$ is set to $[0,0,−1]$ to match the `URDF/KDL` convention.
+	The base-frame axis $z_0$ is set to $[0,0,−1]$ to match the `URDF/KDL` convention.
 
 2. End-effector Position: After computing all transforms, the end-effector position $p_e$ is taken from the last frame.
 
 3. Jacobian Columns: All YouBot joints are revolute, so each Jacobian column is computed using the geometric definition:
 $$
 J_{v,i} = z_i \times (p_e - p_i),\; J_{w,i} = z_i,
-
-\\
-\text{The linear and angular parts are stacked to form a } 6 \times 5 \text{ Jacobian matrix.}
 $$
+
+​               The linear and angular parts are stacked to form a  $6 \times 5 $ Jacobian matrix.
 
 4. Result
-The resulting Jacobian matches the KDL implementation provided, confirming the correctness of the DH-based computation.
-
-## b: 推导 YouBot 的 closed-form IK
+  The resulting Jacobian matches the KDL implementation provided, confirming the correctness of the DH-based computation.
 
 
-YouBot 的 5 自由度机械臂属于 非球形腕（non-spherical wrist）结构，因此其末端姿态不能分解成三个相交轴的旋转。在底座关节 \theta_1 确定之后，关节 2 和 3 可以视为构成竖直平面的 2R 机构，后 2 个关节形成 2-DOF 腕部，因此可以获得完整的解析形式解。
+## b: Deriving the closed-form IK for the YouBot
 
-设定给定末端期望位姿为
+The 5-DOF YouBot manipulator has a non-spherical wrist structure, so its end-effector orientation cannot be decomposed into three rotations about mutually intersecting axes. Once the base joint angle $\theta_1$ is determined, joints 2 and 3 can be regarded as forming a 2R mechanism in a vertical plane, while the last two joints form a 2-DOF wrist. Therefore, a complete closed-form analytical inverse kinematics solution can be obtained.
+
+Set the desired end-effector pose be
 
 $$
-T_{des} = \begin{bmatrix}R & p \\ 0 & 1\end{bmatrix},\; p =[x,y,z]^T,
+T_{des} =
+\begin{bmatrix}
+R & p \\
+0 & 1
+\end{bmatrix},\quad
+p = [x, y, z]^T,
 $$
 
-求对应的关节角向量：
+and set the corresponding joint angle vector be:
+
 $$
-\theta = [\theta_1,\;\theta_2,\;\theta_3,\;\theta_4,\;\theta_5]^T
+\theta = [\theta_1,\;\theta_2,\;\theta_3,\;\theta_4,\;\theta_5]^T.
 $$
 
-### 腕点（Wrist Centre）计算
+### Wrist centre computation
 
-由于 YouBot 的末端执行器的最后一段连杆沿工具坐标系 z 轴方向延伸，其长度记为$d_5$
+The last link of the YouBot end-effector extends along the tool-frame $z$-axis, with length denoted by $d_5$.
 
-可知腕点位置为：
+Thus, the wrist centre position is
+
 $$
-p_w = p - d_5 R \hat{z}, \; \hat{z} = [0,0,1]^T,
-$$
-
-腕点只与关节 1–3 有关，因此接下来所有位置 IK 都基于  $p_w$实现
-
-### 求解关节 1（底座旋转角）
-
-关节 1 是绕竖直轴旋转，其作用是将腕点在水平面上的投影对准：
-$$
-r = \sqrt{x_w^2 + y_w^2}
+p_w = p - d_5\,R\,\hat{z}, \quad \hat{z} = [0, 0, 1]^T.
 $$
 
-因此可得：
+The wrist centre depends only on joints 1–3, so all subsequent position IK is carried out based on $p_w$.
+
+### Joint 1
+
+Joint 1 rotates about a vertical axis and serves to align the projection of the wrist centre in the horizontal plane:
+
 $$
-\theta_1 = \operatorname{atan2}(y_w, x_w)
+r = \sqrt{x_w^2 + y_w^2}.
 $$
 
-并且这是唯一不产生多解的平面旋转。
+Hence,
 
-此时将腕点变换到frame1中，可知
 $$
-p_w^{(1)} = A_1^{-1}(\theta_1)\, p_w
-$$
-其中：
+\theta_1 = \operatorname{atan2}(y_w, x_w),
 $$
 
+which is the unique planar rotation here (no multiple solutions).
+
+Then transform the wrist centre into frame 1:
+
+$$
+p_w^{(1)} = A_1^{-1}(\theta_1)\,p_w,
+$$
+
+where
+
+$$
 A_1^{-1}(\theta_1)=
 \begin{bmatrix}
-c{\theta_1} & s{\theta_1} & 0 & -a_1 c{\theta_1} \\
--s{\theta_1} & c{\theta_1} & 0 & a_1 s{\theta_1} \\
+\cos\theta_1 & \sin\theta_1 & 0 & -a_1 \cos\theta_1 \\
+-\sin\theta_1 & \cos\theta_1 & 0 & a_1 \sin\theta_1 \\
 0 & 0 & 1 & -d_1 \\
 0 & 0 & 0 & 1
 \end{bmatrix}
 \begin{bmatrix}
 1 & 0 & 0 & 0 \\
-0 & c{\alpha_1} & s{\alpha_1} & 0 \\
-0 & -s{\alpha_1} & c{\alpha_1} & 0 \\
+0 & \cos\alpha_1 & \sin\alpha_1 & 0 \\
+0 & -\sin\alpha_1 & \cos\alpha_1 & 0 \\
 0 & 0 & 0 & 1
-\end{bmatrix}
+\end{bmatrix}.
 $$
 
-得到：
+Obtain:
 
 $$
 p_w^{(1)} =
@@ -947,148 +945,155 @@ p_w^{(1)} =
 x_1(\theta_1, p_w) \\
 y_1(\theta_1, p_w) \\
 z_1(\theta_1, p_w)
-\end{bmatrix}
+\end{bmatrix}.
 $$
 
+### Joints 2 and 3
 
-### 平面 2R 几何求解关节 2 和关节 3
+Once $\theta_1$ is known, joints 2 and 3 can be treated as a planar 2R manipulator lying in a vertical plane, responsible for reaching the wrist centre.
 
-在确定 $\theta_1$ 后，可以将关节 2 和关节 3 看作位于竖直平面内的一组 2R 机械臂，用于到达腕点位置。
+Transform the wrist centre into the plane of joint 2:
 
-将腕点转换到关节 2 的平面坐标：
 $$
-x' = r - a_1, \; y' = z_w - d_1.
+x' = r - a_1, \quad y' = z_w - d_1.
 $$
 
-关节 2 和关节 3 的结构完全对应于长度分别为$L_2$与$L_3$的两连杆平面机构。
+Joints 2 and 3 are equivalent to a 2-link planar mechanism with link lengths $L_2$ and $L_3$.
 
-而对于joint3可以分别使用余弦定理求解
+For joint 3, use the cosine law to solve:
 
-由平面 2R 几何关系可知：
+From planar 2R geometry,
+
 $$
 D = \frac{{x'}^2 + {y'}^2 - L_2^2 - L_3^2}{2 L_2 L_3},
 $$
 
-因此可得:
+so
 
 $$
-\theta_3 = \operatorname{atan2}(\pm \sqrt{1 - D^2},\, D)
+\theta_3 = \operatorname{atan2}(\pm \sqrt{1 - D^2},\, D),
 $$
 
-where:
-- 正向表示肘上（elbow-up）
-- 负号表示肘下（elbow-down）
+where the plus sign corresponds to the elbow-up configuration and the minus sign corresponds to the elbow-down configuration. Thus $\theta_3$ has two possible solutions.
 
-因此 $\theta_3$ 存在两组解。
+For joint 2 ($\theta_2$), use geometric angle decomposition to solve. Let
 
-对于joint 2（θ₂）的求解可使用几何角度分解方式
-
-令：
 $$
 \phi = \operatorname{atan2}(y',\, x'), \\
-\psi = \operatorname{atan2}(L_3 \sin\theta_3,\, L_2 + L_3 \cos\theta_3).\\
-$$
-则
-$$
-\theta_2 = \phi - \psi
+\psi = \operatorname{atan2}(L_3 \sin\theta_3,\, L_2 + L_3 \cos\theta_3).
 $$
 
-有上述公式可知$\theta_2$得取值基于$\theta_3$，所以$\theta_2$同样存在两组解
-
-
-### 求解关节 4 和关节 5（腕部姿态）
-
-三个位移关节确定腕点后，joint 4与joint5用于调整末端的朝向。
-
-首先得到前 3 个关节的旋转矩阵：
+Then
 
 $$
-R_{123} = R_1(\theta_1)R_2(\theta_2)R_3(\theta_3), \\
-$$
-需要满足：
-$$
-R = R_{123}R_{45},\; R_{45} = R_y(\theta_4)R_z(\theta_5).
+\theta_2 = \phi - \psi.
 $$
 
-因此，
-$$
-R_{45} = R_{123}^TR
-$$
-故只需从矩阵中直接提取旋转角即可：
+From these formulas we see that the value of $\theta_2$ depends on $\theta_3$, so $\theta_2$ also has two corresponding solutions.
 
-对于joint 4（θ₄）
+### Joints 4 and 5
 
-由于关节 4 绕 y 轴旋转：
+After the wrist centre has been fixed by the first three joints, joints 4 and 5 are used to adjust the end-effector orientation.
+
+First compute the rotation matrix of the first three joints:
 
 $$
-\theta_4 = \operatorname{atan2}(R_{45}(3,1),R_45(3,3))
+R_{123} = R_1(\theta_1) R_2(\theta_2) R_3(\theta_3),
 $$
 
+and we require
 
-对于关节 5 绕 z 轴旋转：
 $$
-\theta_5 = \operatorname{atan2}(R_{45}(2,1), R_{45}(2,2))
+R = R_{123} R_{45}, \quad R_{45} = R_y(\theta_4) R_z(\theta_5).
 $$
 
-此过程即对剩余 2-DOF 的腕部旋转矩阵进行分解。
+Thus,
 
-### 逆解的多解性分析
+$$
+R_{45} = R_{123}^T R.
+$$
 
-YouBot 的闭式 IK 具有多个有效解，原因包括：
+We can extract the remaining angles directly from this matrix.
 
-1. 平面 2R 的两种肘部结构
+For joint 4 ($\theta_4$):
 
-    肘上（elbow-up）
-    
-    肘下（elbow-down）
+Since joint 4 rotates about the $y$-axis,
 
-2. 角度函数的周期性
+$$
+\theta_4 = \operatorname{atan2}(R_{45}(1,3), R_{45}(3,3)).
+$$
 
-    关节角增加 $2\pi$仍是同一姿态
+For joint 5 ($\theta_5$), which rotates about the $z$-axis,
 
-因此总计可产生：
+$$
+\theta_5 = \operatorname{atan2}(R_{45}(2,1), R_{45}(2,2)).
+$$
 
-最多4组主要闭式逆解
-	​
-### 综上所述
+This process decomposes the remaining 2-DOF wrist rotation matrix into its two joint angles. Except at singular configurations where $\cos\theta_4$ = 0.
 
-由上述推导可得到 YouBot 机械臂的闭式逆运动学解，关键结果如下：
+### Analysis of multiple IK solutions
 
-- 底座关节：
+The closed-form IK of the YouBot has multiple valid solutions due to:
+
+1. The two possible elbow configurations of the planar 2R arm (elbow-up and elbow-down).
+2. The periodicity of the joint angles, since adding $2\pi$ to a joint angle yields the same physical pose.
+
+Therefore, in total, there can be up to four main closed-form IK solutions.
+
+### Summary
+
+From the above derivation, we obtain a closed-form inverse kinematics solution for the YouBot manipulator. The key results are:
+
+- Base joint:
   $$
-  \theta_1 = \operatorname{atan2}(y_w,\; x_w)
+  \theta_1 = \operatorname{atan2}(y_w,\; x_w).
   $$
 
-- 臂部关节：
+- Arm joints:
   $$
-  D = \frac{{x'}^2 + {z'}^2 - L_2^2 - L_3^2}{2 L_2 L_3}
-  $$
-  $$
-  \theta_3 = \operatorname{atan2}\big(\pm\sqrt{1 - D^2},\; D\big)
+  D = \frac{{x'}^2 + {y'}^2 - L_2^2 - L_3^2}{2 L_2 L_3},
   $$
   $$
-  \phi = \operatorname{atan2}(z',\, x'),\quad
-  \psi = \operatorname{atan2}\big(L_3 \sin\theta_3,\; L_2 + L_3 \cos\theta_3\big)
+  \theta_3 = \operatorname{atan2}\big(\pm\sqrt{1 - D^2},\; D\big),
   $$
   $$
-  \theta_2 = \phi - \psi
+  \phi = \operatorname{atan2}(y',\, x'),\quad
+  \psi = \operatorname{atan2}\big(L_3 \sin\theta_3,\; L_2 + L_3 \cos\theta_3\big),
+  $$
+  $$
+  \theta_2 = \phi - \psi.
   $$
 
-- 腕部关节（记 $R_{45} = R_{123}^T R_{des} = [r_{ij}]$）：
+- Wrist joints (let $R_{45} = R_{123}^T R_{des} = [r_{ij}]$):
   $$
   \theta_4 = \operatorname{atan2}(r_{13},\; r_{33}),\quad
-  \theta_5 = \operatorname{atan2}(r_{21},\; r_{22})
+  \theta_5 = \operatorname{atan2}(r_{21},\; r_{22}).
   $$
 
-其中：
-
-- $(x_w, y_w, z_w)$：腕点在基坐标系中的坐标，由 $p_w = p - d_5 R \hat z$ 得到  
-- $(x', z')$：腕点在关节 2 所在竖直平面中的坐标（平面 2R 的工作平面坐标）  
-- $L_2, L_3$：第 2、3 连杆长度  
-- $a_1, d_1, d_5$：基座连杆的水平/竖直偏移以及末端段长度等 DH 参数  
-- $[r_{ij}]$：矩阵 $R_{45} = R_{123}^T R_{des}$ 的元素
-
-整体 IK 由于平面 2R 的肘上 / 肘下结构以及关节角的 $2\pi$ 周期性，最多给出 4 组主要解，且全程无需数值迭代，属于完全解析求解。
+Because of the elbow-up/elbow-down configurations of the planar 2R subsystem and the $2\pi$-periodicity of joint angles, the IK yields up to four main solutions, and the entire solution is obtained analytically without any numerical iteration.
 
 ## c Singularity detection
+
+![q9c](pic/q9c.png)
+
+In this task, I use the geometric Jacobian from Question 9(a) to detect when the YouBot arm is close to a kinematic singularity.
+
+For a 6D task space the Jacobian has size $J(\theta) \in \mathbb{R}^{6\times 5}$. At a singular configuration it loses rank, which means that some directions of end-effector motion cannot be generated by any finite joint velocities.
+
+To check this in code, I compute a simple manipulability measure
+$$
+w(\theta) = \sqrt{\det(J(\theta)J(\theta)^\top)}.
+$$
+If $w$ is very small, the configuration is (near) singular. Numerically I compare it with a small threshold, for example $\varepsilon = 10^{-6}$:
+
+```python
+J = self.get_jacobian(joint)
+JJ_T = J @ J.T
+w = np.sqrt(np.linalg.det(JJ_T))
+
+eps = 1e-6
+is_singular = (w < eps)
+```
+
+In normal working poses the value of $w$ is clearly above the threshold, while in almost stretched configurations (links 2 and 3 nearly collinear) $w$ becomes very small and the configuration is correctly flagged as near singular.
 

@@ -11,11 +11,8 @@ class YoubotKinematicStudent(YoubotKinematicBase):
         # ║                   FILL IN the JOINT OFFSETS FOUND IN CW1Q5             ║
         # ╚════════════════════════════════════════════════════════════════════════╝
         # Currently a set of dummy Joint Offsets for YOUR testing
-        youbot_joint_offsets = [0.0,
-                                np.pi / 2,
-                                0.0,
-                                -np.pi / 2,
-                                0.0]
+        deg = np.pi/180
+        youbot_joint_offsets = [170*deg, 65*deg, -146*deg, 102.5*deg, 167.5*deg]
         # ╔════════════════════════════════════════════════════════════════════════╗
         # ╚════════════════════════════════════════════════════════════════════════╝
         self.dh_params['theta'] = [theta + offset for theta, offset in
@@ -100,36 +97,60 @@ class YoubotKinematicStudent(YoubotKinematicBase):
         assert jacobian.shape == (6, 5)
         return jacobian
 
-    def check_singularity(self, joint):
-        """Check for singularity condition given robot joints. Coursework 1 Question 9c.
-        Reference Lecture 5 slide 30.
+
+    def get_jacobian(self, joint):
+        """Given the joint values of the robot, compute the Jacobian matrix. Coursework 1 Question 9a.
+        Reference - Lecture 5 slide 24.
 
         Args:
             joint (list): the state of the robot joints. In a youbot those are revolute
 
         Returns:
-            singularity (bool): True if in singularity and False if not in singularity.
-
+            Jacobian (numpy.ndarray): NumPy matrix of size 6x5 which is the Jacobian matrix.
         """
         assert isinstance(joint, list)
         assert len(joint) == 5
-        
+
         # ╔════════════════════════════════════════════════════════════════════════╗
-        # ║                  YOUR CODE STARTS HERE: CHECK SINGULARITY              ║
+        # ║                  YOUR CODE STARTS HERE: CALCULATE JACOBIAN             ║
         # ╚════════════════════════════════════════════════════════════════════════╝
-        # 1. 先用自己写的 get_jacobian 计算当前关节下的雅可比矩阵
-        J = self.get_jacobian(joint)
+        # For your solution to match the KDL Jacobian, z0 needs to be set [0, 0, -1] instead of [0, 0, 1], since that is how its defined in the URDF.
+        # Both are correct.
 
-        # 2. 计算雅可比矩阵的秩，5 自由度机械臂如果秩 < 5 则为奇异
-        # 设置一个容差避免数值误差造成错误判断
-        rank_J = np.linalg.matrix_rank(J, tol=1e-5)
+        # Step 1: collect z_i and p_i using the existing forward_kinematics method
+        # base frame (i = 0)
+        z_axes = [np.array([0, 0, -1])]   # z0 defined as in the comment above
+        p_positions = [np.array([0, 0, 0])]
 
-        singularity = bool(rank_J < 5)
+        # use forward_kinematics to get transforms from base to each joint frame i = 1..5
+        for i in range(1, 6):
+            T = self.forward_kinematics(joint, up_to_joint=i)
+            z_i = T[0:3, 2]
+            p_i = T[0:3, 3]
+            z_axes.append(z_i)
+            p_positions.append(p_i)
+
+        # End effector position pe is the origin of frame 5
+        pe = p_positions[-1]
+
+        # Build Jacobian 6x5
+        jacobian = np.zeros((6, 5))
+        for i in range(5):
+            zi = z_axes[i]
+            pi = p_positions[i]
+            # revolute joint Jacobian
+            jacobian[0:3, i] = np.cross(zi, pe - pi)   # linear velocity part
+            jacobian[3:6, i] = zi                      # angular velocity part
+
+        # Use a threshold value and treat any element with a small absolute value as 0
+        threshold = 1e-6
+        jacobian[np.abs(jacobian) < threshold] = 0.0
+
         # Your code ends here ------------------------------
         # ╔════════════════════════════════════════════════════════════════════════╗
         # ╚════════════════════════════════════════════════════════════════════════╝
-        assert isinstance(singularity, bool)
-        return singularity
+        assert jacobian.shape == (6, 5)
+        return jacobian
 
 def main(args=None):
     rclpy.init(args=args)

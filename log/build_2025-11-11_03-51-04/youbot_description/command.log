@@ -1,2 +1,0 @@
-Invoking command in '/home/bizare/Desktop/Robotics_System/build/youbot_description': /usr/bin/cmake /home/bizare/Desktop/Robotics_System/youbot_description -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCMAKE_INSTALL_PREFIX=/home/bizare/Desktop/Robotics_System/install/youbot_description
-Invoked command in '/home/bizare/Desktop/Robotics_System/build/youbot_description' returned '1': /usr/bin/cmake /home/bizare/Desktop/Robotics_System/youbot_description -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCMAKE_INSTALL_PREFIX=/home/bizare/Desktop/Robotics_System/install/youbot_description

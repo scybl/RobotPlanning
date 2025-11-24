@@ -20,8 +20,6 @@ class QuatToEulerService(Node):
         response.z, response.y, response.x = Float64(), Float64(), Float64()
 
         # ###################### STUDENT CODE START (QUATERNION TO EULER) ######################
-        # TASK:B
-        # TODO: Implement the conversion from quaternion to Z-Y-X Euler angles (in RADIANS).
         # Store the results in response.z.data, response.y.data, and response.x.data
         # Z-angle (yaw)
         q = np.array([q_w, q_x, q_y, q_z], dtype=float)
@@ -59,7 +57,6 @@ class QuatToRodriguesService(Node):
         response.x, response.y, response.z = Float64(), Float64(), Float64()
 
         # ###################### STUDENT CODE START (QUATERNION TO RODRIGUES) ##################
-        # TODO: Implement the conversion from quaternion to Rodrigues representation.
         q = np.array([q_w, q_x, q_y, q_z], dtype=float)
         n = np.linalg.norm(q)
         if n > 0.0:

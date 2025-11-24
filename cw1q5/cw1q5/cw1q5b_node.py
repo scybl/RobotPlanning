@@ -146,41 +146,30 @@ class ForwardKinematicsNode(Node):
         # ╔════════════════════════════════════════════════════════════════════════╗
         # ║                  PART 4: COMPLETE THE ROS 2 WRAPPER                    ║
         # ╚════════════════════════════════════════════════════════════════════════╝
-        
-        # 获取关节数量
         num_joints = len(youbot_dh_parameters['alpha'])
         
-        # 提取关节角度（转换为列表）
+        # to list
         joints_readings = list(joint_msg.position[0:num_joints])
         
-        # 逐个计算并广播每个关节的TF
         for i in range(num_joints):
-            # 计算从世界坐标系到当前关节的累积变换
             T_cumulative = forward_kinematics(
                 dh_dict=youbot_dh_parameters,
                 joints_readings=joints_readings,
-                up_to_joint=i+1  # 计算到第i+1个关节
+                up_to_joint=i+1  # i+1
             )
-            
-            # 创建TF消息
+
             transform = TransformStamped()
             
-            # 设置时间戳
             transform.header.stamp = self.get_clock().now().to_msg()
-            
-            # 设置父子坐标系
+
             transform.header.frame_id = 'base_link'
             transform.child_frame_id = 'link_'+ str(i+1)
             
-            # 填充平移信息（从变换矩阵的第4列提取）
             transform.transform.translation.x = float(T_cumulative[0, 3])
             transform.transform.translation.y = float(T_cumulative[1, 3])
             transform.transform.translation.z = float(T_cumulative[2, 3])
             
-            # 填充旋转信息（旋转矩阵转四元数）
             transform.transform.rotation = rotmat2q(T_cumulative[:3, :3])
-            
-            # 广播TF变换
             self.br.sendTransform(transform)
 
         # ╔════════════════════════════════════════════════════════════════════════╗
