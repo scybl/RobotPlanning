@@ -100,21 +100,21 @@ def forward_kinematics(dh_dict, joints_readings, up_to_joint=5):
     # ║                PART 3: COMPLETE THE FORWARD KINEMATICS                 ║
     # ╚════════════════════════════════════════════════════════════════════════╝
 
-    # 初始化为单位矩阵（从世界坐标系开始）
+    # init unit frame
     T = np.identity(4)
     
-    # 遍历所有关节，累积变换
+    # iterate through each joint
     for i in range(up_to_joint):
-        # 实际关节角度 = DH零位偏移 + 实际读数
+        # current angle  = DH zero offset + actual reading
         a = dh_dict['a'][i]
         alpha = dh_dict['alpha'][i]
         d = dh_dict['d'][i]
         theta = dh_dict['theta'][i] + joints_readings[i] 
         
-        # 第i个关节的变换矩阵
+        # transformation matrix for the i-th joint
         T_i = standard_dh(a=a, alpha=alpha, d=d, theta=theta)
         
-        # 累积乘法：
+        # cumulative multiplication:
         T = T.dot(T_i)
     # ╔════════════════════════════════════════════════════════════════════════╗
     # ╚════════════════════════════════════════════════════════════════════════╝
