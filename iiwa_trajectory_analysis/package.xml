@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>iiwa_trajectory_analysis</name>
+  <version>0.0.0</version>
+  <description>IIWA trajectory playback, simulation launch, and acceleration analysis tools.</description>
+
+  <maintainer email="kpach@todo.todo">kpach</maintainer>
+  <license>TODO</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>ament_index_python</depend>
+  <depend>controller_manager</depend>
+  <depend>iiwa_dynamics</depend>
+  <depend>gazebo_ros</depend>
+  <depend>iiwa_ros2_gazebo</depend>
+  <depend>python3-matplotlib</depend>
+  <depend>python3-numpy</depend>
+  <depend>rclpy</depend>
+  <depend>robot_state_publisher</depend>
+  <depend>rviz2</depend>
+  <depend>sensor_msgs</depend>
+  <depend>tf2_ros</depend>
+  <depend>trajectory_msgs</depend>
+  <depend>xacro</depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

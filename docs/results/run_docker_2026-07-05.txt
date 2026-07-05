@@ -1,0 +1,122 @@
+== Building Docker image: robotics-portfolio:foxy (linux/amd64) ==
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from ros2-foxy.Dockerfile
+#1 transferring dockerfile: 720B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/osrf/ros:foxy-desktop
+#2 DONE 0.6s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 155B 0.0s done
+#3 DONE 0.0s
+
+#4 [1/5] FROM docker.io/osrf/ros:foxy-desktop@sha256:bd98a36b501ead93655694cb39561f1af21ef73c67d2882765cc9e72826daeea
+#4 resolve docker.io/osrf/ros:foxy-desktop@sha256:bd98a36b501ead93655694cb39561f1af21ef73c67d2882765cc9e72826daeea done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 49.79kB 0.0s done
+#5 DONE 0.0s
+
+#6 [2/5] RUN apt-get update && apt-get install -y --no-install-recommends     python3-colcon-common-extensions     python3-matplotlib     python3-numpy     python3-pykdl     ros-foxy-gazebo-ros-pkgs     ros-foxy-gazebo-ros2-control     ros-foxy-joint-state-publisher-gui     ros-foxy-moveit     ros-foxy-robot-state-publisher     ros-foxy-ros2-control     ros-foxy-ros2-controllers     ros-foxy-rviz2     ros-foxy-xacro     && rm -rf /var/lib/apt/lists/*
+#6 CACHED
+
+#7 [3/5] WORKDIR /workspace/MPHY0054
+#7 CACHED
+
+#8 [4/5] COPY . .
+#8 DONE 0.2s
+
+#9 [5/5] RUN python3 demos/lightweight_demo.py
+#9 0.674 Quaternion demo
+#9 0.674   Euler ZYX [rad]      roll=+0.0000 pitch=+0.7854 yaw=+0.0000
+#9 0.674   Rodrigues vector     [+0.0000, +0.4142, +0.0000]
+#9 0.674 
+#9 0.674 YouBot kinematics demo
+#9 0.674   Joint sample [rad]   [+0.1500, -0.3500, +0.2500, -0.2000, +0.1000]
+#9 0.674   End-effector xyz [m] [-0.0378, +0.0330, +0.4490]
+#9 0.674   Jacobian shape/rank  (6, 5) / 5
+#9 0.674   Jacobian Frobenius   2.2760
+#9 0.674 
+#9 0.674 Checkpoint planning demo
+#9 0.674   Shortest order       [1, 2, 0, 3]
+#9 0.674   Ordered path length  0.7969 m
+#9 0.674   Recomputed length    0.7969 m
+#9 0.674   First interpolation  [+0.2260, -0.1380, +0.3340]
+#9 0.674 
+#9 0.674 IIWA dynamics demo
+#9 0.674   End-effector xyz [m] [-0.0077, -0.0036, +1.2896]
+#9 0.674   Inertia symmetry err 0.00e+00
+#9 0.674   Min inertia eig      0.0010
+#9 0.674   Gravity norm         3.0920
+#9 0.674   Passive qdd sample   [-1.468, +8.576, +4.326, +25.384, -3.753, +38.391, -2.396]
+#9 DONE 0.7s
+
+#10 exporting to image
+#10 exporting layers 0.1s done
+#10 writing image sha256:3825ee0e4c16304ba464fe1186cd28540728681b6a05c1f27fd4628f983ce96b done
+#10 naming to docker.io/library/robotics-portfolio:foxy done
+#10 DONE 0.1s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/jm14ssy6u8vkjd4koidgarb92
+
+== Building and validating the ROS workspace inside Docker ==
+Project root: /workspace/MPHY0054
+python3: Python 3.8.10
+numpy: 1.17.4
+
+Running ROS-free lightweight demo...
+lightweight demo: ok
+
+ros2: available
+colcon: available
+rclpy: available
+PyKDL: available
+xacro: available
+Building root workspace ...
+Starting >>> youbot_description
+Starting >>> iiwa_dynamics
+Starting >>> iiwa_ros2_gazebo
+Starting >>> youbot_motion_planning
+Starting >>> iiwa_ros2_moveit2
+Starting >>> quaternion_conversion
+Starting >>> quaternion_conversion_interfaces
+Starting >>> youbot_kinematics
+Finished <<< youbot_kinematics [2.56s]
+Finished <<< quaternion_conversion [2.66s]
+Finished <<< youbot_motion_planning [6.97s]
+Starting >>> youbot_trail_visualizer
+Finished <<< iiwa_ros2_moveit2 [7.05s]
+Finished <<< iiwa_dynamics [7.53s]
+Finished <<< iiwa_ros2_gazebo [7.62s]
+Starting >>> iiwa_trajectory_analysis
+Finished <<< youbot_description [9.19s]
+Starting >>> youbot_simulator
+Finished <<< youbot_trail_visualizer [6.95s]
+Finished <<< iiwa_trajectory_analysis [7.09s]
+Finished <<< youbot_simulator [6.67s]
+Starting >>> youbot_fk_broadcaster
+Finished <<< youbot_fk_broadcaster [1.54s]
+Finished <<< quaternion_conversion_interfaces [21.9s]
+
+Summary: 12 packages finished [22.2s]
+Build complete.
+[INFO] [launch]: All log files can be found below /root/.ros/log/2026-07-05-11-10-13-357859-e015ac973b50-1966
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [iiwa_dynamics_validator-1]: process started with pid [1968]
+[iiwa_dynamics_validator-1] [WARN] [1783249814.185303638] [rcl.logging_rosout]: Publisher already registered for provided node name. If this is due to multiple nodes with the same name then all logs for that logger name will go out over the existing publisher. As soon as any node with that name is destructed it will unregister the publisher, preventing any further logs for that name from being published on the rosout topic.
+[iiwa_dynamics_validator-1] Case 1:
+[iiwa_dynamics_validator-1]   fk_rms: 0.000000
+[iiwa_dynamics_validator-1]   jac_rms: 0.007012
+[iiwa_dynamics_validator-1]   B_rms: 0.040700
+[iiwa_dynamics_validator-1]   C_rms: 0.000054
+[iiwa_dynamics_validator-1]   G_rms: 0.000000
+[iiwa_dynamics_validator-1] Case 2:
+[iiwa_dynamics_validator-1]   fk_rms: 0.000000
+[iiwa_dynamics_validator-1]   jac_rms: 0.007141
+[iiwa_dynamics_validator-1]   B_rms: 0.032252
+[iiwa_dynamics_validator-1]   C_rms: 0.000086
+[iiwa_dynamics_validator-1]   G_rms: 0.000000
+[INFO] [iiwa_dynamics_validator-1]: process has finished cleanly [pid 1968]

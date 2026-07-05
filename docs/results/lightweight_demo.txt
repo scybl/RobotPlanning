@@ -1,0 +1,22 @@
+Quaternion demo
+  Euler ZYX [rad]      roll=+0.0000 pitch=+0.7854 yaw=+0.0000
+  Rodrigues vector     [+0.0000, +0.4142, +0.0000]
+
+YouBot kinematics demo
+  Joint sample [rad]   [+0.1500, -0.3500, +0.2500, -0.2000, +0.1000]
+  End-effector xyz [m] [-0.0378, +0.0330, +0.4490]
+  Jacobian shape/rank  (6, 5) / 5
+  Jacobian Frobenius   2.2760
+
+Checkpoint planning demo
+  Shortest order       [1, 2, 0, 3]
+  Ordered path length  0.7969 m
+  Recomputed length    0.7969 m
+  First interpolation  [+0.2260, -0.1380, +0.3340]
+
+IIWA dynamics demo
+  End-effector xyz [m] [-0.0077, -0.0036, +1.2896]
+  Inertia symmetry err 0.00e+00
+  Min inertia eig      0.0010
+  Gravity norm         3.0920
+  Passive qdd sample   [-1.468, +8.576, +4.326, +25.384, -3.753, +38.391, -2.396]

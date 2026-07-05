@@ -1,8 +1,0 @@
-srv/QuatToEuler.idl
-srv/QuatToEuler.srv
-srv/QuatToEuler_Request.msg
-srv/QuatToEuler_Response.msg
-srv/QuatToRodrigues.idl
-srv/QuatToRodrigues.srv
-srv/QuatToRodrigues_Request.msg
-srv/QuatToRodrigues_Response.msg

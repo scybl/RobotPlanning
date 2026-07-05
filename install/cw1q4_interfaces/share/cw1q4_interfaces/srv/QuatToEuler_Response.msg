@@ -1,5 +1,0 @@
-
-# Response: The resulting Z-Y-X Euler angles.
-std_msgs/Float64 z
-std_msgs/Float64 y
-std_msgs/Float64 x
