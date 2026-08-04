@@ -4,8 +4,8 @@
   <version>0.0.0</version>
   <description>IIWA14 dynamics model and KDL validation utilities for ROS 2 Foxy.</description>
 
-  <maintainer email="kpach@todo.todo">kpach</maintainer>
-  <license>TODO</license>
+  <maintainer email="maintainers@example.com">Robotics Portfolio Maintainers</maintainer>
+  <license>Apache-2.0</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
   <buildtool_depend>ament_cmake_python</buildtool_depend>

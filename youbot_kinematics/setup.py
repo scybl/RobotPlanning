@@ -18,7 +18,7 @@ setup(
     maintainer='tianchi',
     maintainer_email='mithrandir_chen@hotmail.com',
     description='YouBot forward kinematics and analytical Jacobian implementation.',
-    license='TODO',
+    license='Apache-2.0',
     entry_points={
     'console_scripts': [
         'youbot_kinematics_node = youbot_kinematics.youbot_kinematic_model:main',

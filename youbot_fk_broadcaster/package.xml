@@ -4,8 +4,8 @@
   <name>youbot_fk_broadcaster</name>
   <version>0.0.0</version>
   <description>YouBot forward-kinematics TF broadcaster for ROS 2.</description>
-  <maintainer email="kpach@todo.todo">kpach</maintainer>
-  <license>TODO</license>
+  <maintainer email="maintainers@example.com">Robotics Portfolio Maintainers</maintainer>
+  <license>Apache-2.0</license>
 
   <buildtool_depend>ament_python</buildtool_depend>
 

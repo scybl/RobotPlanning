@@ -15,10 +15,10 @@ setup(
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='kpach',
-    maintainer_email='kpach@todo.todo',
+    maintainer='Robotics Portfolio Maintainers',
+    maintainer_email='maintainers@example.com',
     description='YouBot forward-kinematics demo and TF broadcaster nodes.',
-    license='TODO: License declaration',
+    license='Apache-2.0',
     entry_points={
         'console_scripts': [
             'youbot_fk_tf_broadcaster = youbot_fk_broadcaster.fk_tf_broadcaster_node:main',

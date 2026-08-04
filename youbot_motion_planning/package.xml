@@ -4,8 +4,8 @@
   <version>0.0.0</version>
   <description>YouBot checkpoint ordering, interpolation, and IK trajectory planning.</description>
 
-  <maintainer email="keshav@todo.todo">keshav</maintainer>
-  <license>TODO</license>
+  <maintainer email="maintainers@example.com">Robotics Portfolio Maintainers</maintainer>
+  <license>Apache-2.0</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 

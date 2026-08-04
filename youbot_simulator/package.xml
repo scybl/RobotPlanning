@@ -4,7 +4,7 @@
   <name>youbot_simulator</name>
   <version>0.0.0</version>
   <description>The youbot_simulator package for ROS 2</description>
-  <maintainer email="george@todo.todo">george</maintainer>
+  <maintainer email="maintainers@example.com">Robotics Portfolio Maintainers</maintainer>
   <license>Apache-2.0</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>

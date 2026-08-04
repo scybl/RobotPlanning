@@ -4,7 +4,7 @@
   <version>0.0.0</version>
   <description>YouBot forward kinematics and analytical Jacobian implementation.</description>
   <maintainer email="mithrandir_chen@hotmail.com">tianchi</maintainer>
-  <license>TODO</license>
+  <license>Apache-2.0</license>
 
   <buildtool_depend>ament_python</buildtool_depend>
 

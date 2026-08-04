@@ -4,8 +4,8 @@
   <version>0.0.0</version>
   <description>Marker visualisation utilities for YouBot trajectory playback on ROS 2 Foxy.</description>
 
-  <maintainer email="kpach@todo.todo">kpach</maintainer>
-  <license>TODO</license>
+  <maintainer email="maintainers@example.com">Robotics Portfolio Maintainers</maintainer>
+  <license>Apache-2.0</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
