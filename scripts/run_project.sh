@@ -6,6 +6,7 @@ cd "$ROOT_DIR"
 
 DOCKER_IMAGE="${DOCKER_IMAGE:-robotics-portfolio:foxy}"
 DOCKER_PLATFORM="${DOCKER_PLATFORM:-linux/amd64}"
+PYTHON_BIN="${PYTHON_BIN:-python3}"
 MODE="${1:-quick}"
 
 usage() {
@@ -25,6 +26,7 @@ Modes:
 Environment overrides:
   DOCKER_IMAGE      Docker image tag, default: robotics-portfolio:foxy
   DOCKER_PLATFORM   Docker platform, default: linux/amd64
+  PYTHON_BIN         Python executable for quick local checks, default: python3
 EOF
 }
 
@@ -52,7 +54,7 @@ run_quick() {
 
   echo
   echo "== Lightweight numerical demo =="
-  python3 -B demos/lightweight_demo.py
+  "$PYTHON_BIN" -B demos/lightweight_demo.py
 }
 
 run_docker() {

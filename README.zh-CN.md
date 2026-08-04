@@ -47,6 +47,12 @@
 bash scripts/run_project.sh
 ```
 
+如果已经有共享 conda 环境，可以直接复用无 ROS 快速演示：
+
+```bash
+conda run -n codex_python bash scripts/run_project.sh quick
+```
+
 如果本机没有 ROS 2，推荐使用 Docker 完整验证 ROS 环境：
 
 ```bash

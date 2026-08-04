@@ -81,6 +81,12 @@ Use this when you want to verify the project on a normal Python environment:
 bash scripts/run_project.sh quick
 ```
 
+To reuse a shared conda environment for the Python-only checks:
+
+```bash
+conda run -n codex_python bash scripts/run_project.sh quick
+```
+
 Expected output includes quaternion conversion, YouBot FK/Jacobian values, checkpoint ordering, and IIWA dynamics diagnostics. A captured run is stored in `docs/results/lightweight_demo.txt`.
 
 You can also run the lightweight environment check:

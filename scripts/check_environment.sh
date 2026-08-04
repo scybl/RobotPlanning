@@ -5,21 +5,22 @@ ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT_DIR"
 
 echo "Project root: $ROOT_DIR"
+PYTHON_BIN="${PYTHON_BIN:-python3}"
 
-if ! command -v python3 >/dev/null 2>&1; then
-  echo "python3: missing"
+if ! command -v "$PYTHON_BIN" >/dev/null 2>&1; then
+  echo "$PYTHON_BIN: missing"
   exit 1
 fi
 
-echo "python3: $(python3 --version)"
-python3 - <<'PY'
+echo "$PYTHON_BIN: $("$PYTHON_BIN" --version)"
+"$PYTHON_BIN" - <<'PY'
 import numpy
 print(f"numpy: {numpy.__version__}")
 PY
 
 echo
 echo "Running ROS-free lightweight demo..."
-python3 -B demos/lightweight_demo.py >/dev/null
+"$PYTHON_BIN" -B demos/lightweight_demo.py >/dev/null
 echo "lightweight demo: ok"
 
 echo
@@ -35,7 +36,7 @@ else
   echo "colcon: not found (needed for ROS workspace builds)"
 fi
 
-python3 - <<'PY'
+"$PYTHON_BIN" - <<'PY'
 optional = ["rclpy", "PyKDL", "xacro"]
 for name in optional:
     try:
