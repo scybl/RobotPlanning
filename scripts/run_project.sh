@@ -6,7 +6,11 @@ cd "$ROOT_DIR"
 
 DOCKER_IMAGE="${DOCKER_IMAGE:-robotics-portfolio:foxy}"
 DOCKER_PLATFORM="${DOCKER_PLATFORM:-linux/amd64}"
-PYTHON_BIN="${PYTHON_BIN:-python3}"
+DEFAULT_PYTHON_BIN="python3"
+if [[ -n "${CONDA_PREFIX:-}" && -x "${CONDA_PREFIX}/bin/python" ]]; then
+  DEFAULT_PYTHON_BIN="${CONDA_PREFIX}/bin/python"
+fi
+PYTHON_BIN="${PYTHON_BIN:-$DEFAULT_PYTHON_BIN}"
 MODE="${1:-quick}"
 
 usage() {

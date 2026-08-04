@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     ros-foxy-xacro \
     && rm -rf /var/lib/apt/lists/*
 
-WORKDIR /workspace/MPHY0054
+WORKDIR /workspace/RobotPlanning
 COPY . .
 
 RUN python3 demos/lightweight_demo.py

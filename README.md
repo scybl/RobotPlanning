@@ -1,8 +1,8 @@
-# Robotics Kinematics, Dynamics, and Motion Planning Suite
+# RobotPlanning
 
 [中文说明](README.zh-CN.md)
 
-This repository packages a robotics kinematics, planning, and dynamics stack into one root-level ROS 2 workspace. The code demonstrates rigid-body rotation conversion, mobile-manipulator kinematics, Jacobian computation, checkpoint path planning, inverse kinematics, and IIWA dynamics validation.
+RobotPlanning packages a robotics kinematics, planning, and dynamics stack into one root-level ROS 2 workspace. The code demonstrates rigid-body rotation conversion, mobile-manipulator kinematics, Jacobian computation, checkpoint path planning, inverse kinematics, and IIWA dynamics validation.
 
 The project is organised as one workspace with related package groups:
 
@@ -11,6 +11,16 @@ The project is organised as one workspace with related package groups:
 | YouBot kinematics and ROS services | `quaternion_conversion`, `quaternion_conversion_interfaces`, `youbot_fk_broadcaster`, `youbot_kinematics` | Quaternion services, DH forward kinematics, YouBot frame broadcasting, Jacobian checks |
 | Planning and dynamics | `youbot_motion_planning`, `iiwa_dynamics`, `iiwa_trajectory_analysis` | YouBot checkpoint ordering, SE(3) interpolation, position-only IK, IIWA dynamics and acceleration analysis |
 | Shared robot assets | `robot_description`, `youbot_simulator`, `youbot_trail_visualizer`, `iiwa_ros2_gazebo`, `iiwa_ros2_moveit2` | URDF/Xacro models, RViz configs, Gazebo launch files, and MoveIt 2 configuration |
+
+## Quick Start Index
+
+| Need | Start here |
+| --- | --- |
+| Fast Python-only demo | `bash scripts/run_project.sh quick` |
+| Shared conda run | `conda run -n codex_python bash scripts/run_project.sh quick` |
+| Full Docker validation | `bash scripts/run_project.sh docker` |
+| Local ROS build | `bash scripts/run_project.sh ros-build` |
+| Environment check | `bash scripts/check_environment.sh` |
 
 ## Highlights
 

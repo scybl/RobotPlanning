@@ -1,8 +1,18 @@
-# 机器人运动学、动力学与运动规划项目
+# RobotPlanning
 
 [English README](README.md)
 
-这个仓库把多个机器人算法模块整理成一个根目录级 ROS 2 工作空间。项目覆盖四元数转换、YouBot 机械臂运动学、雅可比矩阵、检查点路径规划、逆运动学轨迹生成，以及 KUKA IIWA14 动力学建模与验证。
+RobotPlanning 把多个机器人算法模块整理成一个根目录级 ROS 2 工作空间。项目覆盖四元数转换、YouBot 机械臂运动学、雅可比矩阵、检查点路径规划、逆运动学轨迹生成，以及 KUKA IIWA14 动力学建模与验证。
+
+## 快速上手索引
+
+| 目标 | 入口 |
+| --- | --- |
+| 快速无 ROS 演示 | `bash scripts/run_project.sh quick` |
+| 复用共享 conda 环境 | `conda run -n codex_python bash scripts/run_project.sh quick` |
+| Docker 完整验证 | `bash scripts/run_project.sh docker` |
+| 本地 ROS 构建 | `bash scripts/run_project.sh ros-build` |
+| 环境检查 | `bash scripts/check_environment.sh` |
 
 ## 项目内容
 
