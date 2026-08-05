@@ -4,6 +4,20 @@
 
 RobotPlanning 把多个机器人算法模块整理成一个根目录级 ROS 2 工作空间。项目覆盖四元数转换、YouBot 机械臂运动学、雅可比矩阵、检查点路径规划、逆运动学轨迹生成，以及 KUKA IIWA14 动力学建模与验证。
 
+![RobotPlanning 演示预览](docs/images/robot-planning-preview.svg)
+
+## 简历亮点
+
+- 覆盖机器人运动学、雅可比矩阵、检查点路径规划、逆运动学和 IIWA14 动力学验证。
+- 将 ROS 2 工作空间与无 ROS NumPy 快速演示分层，既能展示完整机器人栈，也能在普通机器上快速验证。
+- 提供 Docker/本地 ROS/轻量 demo 三种运行路径，适合 Robotics、Motion Planning 和工程复现能力展示。
+
+## 复现边界
+
+- `bash scripts/run_project.sh quick` 只依赖 Python + NumPy，可在非 ROS 环境快速运行。
+- RViz、Gazebo、MoveIt 2 演示需要 Ubuntu 20.04 + ROS 2 Foxy 或 Docker 环境。
+- CI 使用无 ROS 快速演示和脚本语法检查，避免图形仿真依赖导致不稳定。
+
 ## 快速上手索引
 
 | 目标 | 入口 |

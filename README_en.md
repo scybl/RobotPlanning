@@ -4,6 +4,20 @@
 
 RobotPlanning packages a robotics kinematics, planning, and dynamics stack into one root-level ROS 2 workspace. The code demonstrates rigid-body rotation conversion, mobile-manipulator kinematics, Jacobian computation, checkpoint path planning, inverse kinematics, and IIWA dynamics validation.
 
+![RobotPlanning preview](docs/images/robot-planning-preview.svg)
+
+## Resume Highlights
+
+- Covers robotics kinematics, Jacobian analysis, checkpoint path planning, inverse kinematics, and IIWA14 dynamics validation.
+- Separates the full ROS 2 workspace from a ROS-free NumPy quick demo, making the project inspectable on ordinary machines.
+- Provides Docker, local ROS, and lightweight demo paths for robotics, motion-planning, and reproducibility-focused roles.
+
+## Reproducibility Boundaries
+
+- `bash scripts/run_project.sh quick` needs only Python and NumPy.
+- RViz, Gazebo, and MoveIt 2 demos require Ubuntu 20.04 + ROS 2 Foxy or the Docker path.
+- CI should use the ROS-free demo and shell syntax checks to avoid graphical simulation instability.
+
 The project is organised as one workspace with related package groups:
 
 | Package group | Packages | Focus |
