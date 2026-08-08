@@ -6,6 +6,15 @@ RobotPlanning packages a robotics kinematics, planning, and dynamics stack into 
 
 ![RobotPlanning preview](docs/images/robot-planning-preview.svg)
 
+## Result Showcase
+
+| Showcase item | Current result | Notes |
+| --- | ---: | --- |
+| YouBot Jacobian | shape/rank = `(6, 5) / 5` | Reproducible through the ROS-free quick demo |
+| Checkpoint path | 0.7969 m | Planned order `[1, 2, 0, 3]` |
+| IIWA inertia symmetry error | 0.00e+00 | Basic dynamics-matrix validation |
+| Runtime paths | quick / Docker / ROS build | Covers lightweight verification and the full robotics stack |
+
 ## Resume Highlights
 
 - Covers robotics kinematics, Jacobian analysis, checkpoint path planning, inverse kinematics, and IIWA14 dynamics validation.
