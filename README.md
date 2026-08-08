@@ -6,7 +6,7 @@ RobotPlanning 把多个机器人算法模块整理成一个根目录级 ROS 2 �
 
 ![RobotPlanning 演示预览](docs/images/robot-planning-preview.svg)
 
-## 成果速览
+## 结果展示
 
 | 展示项 | 当前结果 | 说明 |
 | --- | ---: | --- |
@@ -15,7 +15,7 @@ RobotPlanning 把多个机器人算法模块整理成一个根目录级 ROS 2 �
 | IIWA inertia symmetry error | 0.00e+00 | 动力学矩阵基础校验 |
 | 运行路径 | quick / Docker / ROS build | 同时支持轻量验证和完整机器人栈 |
 
-## 简历亮点
+## 核心功能
 
 - 覆盖机器人运动学、雅可比矩阵、检查点路径规划、逆运动学和 IIWA14 动力学验证。
 - 将 ROS 2 工作空间与无 ROS NumPy 快速演示分层，既能展示完整机器人栈，也能在普通机器上快速验证。

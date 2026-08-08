@@ -6,7 +6,7 @@ RobotPlanning packages a robotics kinematics, planning, and dynamics stack into 
 
 ![RobotPlanning preview](docs/images/robot-planning-preview.svg)
 
-## Result Showcase
+## Results
 
 | Showcase item | Current result | Notes |
 | --- | ---: | --- |
@@ -15,7 +15,7 @@ RobotPlanning packages a robotics kinematics, planning, and dynamics stack into 
 | IIWA inertia symmetry error | 0.00e+00 | Basic dynamics-matrix validation |
 | Runtime paths | quick / Docker / ROS build | Covers lightweight verification and the full robotics stack |
 
-## Resume Highlights
+## Core Features
 
 - Covers robotics kinematics, Jacobian analysis, checkpoint path planning, inverse kinematics, and IIWA14 dynamics validation.
 - Separates the full ROS 2 workspace from a ROS-free NumPy quick demo, making the project inspectable on ordinary machines.
