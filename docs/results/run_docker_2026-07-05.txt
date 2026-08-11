@@ -23,7 +23,7 @@
 #6 [2/5] RUN apt-get update && apt-get install -y --no-install-recommends     python3-colcon-common-extensions     python3-matplotlib     python3-numpy     python3-pykdl     ros-foxy-gazebo-ros-pkgs     ros-foxy-gazebo-ros2-control     ros-foxy-joint-state-publisher-gui     ros-foxy-moveit     ros-foxy-robot-state-publisher     ros-foxy-ros2-control     ros-foxy-ros2-controllers     ros-foxy-rviz2     ros-foxy-xacro     && rm -rf /var/lib/apt/lists/*
 #6 CACHED
 
-#7 [3/5] WORKDIR /workspace/MPHY0054
+#7 [3/5] WORKDIR /workspace/RobotPlanning
 #7 CACHED
 
 #8 [4/5] COPY . .
@@ -63,7 +63,7 @@
 View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/jm14ssy6u8vkjd4koidgarb92
 
 == Building and validating the ROS workspace inside Docker ==
-Project root: /workspace/MPHY0054
+Project root: /workspace/RobotPlanning
 python3: Python 3.8.10
 numpy: 1.17.4
 

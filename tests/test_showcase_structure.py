@@ -23,9 +23,22 @@ def test_readme_has_showcase_sections_and_english_companion():
 
 
 def test_showcase_preview_asset_exists_and_is_valid_svg():
-    image = ROOT / "docs" / "images" / "robot-planning-preview.svg"
-    assert image.is_file()
-    ET.parse(image)
+    images = [
+        ROOT / "docs" / "images" / "robot-planning-preview.svg",
+        ROOT / "docs" / "images" / "planning-quick-run.svg",
+        ROOT / "docs" / "images" / "planning-stack-run.svg",
+    ]
+    for image in images:
+        assert image.is_file()
+        ET.parse(image)
+
+
+def test_current_runtime_summary_exists():
+    summary = ROOT / "docs" / "results" / "run_validation_summary_2026-08-09.md"
+    text = summary.read_text(encoding="utf-8")
+    assert "bash scripts/run_project.sh quick" in text
+    assert "Jacobian shape/rank" in text
+    assert "Ordered path length" in text
 
 
 def test_shell_entrypoints_are_syntax_valid():

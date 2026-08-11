@@ -1,7 +1,7 @@
 == Environment check ==
 Project root: RobotPlanning
-python3: Python 3.11.8
-numpy: 1.26.4
+python: Python 3.12.11
+numpy: 2.5.1
 
 Running ROS-free lightweight demo...
 lightweight demo: ok

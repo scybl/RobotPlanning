@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" role="img" aria-labelledby="title desc">
+  <title id="title">RobotPlanning quick run output</title>
+  <desc id="desc">A visual summary of the ROS-free numerical demo results.</desc>
+  <defs>
+    <filter id="shadow" x="-12%" y="-20%" width="124%" height="150%">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#0f172a" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="560" fill="#eef7f4"/>
+  <rect x="56" y="50" width="1088" height="460" rx="18" fill="#ffffff" filter="url(#shadow)"/>
+  <text x="90" y="106" fill="#0f172a" font-family="Arial, sans-serif" font-size="34" font-weight="700">ROS-free Quick Run</text>
+  <text x="90" y="138" fill="#475569" font-family="Arial, sans-serif" font-size="16">Deterministic checks for quaternion conversion, YouBot kinematics, checkpoint planning, and IIWA dynamics.</text>
+
+  <g font-family="Arial, sans-serif">
+    <rect x="90" y="190" width="240" height="120" rx="14" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+    <text x="118" y="228" fill="#1e3a8a" font-size="16" font-weight="700">Quaternion</text>
+    <text x="118" y="265" fill="#0f172a" font-size="29" font-weight="700">pitch +0.7854</text>
+    <text x="118" y="294" fill="#475569" font-size="14">Rodrigues [+0.0000, +0.4142, +0.0000]</text>
+
+    <rect x="360" y="190" width="240" height="120" rx="14" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+    <text x="388" y="228" fill="#166534" font-size="16" font-weight="700">YouBot</text>
+    <text x="388" y="265" fill="#0f172a" font-size="29" font-weight="700">(6, 5) / 5</text>
+    <text x="388" y="294" fill="#475569" font-size="14">Jacobian shape and rank</text>
+
+    <rect x="630" y="190" width="240" height="120" rx="14" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+    <text x="658" y="228" fill="#92400e" font-size="16" font-weight="700">Checkpoint Path</text>
+    <text x="658" y="265" fill="#0f172a" font-size="31" font-weight="700">0.7969 m</text>
+    <text x="658" y="294" fill="#475569" font-size="14">order [1, 2, 0, 3]</text>
+
+    <rect x="900" y="190" width="210" height="120" rx="14" fill="#fce7f3" stroke="#db2777" stroke-width="2"/>
+    <text x="928" y="228" fill="#9d174d" font-size="16" font-weight="700">IIWA Dynamics</text>
+    <text x="928" y="265" fill="#0f172a" font-size="30" font-weight="700">0.00e+00</text>
+    <text x="928" y="294" fill="#475569" font-size="14">inertia symmetry error</text>
+  </g>
+
+  <g transform="translate(92 360)">
+    <rect width="1018" height="92" rx="14" fill="#0b1220"/>
+    <text x="28" y="38" fill="#93c5fd" font-family="Menlo, Consolas, monospace" font-size="15">bash scripts/run_project.sh quick</text>
+    <text x="28" y="68" fill="#cbd5e1" font-family="Menlo, Consolas, monospace" font-size="15">EE xyz [-0.0378, +0.0330, +0.4490] | gravity norm 3.0920 | passive qdd [-1.468, +8.576, ...]</text>
+  </g>
+</svg>
